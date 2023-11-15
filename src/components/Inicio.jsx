@@ -10,7 +10,7 @@ const Inicio = () => {
   return (
     <React.Fragment>
         <section>
-            <div className='layout'>
+            <div className='layoutInicio'>
                 <div className='content1 centered'>
                     <Content1/>
                 </div>

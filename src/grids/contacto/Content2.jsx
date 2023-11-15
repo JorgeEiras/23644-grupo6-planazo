@@ -2,7 +2,7 @@ import React from 'react'
 
 const Content2 = () => {
   return (
-    <ar>Buscador en Inicio</ar>
+    <ar>Buscador en Contacto</ar>
   )
 }
 
