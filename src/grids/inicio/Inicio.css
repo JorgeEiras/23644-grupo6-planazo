@@ -10,19 +10,19 @@
                          'content4';
   }
   
-  .content1{
+  .iContent1{
     grid-area: content1;
     background-color: aquamarine;
   }
-  .content2{
+  .iContent2{
     grid-area: content2;
     background-color: greenyellow;
   }
-  .content3{
+  .iContent3{
     grid-area: content3;
     background-color: green;
   }
-  .content4{
+  .iContent4{
     grid-area: content4;
     background-color: blue;
   }

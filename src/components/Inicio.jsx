@@ -1,8 +1,8 @@
 import React from 'react'
-import Content1 from '../grids/inicio/Content1'
-import Content2 from '../grids/inicio/Content2'
-import Content3 from '../grids/inicio/Content3'
-import Content4 from '../grids/inicio/Content4'
+import Content1 from '../grids/inicio/Icontent1'
+import Content2 from '../grids/inicio/Icontent2'
+import Content3 from '../grids/inicio/Icontent3'
+import Content4 from '../grids/inicio/Icontent4'
 import '../grids/inicio/Inicio.css'
 
 
@@ -11,16 +11,16 @@ const Inicio = () => {
     <React.Fragment>
         <section>
             <div className='layoutInicio'>
-                <div className='content1 centered'>
+                <div className='iContent1 centered'>
                     <Content1/>
                 </div>
-                <div className='content2 centered'>
+                <div className='iContent2 centered'>
                     <Content2/>
                 </div>
-                <div className='content3 centered'>
+                <div className='iContent3 centered'>
                     <Content3/>
                 </div>
-                <div className='content4 centered text-white'>
+                <div className='iContent4 centered text-white'>
                     <Content4/>
                 </div>
             </div>
