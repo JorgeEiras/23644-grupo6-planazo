@@ -1,10 +1,9 @@
 import './App.css';
+import Inicio from './components/Inicio';
 
 function App() {
   return (
-    <h1>
-      Hello World!
-    </h1>
+    <Inicio />
   );
 }
 
