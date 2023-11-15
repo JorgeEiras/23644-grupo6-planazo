@@ -3,11 +3,10 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 2fr 2fr 5fr 1fr;
+    grid-template-rows: 1fr 5fr 1fr;
     grid-template-areas: 'content1'
                          'content2'
-                         'content3'
-                         'content4';
+                         'content3';
   }
   
   .content1{
@@ -20,10 +19,6 @@
   }
   .content3{
     grid-area: content3;
-    background-color: green;
-  }
-  .content4{
-    grid-area: content4;
     background-color: blue;
   }
  

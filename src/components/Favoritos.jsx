@@ -1,14 +1,15 @@
 import React from 'react'
-import Content1 from '../grids/contacto/Content1'
-import Content2 from '../grids/contacto/Content2'
-import Content3 from '../grids/contacto/Content3'
-import '../grids/contacto/Contacto.css'
+import Content1 from '../grids/favoritos/Content1'
+import Content2 from '../grids/favoritos/Content2'
+import Content3 from '../grids/favoritos/Content3'
+import '../grids/favoritos/Favoritos.css'
 
-const Contacto = () => {
+
+const Favoritos = () => {
   return (
     <React.Fragment>
         <section>
-            <div className='layoutContact'>
+            <div className='layoutFavoritos'>
                 <div className='content1 centered'>
                     <Content1/>
                 </div>
@@ -24,4 +25,4 @@ const Contacto = () => {
   )
 }
 
-export default Contacto
+export default Favoritos

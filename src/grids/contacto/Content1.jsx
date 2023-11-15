@@ -2,7 +2,7 @@ import React from 'react'
 
 const Content1 = () => {
   return (
-    <nav>Navbar en Contacto</nav>
+    <nav>Navbar</nav>
   )
 }
 
