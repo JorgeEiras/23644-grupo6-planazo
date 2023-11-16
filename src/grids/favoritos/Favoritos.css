@@ -17,6 +17,7 @@
     grid-area: content2;
     background-color: greenyellow;
   }
+  /* Estilos del footer */
   .content3{
     grid-area: content3;
 

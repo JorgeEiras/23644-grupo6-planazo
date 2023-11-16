@@ -17,7 +17,24 @@
     grid-area: content2;
     background-color: greenyellow;
   }
+  /* Estilos del footer */
   .lContent3{
     grid-area: content3;
-    background-color: blue;
+    background-color: #F18018;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
   }
+  .lContent3 a{
+    text-decoration: none;
+    color:white;
+  }
+  .lContent3 img{
+    display: block;
+    margin:auto;
+  }
+  @media only screen and (max-width: 768px) {
+    .lContent3 a{
+      font-size: 0.6rem;
+    }
+  }
+  
