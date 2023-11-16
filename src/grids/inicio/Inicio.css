@@ -23,8 +23,20 @@
     background-color: green;
   }
   .iContent4{
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+
+
     grid-area: content4;
-    background-color: blue;
+    background-color: #F18018;
+  }
+  .iContent4 a{
+    text-decoration: none;
+    color:white;
+  }
+  .iContent4 img{
+    display: block;
+    margin:auto;
   }
   
   
@@ -41,3 +53,10 @@
                            'content4 content4 content4 content4 content4';
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    .iContent4 a{
+      font-size: 0.6rem;
+    }
+  }
+  
