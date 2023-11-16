@@ -12,8 +12,30 @@
   
   .iContent1{
     grid-area: content1;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
   }
+  .navbar{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+  }
+  #navLink{
+    color: inherit;
+  }
+  #navButton{
+    border-radius: 25px;
+    border: #55AECA;
+    background-color: #55AECA;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    transition: .4s;
+  }
+  #navButton:hover{
+    transform: scale(1.02);
+  }
+
   .iContent2{
     grid-area: content2;
     background-color: greenyellow;
