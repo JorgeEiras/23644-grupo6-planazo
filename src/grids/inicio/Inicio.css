@@ -15,12 +15,8 @@
     /* background-color: aquamarine; */
   }
   .navbar{
-    width:100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-  }
+    width: 100%;
+  }  
   #navLink{
     color: inherit;
   }
@@ -47,6 +43,7 @@
   .iContent4{
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
+
 
     grid-area: content4;
     background-color: #F18018;
