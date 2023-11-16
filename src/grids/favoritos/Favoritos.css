@@ -17,7 +17,28 @@
     grid-area: content2;
     background-color: greenyellow;
   }
+  /* Estilos del footer */
   .content3{
     grid-area: content3;
-    background-color: blue;
+
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background-color: #F18018;
   }
+
+  .content3 a{
+    text-decoration: none;
+    color:white;
+  }
+  .content3 img{
+    display: block;
+    margin:auto;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .content3 a{
+      font-size: 0.6rem;
+    }
+  }
+  
+  
