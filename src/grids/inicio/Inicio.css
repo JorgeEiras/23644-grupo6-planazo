@@ -10,6 +10,7 @@
                          'content4';
   }
   
+  /* NAVBAR */
   .iContent1{
     grid-area: content1;
     /* background-color: aquamarine; */
@@ -32,10 +33,38 @@
     transform: scale(1.02);
   }
 
+  /* BUSCADOR */
   .iContent2{
     grid-area: content2;
-    background-color: greenyellow;
+    padding-top: 4.5rem;
+    padding-bottom: 3rem;
+    /* background-color: greenyellow; */
   }
+  .buscador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .buscador h2{
+    margin-bottom: .8rem;
+  }
+  #buscadorInput{
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+  #buscadorBtn{
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: #55AECA;
+    background-color: #55AECA;
+    transition: .4s;
+  }
+  #buscadorBtn:hover {
+    transform: scale(1.02);
+  } 
+ 
+
+
   .iContent3{
     grid-area: content3;
     background-color: green;
@@ -66,8 +95,8 @@
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: 1fr 2fr 5fr 1fr;
       grid-template-areas: 'content1 content1 content1 content1 content1'
-                           'content3 content3 content3 content2 content2'
-                           'content3 content3 content3 content2 content2'
+                           'content2 content2 content2 content2 content2'
+                           'content3 content3 content3 content3 content3'
                            'content4 content4 content4 content4 content4';
     }
   }
