@@ -1,6 +1,7 @@
 import './App.css';
 import Contacto from './components/Contacto';
 import Favoritos from './components/Favoritos';
+import Footer from './components/Footer';
 import Inicio from './components/Inicio';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
@@ -21,6 +22,7 @@ function App() {
         <Route path="/registro" element={<Registro/>}></Route>
       </Routes>
     </div>
+    <Footer />
     </>
   );
 }
