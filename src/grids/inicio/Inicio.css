@@ -3,8 +3,8 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 1fr 2fr 5fr 1fr;
-    grid-template-areas: 'content1'
+    grid-template-rows: 2fr 5fr 1fr;
+    grid-template-areas: 
                          'content2'
                          'content3'
                          'content4';
@@ -67,8 +67,8 @@
       height: 100vh;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 1fr 2fr 5fr 1fr;
-      grid-template-areas: 'content1 content1 content1 content1 content1'
+      grid-template-rows: 2fr 5fr 1fr;
+      grid-template-areas: 
                            'content3 content3 content3 content2 content2'
                            'content3 content3 content3 content2 content2'
                            'content4 content4 content4 content4 content4';
