@@ -3,16 +3,13 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 1fr 5fr 1fr;
-    grid-template-areas: 'content1'
+    grid-template-rows: 5fr 1fr;
+    grid-template-areas: 
                          'content2'
                          'content3';
   }
   
-  .lContent1{
-    grid-area: content1;
-    background-color: rgb(255, 127, 193);
-  }
+  
   .lContent2{
     grid-area: content2;
     background-color: greenyellow;
