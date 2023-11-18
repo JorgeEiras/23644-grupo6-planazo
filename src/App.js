@@ -5,32 +5,22 @@ import Inicio from './components/Inicio';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Registro from './components/Registro';
-//import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
-  let component
-  switch(window.location.pathname){
-    case '/':
-      component = <Inicio />
-      break
-    case '/contacto':
-      component = <Contacto />
-      break
-    case '/favoritos':
-      component = <Favoritos />
-      break
-    case '/login':
-      component = <Login />
-      break
-    case '/registro':
-      component = <Registro />
-      break
-
-  }
+  
   return (
     <>
     <Navbar />
-    {component}
+    <div>
+      <Routes>
+        <Route path="/" element={<Inicio/>}></Route>
+        <Route path="/contacto" element={<Contacto/>}></Route>
+        <Route path="/favoritos" element={<Favoritos/>}></Route>
+        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/registro" element={<Registro/>}></Route>
+      </Routes>
+    </div>
     </>
   );
 }
