@@ -1,5 +1,5 @@
 import React from 'react'
-import Content1 from '../grids/contacto/Content1'
+
 import Content2 from '../grids/contacto/Content2'
 import Content3 from '../grids/contacto/Content3'
 import '../grids/contacto/Contacto.css'
@@ -9,9 +9,7 @@ const Contacto = () => {
     <React.Fragment>
         <section>
             <div className='layoutContact'>
-                <div className='content1 centered'>
-                    <Content1/>
-                </div>
+                
                 <div className='content2 centered'>
                     <Content2/>
                 </div>
