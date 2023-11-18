@@ -1,15 +1,18 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const Content1 = () => {
+
+
+import React from 'react'
+
+export default function Navbar() {
   return (
-    <div className='navbar'>
+    <nav className='navbar'>
       <Link to="/"><img src="./imagenes/logo-misviajes.png" alt="Mis planes" /></Link>
       
       <ul class="nav nav-underline">
         <li class="nav-item">
-          <Link to="/favorito" className="nav-link" id="navLink">Favoritos</Link>
+          <Link to="/favoritos" className="nav-link" id="navLink">Favoritos</Link>
         </li>
         <li class="nav-item">
           <Link to="/contacto" className="nav-link" id="navLink">Contacto</Link>
@@ -19,8 +22,6 @@ const Content1 = () => {
         </li>
       </ul>
 
-    </div>   
+    </nav>
   )
 }
-
-export default Content1
