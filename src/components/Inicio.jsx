@@ -7,6 +7,7 @@ import '../grids/inicio/Inicio.css'
 
 
 const Inicio = () => {
+
   return (
     <React.Fragment>
         <section>
