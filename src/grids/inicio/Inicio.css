@@ -10,13 +10,14 @@
                          'content4';
   }
   
-  /* NAVBAR */
+/* NAVBAR */
   .iContent1{
     grid-area: content1;
     /* background-color: aquamarine; */
   }
   .navbar{
     width: 100%;
+    padding: 1rem;
   }  
   #navLink{
     color: inherit;
@@ -32,8 +33,9 @@
   #navButton:hover{
     transform: scale(1.02);
   }
+/* Termina css de NAVBAR */
 
-  /* BUSCADOR */
+/* BUSCADOR */
   .iContent2{
     grid-area: content2;
     padding-top: 4.5rem;
@@ -62,6 +64,7 @@
   #buscadorBtn:hover {
     transform: scale(1.02);
   } 
+/* Termina css del BUSCADOR */
  
 
 
