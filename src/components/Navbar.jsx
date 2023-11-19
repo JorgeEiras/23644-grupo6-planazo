@@ -1,8 +1,7 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
+import React from 'react'
 
-
-const Content1 = () => {
+export default function Navbar() {
   return (
     <div className='navbar navbar-expand-lg'>
       <div className="container-fluid">
@@ -29,8 +28,5 @@ const Content1 = () => {
         </div>        
       </div>
     </div>
-      
   )
 }
-
-export default Content1

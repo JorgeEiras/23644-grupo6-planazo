@@ -1,5 +1,5 @@
 import React from 'react'
-import Content1 from '../grids/inicio/Icontent1'
+//import Content1 from '../grids/inicio/Icontent1'
 import Content2 from '../grids/inicio/Icontent2'
 import Content3 from '../grids/inicio/Icontent3'
 import Content4 from '../grids/inicio/Icontent4'
@@ -11,9 +11,6 @@ const Inicio = () => {
     <React.Fragment>
         <section>
             <div className='layoutInicio'>
-                <div className='iContent1 centered'>
-                    <Content1/>
-                </div>
                 <div className='iContent2 centered'>
                     <Content2/>
                 </div>

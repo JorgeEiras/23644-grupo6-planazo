@@ -1,31 +1,29 @@
 import './App.css';
 import Contacto from './components/Contacto';
 import Favoritos from './components/Favoritos';
+import Footer from './components/Footer';
 import Inicio from './components/Inicio';
 import Login from './components/Login';
+import Navbar from './components/Navbar';
 import Registro from './components/Registro';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
+  
   return (
-    
-    <BrowserRouter>
-      <nav className='menu'>
-        <Link to="/">Home</Link>
-        <Link to="/contacto">Contacto</Link>
-        <Link to="/favorito">Favorito</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/registro">Registro</Link>
-      </nav>
+    <>
+    <Navbar />
+    <div>
       <Routes>
-        <Route path="/" element={<Inicio />}/>
-        <Route path="/contacto" element={<Contacto />}/>
-        <Route path="/favorito" element={<Favoritos />}/>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/registro" element={<Registro />}/>
+        <Route path="/" element={<Inicio/>}></Route>
+        <Route path="/contacto" element={<Contacto/>}></Route>
+        <Route path="/favoritos" element={<Favoritos/>}></Route>
+        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/registro" element={<Registro/>}></Route>
       </Routes>
-    </BrowserRouter>
+    </div>
+    <Footer />
+    </>
   );
 }
 
