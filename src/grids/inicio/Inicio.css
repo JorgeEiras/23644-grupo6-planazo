@@ -71,22 +71,30 @@
     grid-area: content3;
     background-color: green;
   }
+
+
+
+/* FOOTER */
   .iContent4{
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-
-
     grid-area: content4;
     background-color: #F18018;
+    color: white;
+    padding: 1.5rem 1rem 2rem 1rem;
   }
   .iContent4 a{
     text-decoration: none;
-    color:white;
+    color: inherit;
+  }
+  .iContent4 a:hover{
+    font-weight: bold;
   }
   .iContent4 img{
     display: block;
     margin:auto;
   }
+/* Termina css del FOOTER */
   
   
   @media only screen and (min-width: 768px){
