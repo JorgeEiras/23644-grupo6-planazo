@@ -11,10 +11,34 @@
   
   .content2{
     grid-area: content2;
-    background-color: greenyellow;
+    display: block;
   }
+
   
- 
-  
-  
+  .contacto{
+    text-align: left;
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+ form{
+  background-color: #D9D9D9;
+  padding:5px;
+  border-radius: 5px;
+  width:65%;
+  margin:auto;
+  margin-bottom: 20px;
+}
+
+.BtnEnviar{
+  border-radius: 5px;
+  border-color: #55AECA;
+  background-color: #55AECA;
+  color:black;
+  align-items: baseline;
+}
+.BtnEnviar:hover{
+  color:white;
+  background-color: #55AECA;
+  border-color: #55AECA;
+}
   
