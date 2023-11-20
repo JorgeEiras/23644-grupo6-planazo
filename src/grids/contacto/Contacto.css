@@ -43,5 +43,8 @@
   }
   .btnEnviar:hover{
     transform: scale(1.02);
+    border-color: #55AECA;
+    background-color: #55AECA;
+    color: white;
   }
 /* Termina css del FORM CONTACTO */
