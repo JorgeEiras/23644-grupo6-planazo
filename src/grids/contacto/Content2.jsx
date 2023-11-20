@@ -21,9 +21,10 @@ const Content2 = () => {
     console.log('Datos enviados:', formData);
     setFormData(initialFormData);
   }
+  
   return (
-    <div>
-      <p className="contacto">Contacto</p>
+    <div className="contacto-container">
+      <h2 className="contacto-titulo">Contacto</h2>
       <form onSubmit={handleSubmit} method="POST">
 
         <div className="mb-3">
@@ -36,6 +37,7 @@ const Content2 = () => {
             value={formData.nombre}
               onChange={handleChange}
             required
+            id='inputNombre'
           />
         </div>
         <div className="mb-3">
@@ -47,7 +49,8 @@ const Content2 = () => {
             placeholder="Email"
             name="correo"
             value={formData.correo}
-              onChange={handleChange}
+            onChange={handleChange}
+            id='inputMail'
           />
         </div>
         <div className="mb-3">
@@ -60,9 +63,10 @@ const Content2 = () => {
             value={formData.mensaje}
               onChange={handleChange}
             required
+            id='inputMensaje'
           ></textarea>
         </div>
-        <input class="btn btn-primary BtnEnviar" type="submit" value="Enviar"></input>
+        <input class="btn btnEnviar" type="submit" value="Enviar"></input>
       </form>
     </div>
   )

@@ -8,37 +8,43 @@
                          'content2';
   }
   
-  
+/* FORM CONTACTO */
   .content2{
     grid-area: content2;
-    display: block;
+    padding-bottom: 2rem;
   }
-
-  
-  .contacto{
+  .contacto-container{
+    width: 100%;
+  }
+  .contacto-titulo{
     text-align: left;
-    font-weight: 800;
-    font-size: 1.5rem;
+    padding-top: 2.6rem;
+    padding-left: 3.6rem;
+    padding-bottom: 0.6rem;
   }
- form{
-  background-color: #D9D9D9;
-  padding:5px;
-  border-radius: 5px;
-  width:65%;
-  margin:auto;
-  margin-bottom: 20px;
-}
-
-.BtnEnviar{
-  border-radius: 5px;
-  border-color: #55AECA;
-  background-color: #55AECA;
-  color:black;
-  align-items: baseline;
-}
-.BtnEnviar:hover{
-  color:white;
-  background-color: #55AECA;
-  border-color: #55AECA;
-}
-  
+  form{
+    background-color: #D9D9D9;
+    padding: 1.5rem 3.6rem 1.8rem 3.6rem;
+    display: flex;
+    flex-direction: column;
+  }
+  #inputNombre, #inputMail, #inputMensaje{
+    border-radius: 25px;
+  }
+  .btnEnviar{
+    border-radius: 25px;
+    border-color: #55AECA;
+    background-color: #55AECA;
+    color: white;
+    align-self: flex-end;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    transition: .4s;
+  }
+  .btnEnviar:hover{
+    transform: scale(1.02);
+    border-color: #55AECA;
+    background-color: #55AECA;
+    color: white;
+  }
+/* Termina css del FORM CONTACTO */
