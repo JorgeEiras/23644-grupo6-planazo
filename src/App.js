@@ -11,8 +11,8 @@ import { Routes, Route } from 'react-router-dom'
 import { app } from './fb'
 function App() {
 
-  const [usuario, setUsuario] = React.useState(false);
-  let alter = usuario? <Inicio /> : <Login />
+  const [usuario, setUsuario] = React.useState(true);
+  let alter = usuario? <Favoritos /> : <Inicio />
 
   return (
     
