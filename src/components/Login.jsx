@@ -10,11 +10,7 @@ const Login = (props) => {
   //estado ..se está registrando o no
   const [isRegistrando, setIsRegistrando] = React.useState(false);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    const correo = e.target.emailField.value;
-    const password = e.target.passwordField.value;
-    console.log(correo, password);
+  const crearUsuario = (correo, password) => {
     app
       .auth()
       .createUserWithEmailAndPassword(correo, password)
@@ -22,6 +18,30 @@ const Login = (props) => {
         console.log("usuario creado:", usuarioFirebase);
         props.setUsuario(usuarioFirebase);
       });
+  };
+
+  const iniciarSesion = (correo, password) => {
+    app
+      .auth()
+      .signInWithEmailAndPassword(correo, password)
+      .then((usuarioFirebase) => {
+        console.log("sesión iniciada con:", usuarioFirebase.user);
+        props.setUsuario(usuarioFirebase);
+      });
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const correo = e.target.emailField.value;
+    const password = e.target.passwordField.value;
+    
+    if (isRegistrando) {
+      crearUsuario(correo, password);
+    }
+
+    if (!isRegistrando) {
+      iniciarSesion(correo, password);
+    }
   };
 
   return (

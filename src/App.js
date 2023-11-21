@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Contacto from './components/Contacto';
 import Favoritos from './components/Favoritos';
@@ -11,7 +11,15 @@ import { Routes, Route } from 'react-router-dom'
 import { app } from './fb'
 function App() {
 
-  const [usuario, setUsuario] = React.useState(false);
+  const [usuario, setUsuario] = React.useState(null);
+
+  useEffect(() => {
+    app.auth().onAuthStateChanged((usuarioFirebase) => {
+      console.log("ya tienes sesión iniciada con:", usuarioFirebase);
+      setUsuario(usuarioFirebase);
+    });
+  }, []);
+
   let alter = usuario? <Favoritos /> : <Inicio />
 
   return (
