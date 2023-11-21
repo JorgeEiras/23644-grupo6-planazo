@@ -5,11 +5,12 @@ const Content3 = () => {
 
   const [data, setData] = useState([]);
 
+
   useEffect(() => {
     getLugares();
   }, [] );
   
-  // getLugares usando AXIOS GEOAPIFY:
+  // getLugares usando FETCH y GEOAPIFY:
   async function getLugares() {
     let requestOptions = { method: 'GET' };
     
@@ -22,7 +23,7 @@ const Content3 = () => {
   return (
     <main className='d-flex' style={{width: "100%", textAlign:"center"}}>
 
-      <div className='d-flex flex-wrap align-items-start centered' style={{ maxHeigh: "100%"}}>
+      <div className='d-flex flex-wrap align-items-start centered'>
         { data.map((lugar) => (
             <div className="card" style={{width: "18rem", margin: "1rem"}}>
               <img className="card-img-top" src="./imagenes/avion-card.jpeg" alt="Card image cap"/>
