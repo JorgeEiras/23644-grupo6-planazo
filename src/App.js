@@ -26,7 +26,7 @@ function App() {
     
     <>
     
-    <Navbar />
+    <Navbar usuario={usuario}/>
     <div>
       
       <Routes>
