@@ -11,7 +11,7 @@ import { Routes, Route } from 'react-router-dom'
 import { app } from './fb'
 function App() {
 
-  const [usuario, setUsuario] = React.useState(true);
+  const [usuario, setUsuario] = React.useState(false);
   let alter = usuario? <Favoritos /> : <Inicio />
 
   return (
@@ -25,7 +25,7 @@ function App() {
         <Route path="/contacto" element={<Contacto/>}></Route>
         <Route path="/favoritos" element={<Favoritos/>}></Route>
         <Route path="/" element= {alter}></Route>
-        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/login" element={<Login setUsuario={setUsuario} />}></Route>
         <Route path="/registro" element={<Registro/>}></Route>
       </Routes>
     </div>

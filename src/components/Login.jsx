@@ -1,12 +1,29 @@
-import React from 'react'
+import React from "react";
+import { app } from "../fb";
 
 import Content2 from '../grids/login/Lcontent2'
 
 import '../grids/login/Login.css'
 
 
-const Login = () => {
+const Login = (props) => {
+  //estado ..se está registrando o no
   const [isRegistrando, setIsRegistrando] = React.useState(false);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const correo = e.target.emailField.value;
+    const password = e.target.passwordField.value;
+    console.log(correo, password);
+    app
+      .auth()
+      .createUserWithEmailAndPassword(correo, password)
+      .then((usuarioFirebase) => {
+        console.log("usuario creado:", usuarioFirebase);
+        props.setUsuario(usuarioFirebase);
+      });
+  };
+
   return (
     <React.Fragment>
         <section>
@@ -15,7 +32,7 @@ const Login = () => {
                 <div className='lContent2 centered'>
                   <div>
                       <h1> {isRegistrando ? "Regístrate" : "Inicia sesión"}</h1><br />
-                      <form >
+                      <form onSubmit={submitHandler} >
                         <label htmlFor="emailField"> Correo </label><br />
                         <input type="email" id="emailField" /><br />
                         <label htmlFor="passwordField"> Contraseña </label><br />
