@@ -3,7 +3,7 @@
     height: 80vh;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows:  1fr 2fr 5fr;
+    grid-template-rows:  1fr 5fr;
     grid-template-areas: 
                          'content2'
                          'content3'
