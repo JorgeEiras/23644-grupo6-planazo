@@ -14,7 +14,7 @@ export default function Navbar(props) {
       <Link to="/"><img src="./imagenes/logo-misviajes.png" alt="Mis planes" /></Link>
       <ul className="nav nav-underline">
         <li className="nav-item">
-          <Link to="/favoritos" className="nav-link" id="navLink">Favoritos</Link>
+          <Link to="/" className="nav-link" id="navLink">Home</Link>
         </li>
         <li className="nav-item">
           <Link to="/contacto" className="nav-link" id="navLink">Contacto</Link>

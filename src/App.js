@@ -20,7 +20,7 @@ function App() {
     });
   }, []);
 
-  let alter = usuario? <Favoritos /> : <Inicio />
+  let alter = usuario? <Inicio /> : <Favoritos />
 
   return (
     

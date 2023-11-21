@@ -3,9 +3,9 @@ import Icontent4 from "../inicio/Icontent4"
 
 const Content3 = () => {
   return (
-    <footer>
-      Footer
-    </footer>
+    <main>
+      <h1>Lugares API</h1>
+    </main>
   )
 }
 
