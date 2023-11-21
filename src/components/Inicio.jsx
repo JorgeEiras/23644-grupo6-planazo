@@ -2,7 +2,7 @@ import React from 'react'
 //import Content1 from '../grids/inicio/Icontent1'
 import Content2 from '../grids/inicio/Icontent2'
 import Content3 from '../grids/inicio/Icontent3'
-import Content4 from '../grids/inicio/Icontent4'
+import Content5 from '../grids/inicio/Icontent5'
 import '../grids/inicio/Inicio.css'
 
 
@@ -18,8 +18,8 @@ const Inicio = () => {
                 <div className='iContent3 centered'>
                     <Content3/>
                 </div>
-                <div className='iContent4 centered text-white'>
-                    <Content4/>
+                <div className='iContent5 centered text-white'>
+                    <Content5/>
                 </div>
             </div>
         </section>

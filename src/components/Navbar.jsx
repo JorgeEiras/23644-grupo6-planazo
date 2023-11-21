@@ -5,7 +5,7 @@ import { app } from "../fb";
 export default function Navbar(props) {
   const cerrarSesion = () => {
     if (props.usuario) {
-      app.auth().signOut(); // Call the 'signOut' function if 'props.usuario' is truthy
+      app.auth().signOut();
     }
   };
 

@@ -3,10 +3,11 @@
     height: 80vh;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 2fr 5fr;
+    grid-template-rows:  1fr 2fr 5fr;
     grid-template-areas: 
                          'content2'
-                         'content3';
+                         'content3'
+                         'content5';
   }
   
   .iContent1{
@@ -43,6 +44,10 @@
     grid-area: content3;
     background-color: green;
   }
+  .iContent5{
+    grid-area: content5;
+    background-color: rgb(128, 0, 119);
+  }
   .iContent4{
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
@@ -70,10 +75,11 @@
       height: 80vh;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 2fr 5fr;
+      grid-template-rows: 1fr 2fr 5fr;
       grid-template-areas: 
-                           'content3 content3 content3 content2 content2'
-                           'content3 content3 content3 content2 content2'
+                           'content2 content2 content2 content2 content2'
+                           'content3 content3 content3 content5 content5'
+                           'content3 content3 content3 content5 content5'
                            ;
     }
   }
