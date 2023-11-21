@@ -3,26 +3,43 @@
     height: 80vh;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 5fr;
     grid-template-areas: 
-                         'content2';
+                         'content2'
+                         'content3';
   }
   
   
   .content2{
     grid-area: content2;
     background-color: greenyellow;
+    ;
   }
   /* Estilos del footer */
   
 
-  .content3 a{
-    text-decoration: none;
-    color:white;
+  .content3{
+    grid-area: content3;
+    background-color: green;
   }
   .content3 img{
     display: block;
     margin:auto;
+  }
+
+  @media only screen and (min-width: 768px){
+    .layoutInicio{
+      width: 100%;
+      height: 80vh;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 1fr 5fr;
+      grid-template-areas: 
+                           'content2 content2 content2 content2 content2'
+                           'content3 content3 content3 content3 content3'
+                    
+                           ;
+    }
   }
   
   @media only screen and (max-width: 768px) {

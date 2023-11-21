@@ -10,7 +10,7 @@ const Contacto = () => {
         <section>
             <div className='layoutContact'>
                 
-                <div className='content2 centered'>
+                <div className='content22 centered'>
                     <Content2/>
                 </div>
                 
