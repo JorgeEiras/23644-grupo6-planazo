@@ -3,6 +3,7 @@ import React from 'react'
 import Content2 from '../grids/favoritos/Content2'
 
 import '../grids/favoritos/Favoritos.css'
+import '../grids/footer/Footer.css'
 
 
 const Favoritos = () => {

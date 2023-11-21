@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+// import axios from 'axios';
 
 const Content3 = () => {
 
@@ -20,13 +20,12 @@ const Content3 = () => {
   }
 
   return (
-    <main style={{width: "100%", textAlign:"center"}}>
-      <h1>Lugares dios por favor</h1>
+    <main className='d-flex' style={{width: "100%", textAlign:"center"}}>
 
-      <div className='d-flex flex-wrap overflow-auto centered'>
+      <div className='d-flex flex-wrap align-items-start centered' style={{ maxHeigh: "100%"}}>
         { data.map((lugar) => (
             <div className="card" style={{width: "18rem", margin: "1rem"}}>
-              <img className="card-img-top" src={ lugar.photos } alt="Card image cap"/>
+              <img className="card-img-top" src="./imagenes/avion-card.jpeg" alt="Card image cap"/>
               <div className="card-body">
                 <h5 className="card-title">{ lugar.properties.name }</h5>
                 <p className="card-text">{ lugar.properties.address_line2 }</p>
