@@ -1,5 +1,5 @@
 import React from 'react'
-import '../grids/footer/Footer.css'
+import '../grids/Footer/Footer.css'
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
 
       <div className="text-center">
         <p>Planazo 2023 G6</p>
-        <a href="falta" target="_blank" rel="noopener noreferrer">Lilian | </a>
+        <a href="https://github.com/lcassera" target="_blank" rel="noopener noreferrer">Lilian | </a>
         <a href="https://www.linkedin.com/in/paula-chaneton/" target="_blank" rel="noopener noreferrer">Paula | </a>
         <a href="falta" target="_blank" rel="noopener noreferrer">Facundo | </a>
         <a href="https://www.linkedin.com/in/soledadshk/" target="_blank" rel="noopener noreferrer">Daniela | </a>
