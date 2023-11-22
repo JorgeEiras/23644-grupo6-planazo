@@ -1,82 +1,28 @@
-.layoutInicio{
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 2fr 5fr 1fr;
-    grid-template-areas: 
-                         'content2'
-                         'content3'
-                         'content4';
-  }
-  
-  .iContent1{
-    grid-area: content1;
-    /* background-color: aquamarine; */
-  }
-  .navbar{
-    width:100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-  }
-  #navLink{
-    color: inherit;
-  }
-  #navButton{
-    border-radius: 25px;
-    border: #55AECA;
-    background-color: #55AECA;
-    padding-right: 2.5rem;
-    padding-left: 2.5rem;
-    transition: .4s;
-  }
-  #navButton:hover{
-    transform: scale(1.02);
-  }
-
-  .iContent2{
-    grid-area: content2;
-    background-color: greenyellow;
-  }
-  .iContent3{
-    grid-area: content3;
-    background-color: green;
-  }
-  .iContent4{
+/* FOOTER */
+  .footerContainer{
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-
     grid-area: content4;
     background-color: #F18018;
+    color: white;
+    padding: 1.5rem 1rem 2rem 1rem;
+    text-align: center;
   }
-  .iContent4 a{
+  .footerContainer a {
     text-decoration: none;
-    color:white;
+    color: inherit;
   }
-  .iContent4 img{
+  .footerContainer a:hover {
+    font-weight: bold;
+  }
+  .footerContainer img {
     display: block;
-    margin:auto;
+    margin: auto;
   }
-  
-  
-  @media only screen and (min-width: 768px){
-    .layoutInicio{
-      width: 100%;
-      height: 100vh;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 2fr 5fr 1fr;
-      grid-template-areas: 
-                           'content3 content3 content3 content2 content2'
-                           'content3 content3 content3 content2 content2'
-                           'content4 content4 content4 content4 content4';
-    }
-  }
+/* Termina css del FOOTER */
 
-  @media only screen and (max-width: 768px) {
-    .iContent4 a{
-      font-size: 0.6rem;
-    }
+@media only screen and (max-width: 768px) {
+  .footerContainer a{
+    font-size: 0.6rem;
   }
+}

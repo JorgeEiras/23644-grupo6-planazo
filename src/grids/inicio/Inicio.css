@@ -7,7 +7,7 @@
     grid-template-areas: 
                          'buscador'
                          'api'
-                         'content5';
+                         'favoritos';
   }
   
 /* NAVBAR */
@@ -85,32 +85,12 @@
   }
 /* Termina css de la API */
 
-/* FOOTER */
-  .iContent5{
-    grid-area: content5;
+/* FAVORITOS */
+  .favoritosContainer{
+    grid-area: favoritos;
     background-color: rgb(128, 0, 119);
   }
-  .iContent4{
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    grid-area: content4;
-    background-color: #F18018;
-    color: white;
-    padding: 1.5rem 1rem 2rem 1rem;
-    text-align: center;
-  }
-  .iContent4 a{
-    text-decoration: none;
-    color: inherit;
-  }
-  .iContent4 a:hover{
-    font-weight: bold;
-  }
-  .iContent4 img{
-    display: block;
-    margin:auto;
-  }
-/* Termina css del FOOTER */
+/* Termina css de FAVORITOS */
   
   
   @media only screen and (min-width: 768px){
@@ -134,9 +114,3 @@
     }
   }
 
-  @media only screen and (max-width: 768px) {
-    .iContent4 a{
-      font-size: 0.6rem;
-    }
-  }
-  

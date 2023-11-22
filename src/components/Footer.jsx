@@ -1,8 +1,9 @@
 import React from 'react'
+import '../grids/footer/Footer.css'
 
 const Footer = () => {
   return (
-    <footer className='iContent4'>
+    <footer className='footerContainer'>
       <img src="./imagenes/logo-misviajes-blanco.png" alt="Mis planes" />
 
       <div className="text-center">
