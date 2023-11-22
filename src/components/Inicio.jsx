@@ -1,7 +1,8 @@
 import React from 'react'
+
 import Buscador from '../grids/inicio/Buscador'
 import Apilugares from '../grids/inicio/Apilugares'
-import Content5 from '../grids/inicio/Icontent5'
+// import FavoritosInicio from '../grids/inicio/FavoritosInicio'
 
 import '../grids/inicio/Inicio.css'
 
@@ -18,9 +19,10 @@ const Inicio = () => {
                 <div className='apiContainer centered'>
                     <Apilugares/>
                 </div>
+                {/* no estoy segura porque aparece inicio aca, pero lo dejo comentado por si las moscas 
                 <div className='iContent5 centered text-white'>
-                    <Content5/>
-                </div>
+                    <FavoritosInicio/>
+                </div> */}
 
             </div>
         </section>
