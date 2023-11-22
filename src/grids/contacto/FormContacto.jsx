@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const Content2 = () => {
+const FormContacto = () => {
 
   const initialFormData = {
     nombre: '',
@@ -72,4 +72,4 @@ const Content2 = () => {
   )
 }
 
-export default Content2
+export default FormContacto

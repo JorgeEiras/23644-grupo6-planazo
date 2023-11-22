@@ -5,14 +5,24 @@
     grid-template-columns: 100%;
     grid-template-rows:  1fr;
     grid-template-areas: 
-                         'content2';
+                         'form';
   }
   
+
 /* FORM CONTACTO */
-  .content2{
-    grid-area: content2;
+  .formContacto{
+    grid-area: form;
     padding-bottom: 2rem;
   }
+ 
+                            /* CODIGO PENDIENTE: */
+                        /* .content22{
+                          grid-area: form;
+                          padding-bottom: 2rem;
+                          background-color: white;
+                        } */
+                            /* TERMINA CODIGO PENDIENTE */
+
   .contacto-container{
     width: 100%;
   }

@@ -1,12 +1,13 @@
-.layoutInicio{
+git ree.layoutInicio{
     width: 100%;
     height: 80vh;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 2fr 5fr;
+    grid-template-rows:  1fr 5fr;
     grid-template-areas: 
-                         'content2'
-                         'content3';
+                         'buscador'
+                         'api'
+                         'favoritos';
   }
   
 /* NAVBAR */
@@ -17,25 +18,36 @@
   #navLink{
     color: inherit;
   }
-  #navButton{
+  #navBtnInicioSesion{
     border-radius: 25px;
     border: #55AECA;
     background-color: #55AECA;
+    color: white;
     padding-right: 2.5rem;
     padding-left: 2.5rem;
     transition: .4s;
   }
-  #navButton:hover{
+  #navBtnCerrarSesion{
+    border-radius: 25px;
+    border: #747474;
+    background-color: #747474;
+    color: white;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    transition: .4s;
+  }
+  #navBtnInicioSesion:hover, #navBtnCerrarSesion:hover{
     transform: scale(1.02);
   }
+
 /* Termina css de NAVBAR */
 
 /* BUSCADOR */
-  .iContent2{
-    grid-area: content2;
+  .buscadorContainer{
+    grid-area: buscador;
     padding-top: 4.5rem;
     padding-bottom: 3rem;
-    /* background-color: greenyellow; */
+    background-color: greenyellow;
   }
   .buscador{
     display: flex;
@@ -62,14 +74,20 @@
 /* Termina css del BUSCADOR */
  
 
-/* API LUGARES */
-  .iContent3{
-    grid-area: content3;
-    /* background-color: green; */
+/* API */
+  .apiContainer{
+    grid-area: api;
+    background-color: green;
   }
-/* Termina css de API LUGARES */
+/* Termina css de la API */
 
- 
+/* FAVORITOS */
+  .favoritosContainer{
+    grid-area: favoritos;
+    background-color: rgb(128, 0, 119);
+  }
+/* Termina css de FAVORITOS */
+  
   
   @media only screen and (min-width: 768px){
     .layoutInicio{
@@ -77,12 +95,11 @@
       height: 80vh;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 1fr 2fr 5fr 1fr;
-      grid-template-areas: 'content1 content1 content1 content1 content1'
-                           'content2 content2 content2 content2 content2'
-                           'content3 content3 content3 content3 content3'
-                           'content4 content4 content4 content4 content4';
+      grid-template-rows: 2fr 2fr 5fr;
+      grid-template-areas: 
+                           'buscador buscador buscador buscador buscador'
+                           'api api api api api'
+                           'favoritos favoritos favoritos favoritos favoritos';
     }
   }
 
-  
