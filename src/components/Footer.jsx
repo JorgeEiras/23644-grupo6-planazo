@@ -1,5 +1,5 @@
 import React from 'react'
-import '../grids/Footer/Footer.css'
+import '../grids/footer/Footer.css'
 
 const Footer = () => {
   return (
