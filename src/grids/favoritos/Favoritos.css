@@ -3,46 +3,35 @@
     height: 80vh;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 1fr 5fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas: 
-                         'content2'
-                         'content3';
+                         'favoritosuno'
+                         'favoritosdos';
   }
   
-  
-  .content2{
-    grid-area: content2;
-/*     background-color: greenyellow;*/  
+.favoritosUnoContainer{
+  grid-area: favoritosuno;
+  background-color: violet;
 }
-  /* Estilos del footer */
-  .content3{
-    grid-area: content3;
-    background-color: green;
-  }
-  .content3 img{
-    display: block;
-    margin:auto;
-  }
 
+.favoritosDosContainer{
+  grid-area: favoritosdos;
+  background-color: purple;
+}
+  
+  
   @media only screen and (min-width: 768px){
-    .layoutInicio{
+    .layoutFavoritos{
       width: 100%;
       height: 80vh;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: 1fr 5fr;
       grid-template-areas: 
-                           'content2 content2 content2 content2 content2'
-                           'content3 content3 content3 content3 content3'
-                    
-                           ;
+                           'favoritosuno favoritosuno favoritosuno favoritosuno favoritosuno'
+                           'favoritosdos favoritosdos favoritosdos favoritosdos favoritosdos';
     }
   }
   
-  @media only screen and (max-width: 768px) {
-    .content3 a{
-      font-size: 0.6rem;
-    }
-  }
-  
+
   

@@ -11,10 +11,6 @@
   }
   
 /* NAVBAR */
-  .iContent1{
-    grid-area: content1;
-    /* background-color: aquamarine; */
-  }
   .navbar{
     width: 100%;
     padding: 1rem;
@@ -51,7 +47,7 @@
     grid-area: buscador;
     padding-top: 4.5rem;
     padding-bottom: 3rem;
-    /* background-color: greenyellow; */
+    background-color: greenyellow;
   }
   .buscador{
     display: flex;
@@ -99,18 +95,11 @@
       height: 80vh;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      /* codigo viejo:
-      grid-template-rows: 1fr 2fr 5fr 1fr;
-      grid-template-areas: 'content1 content1 content1 content1 content1'
-                           'buscador buscador buscador buscador buscador'
-                           'content3 content3 content3 content3 content3'
-                           'content4 content4 content4 content4 content4'; */
-
-      grid-template-rows: 1fr 2fr 5fr;
+      grid-template-rows: 2fr 2fr 5fr;
       grid-template-areas: 
                            'buscador buscador buscador buscador buscador'
-                           'content3 content3 content3 content5 content5'
-                           'content3 content3 content3 content5 content5';
+                           'api api api api api'
+                           'favoritos favoritos favoritos favoritos favoritos';
     }
   }
 

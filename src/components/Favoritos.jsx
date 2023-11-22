@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Content2 from '../grids/favoritos/Content2'
-import Content3 from '../grids/favoritos/Content3'
+import FavoritosUno from '../grids/favoritos/FavoritosUno'
+import FavoritosDos from '../grids/favoritos/FavoritosDos'
 
 import '../grids/favoritos/Favoritos.css'
 
@@ -12,11 +12,11 @@ const Favoritos = () => {
         <section>
             <div className='layoutFavoritos'>
                 
-                <div className='content2 centered'>
-                    <Content2/>
+                <div className='favoritosUnoContainer centered'>
+                    <FavoritosUno/>
                 </div>
-                <div className='content3 centered'>
-                    <Content3/>
+                <div className='favoritosDosContainer centered'>
+                    <FavoritosDos/>
                 </div>
     
             </div>
