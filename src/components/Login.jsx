@@ -1,7 +1,7 @@
 import React from "react";
 import { app } from "../fb";
 
-import Content2 from '../grids/login/Lcontent2'
+// import Content2 from '../grids/login/Lcontent2'
 
 import '../grids/login/Login.css'
 

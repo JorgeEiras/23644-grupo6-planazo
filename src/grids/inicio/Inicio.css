@@ -22,17 +22,28 @@
   #navLink{
     color: inherit;
   }
-  #navButton{
+  #navBtnInicioSesion{
     border-radius: 25px;
     border: #55AECA;
     background-color: #55AECA;
+    color: white;
     padding-right: 2.5rem;
     padding-left: 2.5rem;
     transition: .4s;
   }
-  #navButton:hover{
+  #navBtnCerrarSesion{
+    border-radius: 25px;
+    border: #747474;
+    background-color: #747474;
+    color: white;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    transition: .4s;
+  }
+  #navBtnInicioSesion:hover, #navBtnCerrarSesion:hover{
     transform: scale(1.02);
   }
+
 /* Termina css de NAVBAR */
 
 /* BUSCADOR */
