@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Content2 = () => {
+const Buscador = () => {
   return (
     <div className='buscador container'>
       <h2>¿A dónde vamos?</h2>
@@ -13,4 +13,4 @@ const Content2 = () => {
   )
 }
 
-export default Content2
+export default Buscador
