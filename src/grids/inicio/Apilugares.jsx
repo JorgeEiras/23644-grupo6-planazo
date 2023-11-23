@@ -1,7 +1,6 @@
 import React from 'react'
-import Icontent4 from "../inicio/Icontent4"
 
-const Content3 = () => {
+const Apilugares = () => {
   return (
     <main>
       <h1>Lugares API</h1>
@@ -9,4 +8,4 @@ const Content3 = () => {
   )
 }
 
-export default Content3
+export default Apilugares

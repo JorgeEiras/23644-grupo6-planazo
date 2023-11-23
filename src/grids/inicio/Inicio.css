@@ -5,68 +5,88 @@
     grid-template-columns: 100%;
     grid-template-rows:  1fr 5fr;
     grid-template-areas: 
-                         'content2'
-                         'content3'
-                         'content5';
+                         'buscador'
+                         'api'
+                         'favoritos';
   }
   
-  .iContent1{
-    grid-area: content1;
-    /* background-color: aquamarine; */
-  }
+/* NAVBAR */
   .navbar{
-    width:100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-  }
+    width: 100%;
+    padding: 1rem;
+  }  
   #navLink{
     color: inherit;
   }
-  #navButton{
+  #navBtnInicioSesion{
     border-radius: 25px;
     border: #55AECA;
     background-color: #55AECA;
+    color: white;
     padding-right: 2.5rem;
     padding-left: 2.5rem;
     transition: .4s;
   }
-  #navButton:hover{
+  #navBtnCerrarSesion{
+    border-radius: 25px;
+    border: #747474;
+    background-color: #747474;
+    color: white;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    transition: .4s;
+  }
+  #navBtnInicioSesion:hover, #navBtnCerrarSesion:hover{
     transform: scale(1.02);
   }
 
-  .iContent2{
-    grid-area: content2;
+/* Termina css de NAVBAR */
+
+/* BUSCADOR */
+  .buscadorContainer{
+    grid-area: buscador;
+    padding-top: 4.5rem;
+    padding-bottom: 3rem;
     background-color: greenyellow;
   }
-  .iContent3{
-    grid-area: content3;
+  .buscador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .buscador h2{
+    margin-bottom: .8rem;
+  }
+  #buscadorInput{
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+  #buscadorBtn{
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: #55AECA;
+    background-color: #55AECA;
+    transition: .4s;
+  }
+  #buscadorBtn:hover {
+    transform: scale(1.02);
+  } 
+/* Termina css del BUSCADOR */
+ 
+
+/* API */
+  .apiContainer{
+    grid-area: api;
     background-color: green;
   }
-  .iContent5{
-    grid-area: content5;
+/* Termina css de la API */
+
+/* FAVORITOS */
+  .favoritosContainer{
+    grid-area: favoritos;
     background-color: rgb(128, 0, 119);
   }
-  .iContent4{
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    grid-area: content4;
-    background-color: #F18018;
-    color: white;
-    text-align: center;
-  }
-  .iContent4 a{
-    text-decoration: none;
-    color: inherit;
-  }
-  .iContent4 a:hover{
-    font-weight: bold;
-  }
-  .iContent4 img{
-    display: block;
-    margin:auto;
-  }
+/* Termina css de FAVORITOS */
   
   
   @media only screen and (min-width: 768px){
@@ -75,18 +95,11 @@
       height: 80vh;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 1fr 2fr 5fr;
+      grid-template-rows: 2fr 2fr 5fr;
       grid-template-areas: 
-                           'content2 content2 content2 content2 content2'
-                           'content3 content3 content3 content5 content5'
-                           'content3 content3 content3 content5 content5'
-                           ;
+                           'buscador buscador buscador buscador buscador'
+                           'api api api api api'
+                           'favoritos favoritos favoritos favoritos favoritos';
     }
   }
 
-  @media only screen and (max-width: 768px) {
-    .iContent4 a{
-      font-size: 0.6rem;
-    }
-  }
-  

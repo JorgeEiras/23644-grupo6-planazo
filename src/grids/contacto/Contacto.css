@@ -5,16 +5,24 @@
     grid-template-columns: 100%;
     grid-template-rows:  1fr;
     grid-template-areas: 
-                         'content2';
+                         'form';
   }
   
-  
-  /* FORM CONTACTO */
-  .content22{
-    grid-area: content2;
+
+/* FORM CONTACTO */
+  .formContacto{
+    grid-area: form;
     padding-bottom: 2rem;
-    background-color: white;
   }
+ 
+                            /* CODIGO PENDIENTE: */
+                        /* .content22{
+                          grid-area: form;
+                          padding-bottom: 2rem;
+                          background-color: white;
+                        } */
+                            /* TERMINA CODIGO PENDIENTE */
+
   .contacto-container{
     width: 100%;
   }
@@ -25,7 +33,7 @@
     padding-bottom: 0.6rem;
   }
   form{
-    background-color: #f18118db;
+    background-color: #D9D9D9;
     padding: 1.5rem 3.6rem 1.8rem 3.6rem;
     display: flex;
     flex-direction: column;
@@ -50,8 +58,3 @@
     color: white;
   }
 /* Termina css del FORM CONTACTO */
-  
-
-  
-  
-  

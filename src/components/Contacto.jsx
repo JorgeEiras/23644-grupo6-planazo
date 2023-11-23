@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Content2 from '../grids/contacto/Content2'
+import FormContacto from '../grids/contacto/FormContacto'
 
 import '../grids/contacto/Contacto.css'
 
@@ -10,10 +10,10 @@ const Contacto = () => {
         <section>
             <div className='layoutContact'>
                 
-                <div className='content22 centered'>
-                    <Content2/>
+                <div className='formContacto centered'>
+                    <FormContacto/>
                 </div>
-                
+
             </div>
         </section>
     </React.Fragment>
