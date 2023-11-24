@@ -1,9 +1,8 @@
 import React from 'react'
-
-import Buscador from '../grids/inicio/Buscador'
-import Apilugares from '../grids/inicio/Apilugares'
-import FavoritosInicio from '../grids/inicio/FavoritosInicio'
-
+//import Content1 from '../grids/inicio/Icontent1'
+import Content2 from '../grids/inicio/Icontent2'
+import Content3 from '../grids/favoritos/Content3'
+import Content5 from '../grids/inicio/Icontent5'
 import '../grids/inicio/Inicio.css'
 
 
