@@ -14,7 +14,7 @@ const Content3 = () => {
         <ul>
           {loading && <li>Loading...</li>}
           {data?.map((user) => (
-            <li key={user.post_id}>{user.secure_url}</li>
+            <li key={user.post_id}>{user.name}</li>
           ))}
         </ul>
       </div>
