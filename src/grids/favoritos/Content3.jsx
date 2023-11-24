@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFetch } from "./useFetch";
+import Travel from '../../components/Travel';
 
 
 const Content3 = () => {
@@ -9,17 +10,20 @@ const Content3 = () => {
 
   return (
     <main>
-      <h1>Lugares API te hije</h1>
-      <div className="card">
-        <ul>
+      <div className='container-fluid'>
+        <div className='row'>
           {loading && <li>Loading...</li>}
-          {data?.map((user) => (
-            <li key={user.post_id}>{user.name}</li>
+          {data?.map((travel) => (
+            <div className='col-md-4' key={travel.post_id}>
+            <Travel travel = {travel} />
+          </div>
           ))}
-        </ul>
+        </div>
       </div>
     </main>
   )
 }
 
 export default Content3
+
+//<li key={user.post_id}>{user.name}</li>
