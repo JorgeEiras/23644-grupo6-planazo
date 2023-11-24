@@ -23,7 +23,7 @@ export default function Navbar(props) {
           {props.usuario ? (
             <Link to="/login" 
               onClick={cerrarSesion}
-              className="btn btn-primary" id="navButton">
+              className="btn btn-danger" id="navButton">
               Cerrar Sesión
             </Link>
           ) : (
