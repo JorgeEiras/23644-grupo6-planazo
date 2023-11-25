@@ -1,37 +1,53 @@
 .layoutFavoritos{
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 180px 5fr;
-    grid-template-areas: 
-                         'favoritosuno'
-                         'favoritosdos';
-  }
-  
-.favoritosUnoContainer{
-  grid-area: favoritosuno;
-  background-color: violet;
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 180px 5fr;
+  grid-template-areas: 
+                       'content2'
+                       'content3';
 }
 
-.favoritosDosContainer{
-  grid-area: favoritosdos;
-  background-color: purple;
+
+.content2{
+  grid-area: content2;
+  background-color: greenyellow;
+  ;
 }
-  
-  
-  @media only screen and (min-width: 768px){
-    .layoutFavoritos{
-      width: 100%;
-      height: 80vh;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 180px 5fr;
-      grid-template-areas: 
-                           'favoritosuno favoritosuno favoritosuno favoritosuno favoritosuno'
-                           'favoritosdos favoritosdos favoritosdos favoritosdos favoritosdos';
-    }
+/* Estilos del footer */
+
+
+.content3{
+  grid-area: content3;
+  background-color: green;
+}
+.content3 img{
+  display: block;
+  margin:auto;
+}
+
+@media only screen and (min-width: 768px){
+  .layoutInicio{
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 180px 5fr;
+    grid-template-areas: 
+                         'content2 content2 content2 content2 content2'
+                         'content3 content3 content3 content3 content3'
+                  
+                         ;
   }
+}
+
+@media only screen and (max-width: 768px) {
+  .content3 a{
+    font-size: 0.6rem;
+  }
+}
+
   
 
   

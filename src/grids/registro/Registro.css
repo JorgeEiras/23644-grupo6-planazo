@@ -1,24 +1,24 @@
 .layoutRegistro{
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr 5fr 1fr;
-    grid-template-areas: 'content1'
-                         'content2'
-                         'content3';
-  }
-  
-  .rContent1{
-    grid-area: content1;
-    background-color: aquamarine;
-  }
-  .rContent2{
-    grid-area: content2;
-    background-color: greenyellow;
-  }
-  .rContent3{
-    grid-area: content3;
-    background-color: blue;
-  }
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-areas: 'content1'
+                       'content2'
+                       'content3';
+}
+
+.rContent1{
+  grid-area: content1;
+  background-color: aquamarine;
+}
+.rContent2{
+  grid-area: content2;
+  background-color: greenyellow;
+}
+.rContent3{
+  grid-area: content3;
+  background-color: blue;
+}
   

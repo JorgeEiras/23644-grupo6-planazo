@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Buscador = () => {
+const Content2 = () => {
   return (
     <div className='buscador container'>
       <h2>¿A dónde vamos?</h2>
@@ -9,8 +9,7 @@ const Buscador = () => {
         <button className="btn" id="buscadorBtn" type="button"><img src="./imagenes/lupa.svg" alt="Buscar" style={{ width: '1.8rem'}}/></button>
       </div>
     </div>
-
   )
 }
 
-export default Buscador
+export default Content2
