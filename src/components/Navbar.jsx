@@ -27,15 +27,15 @@ export default function Navbar(props) {
             </li>
             <li className="nav-item">
               {props.usuario ? (
-                <Link to="/login" 
-                    onClick={cerrarSesion}
-                    className="btn" id="navBtnCerrarSesion">
-                    Cerrar Sesión
-                  </Link>
-                ) : (
-                  <Link to="/login" className="btn" id="navBtnInicioSesion">
-                    Iniciar Sesión
-                  </Link>
+                <Link to="/login"
+                  onClick={cerrarSesion}
+                  className="btn" id="navBtnCerrarSesion">
+                  Cerrar Sesión
+                </Link>
+              ) : (
+                <Link to="/login" className="btn" id="navBtnInicioSesion">
+                  Iniciar Sesión
+                </Link>
               )}
             </li>
           </ul>

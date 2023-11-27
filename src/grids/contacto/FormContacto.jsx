@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 const FormContacto = () => {
 
@@ -8,20 +8,20 @@ const FormContacto = () => {
     mensaje: '',
   };
 
-  const [formData, setFormData]= useState(initialFormData);
+  const [formData, setFormData] = useState(initialFormData);
 
-  const handleChange= (e)=>{
+  const handleChange = (e) => {
     setFormData({
       ...formData, [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit= (e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Datos enviados:', formData);
     setFormData(initialFormData);
   }
-  
+
   return (
     <div className="contacto-container">
       <h2 className="contacto-titulo">Contacto</h2>
@@ -35,7 +35,7 @@ const FormContacto = () => {
             placeholder="Nombre"
             name="nombre"
             value={formData.nombre}
-              onChange={handleChange}
+            onChange={handleChange}
             required
             id='inputNombre'
           />
@@ -61,7 +61,7 @@ const FormContacto = () => {
             placeholder="Dejanos tu consulta"
             name="mensaje"
             value={formData.mensaje}
-              onChange={handleChange}
+            onChange={handleChange}
             required
             id='inputMensaje'
           ></textarea>

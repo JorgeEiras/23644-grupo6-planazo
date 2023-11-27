@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom'
-import { app } from './fb'
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import { app } from "./fb";
 
-import Navbar from './components/Navbar';
-import Inicio from './components/Inicio';
 import Contacto from './components/Contacto';
 import Favoritos from './components/Favoritos';
-import Login from './components/Login';
-import Registro from './components/Registro';
 import Footer from './components/Footer';
+import Inicio from './components/Inicio';
+import Login from './components/Login';
+import Navbar from './components/Navbar';
+import Registro from './components/Registro';
+
+import "./App.css";
 
 
 function App() {
@@ -23,22 +24,23 @@ function App() {
     });
   }, []);
 
-  let alter = usuario? <Favoritos /> : <Inicio />
+  let alter = usuario? <Inicio /> : <Favoritos />
 
   return (
-    
-    <>    
-    <Navbar usuario={usuario}/>
-    <div>
-      <Routes>
-        <Route path="/contacto" element={<Contacto/>}></Route>
-        <Route path="/favoritos" element={<Favoritos/>}></Route>
-        <Route path="/" element= {alter}></Route>
-        <Route path="/login" element={<Login setUsuario={setUsuario} />}></Route>
-        <Route path="/registro" element={<Registro/>}></Route>
-      </Routes>
-    </div>
-    <Footer />
+    <>
+      <Navbar usuario={usuario} />
+      
+      <div>
+        <Routes>
+          <Route path="/contacto" element={<Contacto/>}></Route>
+          <Route path="/favoritos" element={<Favoritos/>}></Route>
+          <Route path="/" element= {alter}></Route>
+          <Route path="/login" element={<Login setUsuario={setUsuario} />}></Route>
+          <Route path="/registro" element={<Registro/>}></Route>
+        </Routes>
+      </div>
+        
+      <Footer />
     </>
   );
 }

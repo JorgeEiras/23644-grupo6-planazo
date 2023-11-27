@@ -9,25 +9,25 @@ import '../grids/inicio/Inicio.css'
 
 const Inicio = () => {
 
-  return (
-    <React.Fragment>
-        <section>
-            <div className='layoutInicio'>
-                  
-                <div className='buscadorContainer centered'>
-                    <Buscador/>
-                </div>
-                <div className='apiContainer centered'>
-                    <Apilugares/>
-                </div>
-                <div className='favoritosContainer centered text-white'>
-                    <FavoritosInicio/>
-                </div>
+    return (
+        <React.Fragment>
+            <section>
+                <div className='layoutInicio'>
 
-            </div>
-        </section>
-    </React.Fragment>
-  )
+                    <div className='buscadorContainer centered'>
+                        <Buscador />
+                    </div>
+                    <div className='apiContainer centered'>
+                        <Apilugares />
+                    </div>
+                    <div className='favoritosContainer centered text-white'>
+                        <FavoritosInicio />
+                    </div>
+
+                </div>
+            </section>
+        </React.Fragment>
+    )
 }
 
 export default Inicio

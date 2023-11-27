@@ -1,47 +1,53 @@
-.layoutContact{
-    width: 100%;
-    height: 80vh;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows:  1fr;
-    grid-template-areas: 
-                         'form';
-  }
-  
+.layoutContact {
+  width: 100%;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    'form';
+}
+
 
 /* FORM CONTACTO */
-  .formContacto{
+  .formContacto {
     grid-area: form;
     padding-bottom: 2rem;
   }
- 
-                            /* CODIGO PENDIENTE: */
-                        /* .content22{
-                          grid-area: form;
-                          padding-bottom: 2rem;
-                          background-color: white;
-                        } */
-                            /* TERMINA CODIGO PENDIENTE */
 
-  .contacto-container{
+                    /* CODIGO PENDIENTE: */
+                    /* .content22{
+                                              grid-area: form;
+                                              padding-bottom: 2rem;
+                                              background-color: white;
+                                            } */
+                    /* TERMINA CODIGO PENDIENTE */
+
+  .contacto-container {
     width: 100%;
   }
-  .contacto-titulo{
+
+  .contacto-titulo {
     text-align: left;
     padding-top: 2.6rem;
     padding-left: 3.6rem;
     padding-bottom: 0.6rem;
   }
-  form{
+
+  form {
     background-color: #D9D9D9;
     padding: 1.5rem 3.6rem 1.8rem 3.6rem;
     display: flex;
     flex-direction: column;
   }
-  #inputNombre, #inputMail, #inputMensaje{
+
+  #inputNombre,
+  #inputMail,
+  #inputMensaje {
     border-radius: 25px;
   }
-  .btnEnviar{
+
+  .btnEnviar {
     border-radius: 25px;
     border-color: #55AECA;
     background-color: #55AECA;
@@ -51,10 +57,12 @@
     padding-left: 2.5rem;
     transition: .4s;
   }
-  .btnEnviar:hover{
+
+  .btnEnviar:hover {
     transform: scale(1.02);
     border-color: #55AECA;
     background-color: #55AECA;
     color: white;
-  }
+  } 
+
 /* Termina css del FORM CONTACTO */

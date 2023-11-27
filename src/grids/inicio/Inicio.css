@@ -1,24 +1,26 @@
-.layoutInicio{
-    width: 100%;
-    height: 80vh;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows:  1fr 5fr;
-    grid-template-areas: 
-                         'buscador'
-                         'api'
-                         'favoritos';
-  }
-  
+.layoutInicio {
+  width: 100%;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 5fr;
+  grid-template-areas:
+    'buscador'
+    'api'
+    'favoritos';
+}
+
 /* NAVBAR */
-  .navbar{
+  .navbar {
     width: 100%;
     padding: 1rem;
-  }  
-  #navLink{
+  }
+
+  #navLink {
     color: inherit;
   }
-  #navBtnInicioSesion{
+
+  #navBtnInicioSesion {
     border-radius: 25px;
     border: #55AECA;
     background-color: #55AECA;
@@ -27,7 +29,8 @@
     padding-left: 2.5rem;
     transition: .4s;
   }
-  #navBtnCerrarSesion{
+
+  #navBtnCerrarSesion {
     border-radius: 25px;
     border: #747474;
     background-color: #747474;
@@ -36,70 +39,75 @@
     padding-left: 2.5rem;
     transition: .4s;
   }
-  #navBtnInicioSesion:hover, #navBtnCerrarSesion:hover{
+
+  #navBtnInicioSesion:hover,
+  #navBtnCerrarSesion:hover {
     transform: scale(1.02);
   }
-
 /* Termina css de NAVBAR */
 
 /* BUSCADOR */
-  .buscadorContainer{
+  .buscadorContainer {
     grid-area: buscador;
     padding-top: 4.5rem;
     padding-bottom: 3rem;
     background-color: greenyellow;
   }
-  .buscador{
+
+  .buscador {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .buscador h2{
+
+  .buscador h2 {
     margin-bottom: .8rem;
   }
-  #buscadorInput{
+
+  #buscadorInput {
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
   }
-  #buscadorBtn{
+
+  #buscadorBtn {
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     border: #55AECA;
     background-color: #55AECA;
     transition: .4s;
   }
+
   #buscadorBtn:hover {
     transform: scale(1.02);
-  } 
+  }
 /* Termina css del BUSCADOR */
- 
+
 
 /* API */
-  .apiContainer{
+  .apiContainer {
     grid-area: api;
     background-color: green;
   }
 /* Termina css de la API */
 
 /* FAVORITOS */
-  .favoritosContainer{
+  .favoritosContainer {
     grid-area: favoritos;
     background-color: rgb(128, 0, 119);
   }
 /* Termina css de FAVORITOS */
-  
-  
-  @media only screen and (min-width: 768px){
-    .layoutInicio{
-      width: 100%;
-      height: 80vh;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 2fr 2fr 5fr;
-      grid-template-areas: 
-                           'buscador buscador buscador buscador buscador'
-                           'api api api api api'
-                           'favoritos favoritos favoritos favoritos favoritos';
-    }
-  }
 
+
+@media only screen and (min-width: 768px) {
+  .layoutInicio {
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 2fr 2fr 5fr;
+    grid-template-areas:
+      'buscador buscador buscador buscador buscador'
+      'api api api api api'
+      'favoritos favoritos favoritos favoritos favoritos';
+  }
+}

@@ -7,15 +7,15 @@ import '../grids/contacto/Contacto.css'
 const Contacto = () => {
   return (
     <React.Fragment>
-        <section>
-            <div className='layoutContact'>
-                
-                <div className='formContacto centered'>
-                    <FormContacto/>
-                </div>
+      <section>
+        <div className='layoutContact'>
 
-            </div>
-        </section>
+          <div className='formContacto centered'>
+            <FormContacto />
+          </div>
+
+        </div>
+      </section>
     </React.Fragment>
   )
 }

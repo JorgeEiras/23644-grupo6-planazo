@@ -1,37 +1,34 @@
-.layoutFavoritos{
-    width: 100%;
-    height: 80vh;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 
-                         'favoritosuno'
-                         'favoritosdos';
-  }
-  
-.favoritosUnoContainer{
+.layoutFavoritos {
+  width: 100%;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'favoritosuno'
+    'favoritosdos';
+}
+
+.favoritosUnoContainer {
   grid-area: favoritosuno;
   background-color: violet;
 }
 
-.favoritosDosContainer{
+.favoritosDosContainer {
   grid-area: favoritosdos;
   background-color: purple;
 }
-  
-  
-  @media only screen and (min-width: 768px){
-    .layoutFavoritos{
-      width: 100%;
-      height: 80vh;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: 1fr 5fr;
-      grid-template-areas: 
-                           'favoritosuno favoritosuno favoritosuno favoritosuno favoritosuno'
-                           'favoritosdos favoritosdos favoritosdos favoritosdos favoritosdos';
-    }
-  }
-  
 
-  
+
+@media only screen and (min-width: 768px) {
+  .layoutFavoritos {
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 5fr;
+    grid-template-areas:
+      'favoritosuno favoritosuno favoritosuno favoritosuno favoritosuno'
+      'favoritosdos favoritosdos favoritosdos favoritosdos favoritosdos';
+  }
+}

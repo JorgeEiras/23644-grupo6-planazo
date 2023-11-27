@@ -1,10 +1,10 @@
 .centered{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-.menu{
   display: flex;
-  width: 50vw;
-  justify-content:space-evenly;
+  justify-content: center;
+  align-items: center;
+}
+.menu{
+display: flex;
+width: 50vw;
+justify-content:space-evenly;
 }
