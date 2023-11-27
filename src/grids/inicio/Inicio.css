@@ -51,7 +51,6 @@
     grid-area: buscador;
     padding-top: 4.5rem;
     padding-bottom: 3rem;
-    background-color: greenyellow;
   }
 
   .buscador {
@@ -90,12 +89,6 @@
   }
 /* Termina css de la API */
 
-/* FAVORITOS */
-  .favoritosContainer {
-    grid-area: favoritos;
-    background-color: rgb(128, 0, 119);
-  }
-/* Termina css de FAVORITOS */
 
 
 @media only screen and (min-width: 768px) {
@@ -104,10 +97,9 @@
     height: 80vh;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 2fr 2fr 5fr;
+    grid-template-rows: 1fr 1fr ;
     grid-template-areas:
       'buscador buscador buscador buscador buscador'
-      'api api api api api'
-      'favoritos favoritos favoritos favoritos favoritos';
+      'api api api api api';
   }
 }

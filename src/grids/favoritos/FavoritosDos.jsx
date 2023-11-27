@@ -40,3 +40,16 @@ const Content3 = ({ searchTerm }) => {
 export default Content3
 
 //<li key={user.post_id}>{user.name}</li>
+
+
+// import React from 'react'
+
+// const FavoritosDos = () => {
+//   return (
+//     <div className='favoritosDosContainer'>
+//       <h2>Favoritos 2</h2>
+//     </div>
+//   )
+// }
+
+// export default FavoritosDos

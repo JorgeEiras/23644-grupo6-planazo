@@ -8,17 +8,6 @@ import '../grids/favoritos/Favoritos.css'
 
 const Favoritos = () => {
 
-
-    //Para manejar la busqueda
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const handleSearch = (term) => {
-        console.log("favoritos", term);
-        setSearchTerm(term);
-    };
-
-
-
     return (
         <React.Fragment>
             <section>
@@ -35,20 +24,6 @@ const Favoritos = () => {
             </section>
         </React.Fragment>
 
-    //     <React.Fragment>
-    //     <section>
-    //         <div className='layoutFavoritos'>
-                
-    //             <div className='content2 centered'>
-    //                 <Content2 onSearch={handleSearch}/>
-    //             </div>
-    //             <div className='content3 centered'>
-    //                 <Content3 searchTerm={searchTerm}/>
-    //             </div>
-    
-    //         </div>
-    //     </section>
-    // </React.Fragment>
     )
 }
 
