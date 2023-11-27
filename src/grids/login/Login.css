@@ -12,7 +12,7 @@
 
 /* a corregir -> los titulos van en blanco sobre fondo naranja*/
 
-h1,h3{
+.tituloLogin, .subTituloLogin{
   color: #F18018;
   display: flex;
   justify-content: center;
@@ -77,14 +77,6 @@ padding: 5%;
 .btnRegistrate {
   font-weight: bold;
 }
-
-
-
-
-
-
-
-
 
 
 
