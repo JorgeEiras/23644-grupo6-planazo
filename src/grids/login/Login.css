@@ -1,18 +1,92 @@
 .layoutLogin {
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 1fr;
-  grid-template-areas:
+  grid-template-areas: 
     'content2';
+  padding: 5%;
 }
 
 
-.lContent2 {
-  grid-area: content2;
-  background-color: greenyellow;
+/* a corregir -> los titulos van en blanco sobre fondo naranja*/
+
+h1,h3{
+  color: #F18018;
+  display: flex;
+  justify-content: center;
 }
+
+/* Estilo del login */
+
+.inicioSesion{
+background-color: white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 5%;
+}
+
+
+
+#emailField,
+#passwordField {
+  display: flex;
+  border-radius: 25px;
+  border-width: 1px;
+  width: 50%;
+  padding: 0.3rem;
+}
+
+
+.btnIniciarSesion {
+  width: 30%;
+  border-radius: 25px;
+  border-color: #55AECA;
+  background-color: #55AECA;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding-right: 2.5rem;
+  padding-left: 2.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  transition: .4s;
+}
+
+
+.btnIniciarSesion:hover {
+  transform: scale(1.02);
+  border-color: #55AECA;
+  background-color: #55AECA;
+  color: white;
+} 
+
+
+.textoRegistrate{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  }
+
+
+.btnRegistrate {
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* Estilos del footer */
 .lContent3 {
@@ -37,3 +111,7 @@
     font-size: 0.6rem;
   }
 }
+
+
+
+
