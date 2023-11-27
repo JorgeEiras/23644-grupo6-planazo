@@ -49,25 +49,28 @@ const Login = (props) => {
         <section>
             <div className='layoutLogin'>
                 
-                <div className='lContent2 centered'>
+                <div className='lContent2'>
                   <div>
-                      <h1> {isRegistrando ? "Regístrate" : "Inicia sesión"}</h1><br />
-                      <form onSubmit={submitHandler} >
-                        <label htmlFor="emailField"> Correo </label><br />
-                        <input type="email" id="emailField" /><br />
-                        <label htmlFor="passwordField"> Contraseña </label><br />
-                        <input type="password" id="passwordField" /><br /><br />
-                        <button type="submit">
+                      <h1> {isRegistrando ? "Regístrate" : "Inicia sesión"}</h1>
+                      <h3>Ingresa con tu email y contraseña</h3>
+                      <form onSubmit={submitHandler} className="inicioSesion" >
+                        <label htmlFor="emailField"></label>
+                        <input type="email" id="emailField" placeholder="Email" /><br />
+                        <label htmlFor="passwordField"> </label>
+                        <input type="password" id="passwordField" placeholder="Contraseña"/><br />
+                        <button type="submit" className="btn btnIniciarSesion">
                           {" "}
                           {isRegistrando ? "Regístrate" : "Inicia sesión"}{" "}
                         </button>
-                      </form>
-                      <br /><br />
-                      <button onClick={() => setIsRegistrando(!isRegistrando)}>
+                           <p className="textoRegistrate">No tengo cuenta.
+                      <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
                         {isRegistrando
                           ? "Iniciar sesión"
-                          : "Registrate gratis!"}
-                      </button>
+                          : "Registrarme"}
+                      </button></p>  
+                      </form>
+                  
+                  
                   </div>
                 </div>
                 
