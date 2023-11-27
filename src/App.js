@@ -25,22 +25,21 @@ function App() {
     });
   }, []);
 
-  let alter = usuario? <Favoritos /> : <Inicio />
-
+ 
   return (
     <>
       <Navbar usuario={usuario} />
-      
+
       <div>
         <Routes>
-          <Route path="/contacto" element={<Contacto/>}></Route>
-          <Route path="/favoritos" element={<Favoritos/>}></Route>
-          <Route path="/" element= {alter}></Route>
+          <Route path="/contacto" element={<Contacto />}></Route>
+          <Route path="/favoritos" element={<Favoritos />}></Route>
+          <Route path="/" element={<Inicio />}></Route>
           <Route path="/login" element={<Login setUsuario={setUsuario} />}></Route>
-          <Route path="/registro" element={<Registro/>}></Route>
+          <Route path="/registro" element={<Registro />}></Route>
         </Routes>
       </div>
-        
+
       <Footer />
     </>
   );
@@ -48,4 +47,6 @@ function App() {
 
 export default App;
 
-//<Route path="/" element= {<Inicio />}></Route> 
+// let alter = usuario ? <Favoritos /> : <Inicio />;
+// <Route path="/" element={alter}></Route> 
+// en realidad esto no va porque la ruta inicio siempre va a inicio
