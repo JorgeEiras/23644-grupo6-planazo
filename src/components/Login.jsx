@@ -51,8 +51,8 @@ const Login = (props) => {
                 
                 <div className='lContent2'>
                   <div>
-                      <h1> {isRegistrando ? "Regístrate" : "Inicia sesión"}</h1>
-                      <h3>Ingresa con tu email y contraseña</h3>
+                      <h1 className="tituloLogin"> {isRegistrando ? "Regístrate" : "Inicia sesión"}</h1>
+                      <h3 className="subTituloLogin">Ingresa con tu email y contraseña</h3>
                       <form onSubmit={submitHandler} className="inicioSesion" >
                         <label htmlFor="emailField"></label>
                         <input type="email" id="emailField" placeholder="Email" /><br />
