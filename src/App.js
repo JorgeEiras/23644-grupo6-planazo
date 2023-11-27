@@ -11,7 +11,7 @@ import Navbar from './components/Navbar';
 import Registro from './components/Registro';
 
 import "./App.css";
-import "./grids/footer/Footer.css";
+import "./grids/Footer/Footer.css";
 
 
 function App() {
