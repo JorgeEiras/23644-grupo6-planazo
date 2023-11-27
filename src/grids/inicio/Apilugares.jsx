@@ -1,9 +1,9 @@
+
 import React, { useState, useEffect } from 'react'
 import { useFetch } from "./useFetch";
 import Travel from '../../components/Travel';
-//import Content2 from './Content2';
 
-const Content3 = ({ searchTerm }) => {
+const Apilugares = ({ searchTerm }) => {
 
   const [url, setUrl] = useState("https://punctualturbodeletion--jeiras2020.repl.co/products/");
 
@@ -19,10 +19,12 @@ const Content3 = ({ searchTerm }) => {
 
 
   const { data, loading } = useFetch(url);
-
+  
 
   return (
     <main>
+      <h1>Lugares API</h1>
+
       <div className='container-fluid'>
         <div className='row'>
           {loading && <li>Loading...</li>}
@@ -33,10 +35,9 @@ const Content3 = ({ searchTerm }) => {
           ))}
         </div>
       </div>
+    
     </main>
   )
 }
 
-export default Content3
-
-//<li key={user.post_id}>{user.name}</li>
+export default Apilugares

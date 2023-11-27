@@ -1,30 +1,39 @@
-import React from 'react'
-//import Content1 from '../grids/inicio/Icontent1'
-import Content2 from '../grids/inicio/Icontent2'
-import Content3 from '../grids/favoritos/Content3'
-import Content5 from '../grids/inicio/Icontent5'
+import React, { useState } from 'react'
+
+import Buscador from '../grids/inicio/Buscador'
+import Apilugares from '../grids/inicio/Apilugares'
+
 import '../grids/inicio/Inicio.css'
 
 
 const Inicio = () => {
 
-  return (
-    <React.Fragment>
-        <section>
-            <div className='layoutInicio'>
-                <div className='iContent2 centered'>
-                    <Content2/>
+    //Para manejar la busqueda
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSearch = (term) => {
+        console.log("favoritos", term);
+        setSearchTerm(term);
+    };
+
+
+
+    return (
+        <React.Fragment>
+            <section>
+                <div className='layoutInicio'>
+
+                    <div className='buscadorContainer centered'>
+                        <Buscador onSearch={handleSearch} />
+                    </div>
+                    <div className='apiContainer centered'>
+                        <Apilugares searchTerm={searchTerm} />
+                    </div>
+
                 </div>
-                <div className='iContent3 centered'>
-                    <Content3/>
-                </div>
-                <div className='iContent5 centered text-white'>
-                    <Content5/>
-                </div>
-            </div>
-        </section>
-    </React.Fragment>
-  )
+            </section>
+        </React.Fragment>
+    )
 }
 
 export default Inicio
