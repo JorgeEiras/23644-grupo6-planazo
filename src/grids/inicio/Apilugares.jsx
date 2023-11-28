@@ -6,7 +6,8 @@ import Travel from '../../components/Travel';
 const Apilugares = ({ searchTerm }) => {
 
   const [url, setUrl] = useState("https://punctualturbodeletion--jeiras2020.repl.co/products/");
-
+  const { data, loading } = useFetch(url);
+  
   useEffect(() => {
     if (searchTerm) {
       setUrl(`https://punctualturbodeletion--jeiras2020.repl.co/products/?search=${searchTerm}`);
@@ -14,27 +15,39 @@ const Apilugares = ({ searchTerm }) => {
     } else {
       setUrl("https://punctualturbodeletion--jeiras2020.repl.co/products/");
     }
-    console.log("Soy content3", searchTerm);
+   
   }, [searchTerm]);
 
+//Agregue la funcion para filtrar los resultados ya que no los traia sin filtro.
+  const filterByProvince= (provinceName)=>{
+    return data.filter((travel)=>
+    travel.province.toLowerCase() === provinceName.toLowerCase()
+    );
+  };
 
-  const { data, loading } = useFetch(url);
-  
+  //Resultados filtrados
+  const filteredResults = searchTerm ? filterByProvince(searchTerm) : data;
 
   return (
     <main>
-      <h1>Lugares API</h1>
-
-      <div className='container-fluid'>
-        <div className='row'>
-          {loading && <li>Loading...</li>}
-          {data?.map((travel) => (
-            <div className='col-md-4' key={travel.post_id}>
-              <Travel travel={travel} />
+        <h1>Lugares API</h1>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className='container-fluid'>
+          {filteredResults.length > 0 ? (
+            <div className='row'>
+              {filteredResults.map((filteredTravel) => (
+                <div className='col-md-4' key={filteredTravel.post_id}>
+                  <Travel travel={filteredTravel} />
+                </div>
+              ))}
             </div>
-          ))}
+          ) : (
+            <p>No se encontraron resultados.</p>
+          )}
         </div>
-      </div>
+      )}
     
     </main>
   )

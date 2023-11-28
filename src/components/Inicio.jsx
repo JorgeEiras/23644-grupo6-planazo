@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-
 import Buscador from '../grids/inicio/Buscador'
 import Apilugares from '../grids/inicio/Apilugares'
-
 import '../grids/inicio/Inicio.css'
 
 

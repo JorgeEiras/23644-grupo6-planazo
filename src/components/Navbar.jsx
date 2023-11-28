@@ -17,7 +17,7 @@ export default function Navbar(props) {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+        <div className="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
           <ul className="nav nav-underline navbar-nav">
             <li className="nav-item">
               <Link to="/" className="nav-link" id="navLink">Home</Link>
