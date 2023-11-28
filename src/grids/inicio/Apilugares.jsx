@@ -29,27 +29,26 @@ const Apilugares = ({ searchTerm }) => {
   const filteredResults = searchTerm ? filterByProvince(searchTerm) : data;
 
   return (
-    <main>
-        <h1>Lugares API</h1>
+    <section>
       {loading ? (
-        <p>Loading...</p>
+        <p>Cargando...</p>
       ) : (
         <div className='container-fluid'>
           {filteredResults.length > 0 ? (
-            <div className='row'>
+              <div className='row row-cols-auto g-4 centered'>
               {filteredResults.map((filteredTravel) => (
-                <div className='col-md-4' key={filteredTravel.post_id}>
+                <div className='col' key={filteredTravel.post_id}>
                   <Travel travel={filteredTravel} />
                 </div>
               ))}
             </div>
           ) : (
-            <p>No se encontraron resultados.</p>
+            <p>No se encontraron resultados. Intentá con otro lugar!</p>
           )}
         </div>
       )}
     
-    </main>
+    </section>
   )
 }
 
