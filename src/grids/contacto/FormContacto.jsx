@@ -66,7 +66,7 @@ const FormContacto = () => {
             id='inputMensaje'
           ></textarea>
         </div>
-        <input class="btn btnEnviar" type="submit" value="Enviar"></input>
+        <input className="btn btnEnviar" type="submit" value="Enviar"></input>
       </form>
     </div>
   )
