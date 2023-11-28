@@ -62,14 +62,14 @@ const Login = (props) => {
                           {" "}
                           {isRegistrando ? "Regístrate" : "Inicia sesión"}{" "}
                         </button>
-                           <p className="textoRegistrate">No tengo cuenta.
+               
+                      </form>
+                              <p className="textoRegistrate">No tengo cuenta.
                       <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
                         {isRegistrando
                           ? "Iniciar sesión"
                           : "Registrarme"}
                       </button></p>  
-                      </form>
-                  
                   
                   </div>
                 </div>
