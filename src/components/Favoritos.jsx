@@ -11,14 +11,15 @@ const Favoritos = () => {
     return (
         <React.Fragment>
             <section>
+
                 <div className='layoutFavoritos'>
 
-                    <div className='favoritosUnoContainer centered'>
+                    <div className='favoritosUnoContainer m-5'>
                         <FavoritosUno />
                     </div>
-                    <div className='favoritosDosContainer centered'>
+                    {/*<div className='favoritosDosContainer centered'>
                         <FavoritosDos />
-                    </div>
+                    </div>*/}
 
                 </div>
             </section>

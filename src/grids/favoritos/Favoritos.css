@@ -1,34 +1,67 @@
 .layoutFavoritos {
   width: 100%;
   height: 80vh;
-  display: grid;
-  grid-template-columns: 100%;
+  /*display: grid;*/
+ /* grid-template-columns: 100%;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     'favoritosuno'
-    'favoritosdos';
+    'favoritosdos';*/
 }
 
 .favoritosUnoContainer {
-  grid-area: favoritosuno;
-  background-color: violet;
+  /*grid-area: favoritosuno;*/
+  background-color: white;
 }
 
-.favoritosDosContainer {
+.headFavorito{
+  color:black;
+  display: flex;
+  flex-direction: row;  
+  justify-content: space-between;
+
+}
+
+.btnAgregarFavoritos {
+  width: 30%;
+  border-radius: 25px;
+  border-color: #55AECA;
+  background-color: #55AECA;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding-right: 2.5rem;
+  padding-left: 2.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  transition: .4s;
+}
+
+
+.btnAgregarFavoritos:hover {
+  transform: scale(1.02);
+  border-color: #55AECA;
+  background-color: #55AECA;
+  color: white;
+} 
+
+
+/*.favoritosDosContainer {
   grid-area: favoritosdos;
   background-color: purple;
-}
+}*/
 
 
 @media only screen and (min-width: 768px) {
   .layoutFavoritos {
     width: 100%;
     height: 80vh;
-    display: grid;
+    /*display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr 5fr;
     grid-template-areas:
       'favoritosuno favoritosuno favoritosuno favoritosuno favoritosuno'
-      'favoritosdos favoritosdos favoritosdos favoritosdos favoritosdos';
+      'favoritosdos favoritosdos favoritosdos favoritosdos favoritosdos';*/
   }
 }
