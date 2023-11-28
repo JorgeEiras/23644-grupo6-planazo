@@ -1,13 +1,12 @@
 .layoutInicio {
   width: 100%;
-  height: 80vh;
+  height: auto;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 180px 5fr;
   grid-template-areas:
     'buscador'
-    'api'
-    'favoritos';
+    'api';
 }
 
 /* NAVBAR */
@@ -85,7 +84,20 @@
 /* API */
   .apiContainer {
     grid-area: api;
-    background-color: green;
+    margin:1rem;
+  }
+  .heart {
+    width: 80px;
+    height: 80px;
+    background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
+    background-position: 0 0;
+    cursor: pointer;
+    transition: background-position 1s steps(28);
+    transition-duration: 0s;
+  }
+  .heart.is-active {
+    transition-duration: 1s;
+    background-position: -2800px 0;
   }
 /* Termina css de la API */
 
@@ -94,10 +106,10 @@
 @media only screen and (min-width: 768px) {
   .layoutInicio {
     width: 100%;
-    height: 80vh;
+    height: auto;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr 1fr ;
+    grid-template-rows: 180px 1fr;
     grid-template-areas:
       'buscador buscador buscador buscador buscador'
       'api api api api api';
