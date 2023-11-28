@@ -14,7 +14,6 @@ export default function Travel({ travel }) {
   const handleClick = () => {
     setShowCorazonRojo(!showCorazonRojo);
     setFavoritePlace(travel.name);
-  
   }
   console.log({favoritePlace});
 
