@@ -8,19 +8,27 @@ export default function Travel({ travel }) {
     objectFit: 'cover'
   }
 
-  const [showCorazonRojo, setShowCorazonRojo] = useState(false);
+  const [showCorazonRojo, setShowCorazonRojo] = useState(false); //variable para cambiar la clase del corazon
+  const [favoritePlace, setFavoritePlace] = useState(''); // variable para obtener el nombre del lugar favorito
 
- 
+  const handleClick = () => {
+    setShowCorazonRojo(!showCorazonRojo);
+    setFavoritePlace(travel.name);
+  
+  }
+  console.log({favoritePlace});
+
   return (
         
     <div className="card h-100" style={{ maxWidth: "20rem" }}>
       <div>
-        <img className="card-img-top" src={travel.image.secure_url} alt={travel.name} style={imgStyle} />
+        <img className="card-img-top" src={travel.image.secure_url} alt={travel.name} style={imgStyle}/>
         <div style={{ position:"absolute", top:"0px", right:"0px"}}>
           <div className="stage">
             <div
               className={showCorazonRojo ? "heart is-active" : "heart"}
-              onClick={() => setShowCorazonRojo(!showCorazonRojo)}>
+              onClick={handleClick}
+            >
             </div>
           </div>
         </div>
