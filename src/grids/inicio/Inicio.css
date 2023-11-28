@@ -6,8 +6,7 @@
   grid-template-rows: 1fr 5fr;
   grid-template-areas:
     'buscador'
-    'api'
-    'favoritos';
+    'api';
 }
 
 /* NAVBAR */
@@ -109,7 +108,7 @@
     height: 80vh;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr 1fr ;
+    grid-template-rows: 180px 1fr;
     grid-template-areas:
       'buscador buscador buscador buscador buscador'
       'api api api api api';

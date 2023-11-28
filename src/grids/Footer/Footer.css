@@ -2,7 +2,6 @@
   .footerContainer{
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-    grid-area: content4;
     background-color: #F18018;
     color: white;
     padding: 1.5rem 1rem 2rem 1rem;
