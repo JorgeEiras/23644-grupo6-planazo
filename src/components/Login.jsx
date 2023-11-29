@@ -5,6 +5,10 @@ import { app } from "../fb";
 
 import '../grids/login/Login.css'
 
+import Swal from 'sweetalert2';
+/*import whithReactContent from 'sweetalert2-react-content';
+const MySwal = withReactContent(Swal);*/
+
 
 const Login = (props) => {
   //estado ..se está registrando o no
@@ -17,6 +21,11 @@ const Login = (props) => {
       .then((usuarioFirebase) => {
         console.log("usuario creado:", usuarioFirebase);
         props.setUsuario(usuarioFirebase);
+        mostrarAlerta("Registro exitoso", "success");
+      })
+      .catch((error) => {
+        console.error("Error al registrar usuario:", error.message);
+        mostrarAlerta(error.message, "error");
       });
   };
 
@@ -28,6 +37,16 @@ const Login = (props) => {
         console.log("sesión iniciada con:", usuarioFirebase.user);
         props.setUsuario(usuarioFirebase);
       });
+  };
+
+  const mostrarAlerta = (mensaje, tipo) => {
+    Swal.fire({
+      /*title: mensaje,*/
+      text: mensaje,
+      icon: tipo,
+      confirmButtonText: "Aceptar",
+      confirmButtonColor: "#55AECA",
+    });
   };
 
   const submitHandler = (e) => {
