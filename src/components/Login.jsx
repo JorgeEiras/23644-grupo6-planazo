@@ -89,6 +89,7 @@ const Login = (props) => {
   };
 
   return (
+    
     <React.Fragment>
       <section>
         <div className='layoutLogin'>
@@ -96,7 +97,11 @@ const Login = (props) => {
           <div className='lContent2'>
             <div>
               <h1 className="tituloLogin"> {isRegistrando ? "Regístrate" : "Inicia sesión"}</h1>
-              <h3 className="subTituloLogin">Ingresa con tu email y contraseña</h3>
+              <h3 className="subTituloLogin">
+              {isRegistrando
+                    ? "Totalmente gratis!!"
+                    : "Con tu email y contraseña"}
+              </h3>
 
               <form onSubmit={submitHandler} className="inicioSesion" >
                 <label htmlFor="emailField"></label>
@@ -114,7 +119,7 @@ const Login = (props) => {
                 <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
                   {isRegistrando
                     ? "Iniciar sesión"
-                    : "Registrarme"}
+                    :  "Registrarme"}
                 </button></p>
 
             </div>
