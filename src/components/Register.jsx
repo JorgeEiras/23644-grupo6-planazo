@@ -106,6 +106,7 @@ const Login = (props) => {
 
               <form onSubmit={submitHandler} className="inicioSesion" >
                 <label htmlFor="emailField"></label>
+                <input type="text" id="userName" placeholder="Nombre de usuario" /><br />
                 <input type="email" id="emailField" placeholder="Email" /><br />
                 <label htmlFor="passwordField"> </label>
                 <input type="password" id="passwordField" placeholder="Contraseña" /><br />
@@ -115,11 +116,11 @@ const Login = (props) => {
                 </button>
 
               </form>
-              <p className="textoRegistrate">No tengo cuenta.
+              <p className="textoRegistrate">Ya tengo cuenta.
                 <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
                   {isRegistrando
                     ? "Iniciar sesión"
-                    :  <Link to="/register" >Registrate gratis!</Link>}
+                    :  <Link to="/login" >Iniciar sesión!</Link>}
                 </button></p>
 
             </div>
