@@ -32,6 +32,7 @@ padding: 5%;
 
 
 #emailField,
+#userName,
 #passwordField {
   display: flex;
   border-radius: 25px;

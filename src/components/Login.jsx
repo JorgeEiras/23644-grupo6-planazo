@@ -15,16 +15,22 @@ const Login = (props) => {
     app
       .auth()
       .createUserWithEmailAndPassword(correo, password)
-      .then((usuarioFirebase) => {
+      .then(result => {
+        return result.user.updateProfile({
+          displayName: document.getElementById("userName").value
+        });
+      })
+      .then(usuarioFirebase => {
         console.log("usuario creado:", usuarioFirebase);
         props.setUsuario(usuarioFirebase);
         mostrarAlerta("Registro exitoso", "success");
       })
-      .catch((error) => {
+      .catch(error => {
         console.error("Error al registrar usuario:", error.message);
-        mostrarMensajeError(error.message);       
+        mostrarMensajeError(error.message);
       });
   };
+
 
   const iniciarSesion = (correo, password) => {
     app
@@ -33,7 +39,7 @@ const Login = (props) => {
       .then((usuarioFirebase) => {        
         console.log("sesión iniciada con:", usuarioFirebase.user);
         props.setUsuario(usuarioFirebase);
-        mostrarAlerta("Bienvenido " + usuarioFirebase.user.email, "success");/*Hay que corregir el dato del usuario que se muestra en el alert de bienvenida*/        
+        mostrarAlerta("Bienvenido " + usuarioFirebase.user.displayName, "success");        
       })
       .catch((error) => {
         console.error("Error al iniciar sesión:", error.message);
@@ -91,8 +97,10 @@ const Login = (props) => {
             <div>
               <h1 className="tituloLogin"> {isRegistrando ? "Regístrate" : "Inicia sesión"}</h1>
               <h3 className="subTituloLogin">Ingresa con tu email y contraseña</h3>
+
               <form onSubmit={submitHandler} className="inicioSesion" >
                 <label htmlFor="emailField"></label>
+                <input type="text" id="userName" placeholder="Nombre de usuario" /><br />
                 <input type="email" id="emailField" placeholder="Email" /><br />
                 <label htmlFor="passwordField"> </label>
                 <input type="password" id="passwordField" placeholder="Contraseña" /><br />
