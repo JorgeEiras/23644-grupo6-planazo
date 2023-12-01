@@ -3,6 +3,10 @@ import React, { useState, useEffect } from 'react'
 import { useFetch } from "./useFetch";
 import Travel from '../../components/Travel';
 
+
+export const resultadosLugaresContext = React.createContext();
+
+
 const Apilugares = ({ searchTerm }) => {
 
   const [url, setUrl] = useState("https://punctualturbodeletion--jeiras2020.repl.co/products/");
@@ -18,7 +22,7 @@ const Apilugares = ({ searchTerm }) => {
    
   }, [searchTerm]);
 
-//Agregue la funcion para filtrar los resultados ya que no los traia sin filtro.
+  //Agregue la funcion para filtrar los resultados ya que no los traia sin filtro.
   const filterByProvince= (provinceName)=>{
     return data.filter((travel)=>
     travel.province.toLowerCase() === provinceName.toLowerCase()
@@ -38,7 +42,9 @@ const Apilugares = ({ searchTerm }) => {
               <div className='row row-cols-auto g-4 centered'>
               {filteredResults.map((filteredTravel) => (
                 <div className='col' key={filteredTravel.post_id}>
-                  <Travel travel={filteredTravel} />
+                  <resultadosLugaresContext.Provider value={filteredTravel}>
+                    <Travel/>
+                  </resultadosLugaresContext.Provider>
                 </div>
               ))}
             </div>
