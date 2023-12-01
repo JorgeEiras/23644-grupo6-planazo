@@ -31,9 +31,3 @@ export default function TravelCardIndividual({ name, img, province, description 
       
   )
 }
-
-{/* <TravelCardIndividual
-    nombre={lugares.name}
-    provincia={lugares.province}
-    descripcion={lugares.description}
-></TravelCardIndividual> */}
