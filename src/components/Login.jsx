@@ -6,10 +6,9 @@ import { app } from "../fb";
 import '../grids/login/Login.css'
 
 import Swal from 'sweetalert2';
-import { Link } from "react-router-dom";
 
 const Login = (props) => {
-  //estado ..se está registrando o no
+  
   const [isRegistrando, setIsRegistrando] = React.useState(false);
 
   const crearUsuario = (correo, password) => {
@@ -105,10 +104,16 @@ const Login = (props) => {
               </h3>
 
               <form onSubmit={submitHandler} className="inicioSesion" >
-                <label htmlFor="emailField"></label>
-                <input type="email" id="emailField" placeholder="Email" /><br />
-                <label htmlFor="passwordField"> </label>
+                
+		<label htmlFor="userName"></label>
+                <input type="text" id="userName" placeholder="Nombre de usuario" /><br />
+                
+		<label htmlFor="emailField"></label>
+		<input type="email" id="emailField" placeholder="Email" /><br />
+                
+		<label htmlFor="passwordField"> </label>
                 <input type="password" id="passwordField" placeholder="Contraseña" /><br />
+
                 <button type="submit" className="btn btnIniciarSesion">
                   {" "}
                   {isRegistrando ? "Regístrate" : "Inicia sesión"}{" "}
@@ -119,7 +124,7 @@ const Login = (props) => {
                 <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
                   {isRegistrando
                     ? "Iniciar sesión"
-                    :  <Link to="/register" >Registrate gratis!</Link>}
+                    :  "Registrarme"}
                 </button></p>
 
             </div>

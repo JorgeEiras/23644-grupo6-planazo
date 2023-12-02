@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import Inicio from './components/Inicio';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
-import Register from './components/Register';
+
 
 import "./App.css";
 import "./grids/Footer/Footer.css";
@@ -36,7 +36,7 @@ function App() {
           <Route path="/favoritos" element={<Favoritos />}></Route>
           <Route path="/" element={<Inicio />}></Route>
           <Route path="/login" element={<Login setUsuario={setUsuario} />}></Route>
-          <Route path="/register" element={<Register />}></Route>
+          
           
         </Routes>
       </div>
