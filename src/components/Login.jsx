@@ -6,6 +6,7 @@ import { app } from "../fb";
 import '../grids/login/Login.css'
 
 import Swal from 'sweetalert2';
+import { Link } from "react-router-dom";
 
 const Login = (props) => {
   
@@ -92,8 +93,10 @@ const Login = (props) => {
     
     <React.Fragment>
       <section>
+      
         <div className='layoutLogin'>
-
+        
+          <Link to="/"><img className="plane" src="./favicon.svg" alt="Planazo" /></Link>
           <div className='lContent2'>
             <div>
               <h1 className="tituloLogin"> {isRegistrando ? "Regístrate" : "Inicia sesión"}</h1>

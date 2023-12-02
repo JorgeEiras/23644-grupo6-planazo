@@ -12,7 +12,7 @@
 
 /* a corregir -> los titulos van en blanco sobre fondo naranja*/
 
-.tituloLogin, .subTituloLogin{
+.tituloLogin, .subTituloLogin, .plane{
   color: #F18018;
   display: flex;
   justify-content: center;
@@ -92,11 +92,19 @@ padding: 5%;
 .lContent3 a {
   text-decoration: none;
   color: white;
+  
 }
 
 .lContent3 img {
   display: block;
   margin: auto;
+}
+
+.plane {
+  width: 300px;
+  height: auto;
+  display:flex;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 768px) {
