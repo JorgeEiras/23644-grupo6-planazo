@@ -40,13 +40,15 @@ const Apilugares = ({ searchTerm }) => {
         <div className='container-fluid'>
           {filteredResults.length > 0 ? (
               <div className='row row-cols-auto g-4 centered'>
-              {filteredResults.map((filteredTravel) => (
-                <div className='col' key={filteredTravel.post_id}>
+                
+                {filteredResults.map((filteredTravel) => (
                   <resultadosLugaresContext.Provider value={filteredTravel}>
+                    <div className='col' key={filteredTravel.post_id}>
                     <Travel/>
+                    </div>
                   </resultadosLugaresContext.Provider>
-                </div>
-              ))}
+                ))}
+                
             </div>
           ) : (
             <p>No se encontraron resultados. Intentá con otro lugar!</p>
