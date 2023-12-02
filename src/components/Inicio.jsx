@@ -19,11 +19,14 @@ const Inicio = () => {
     return (
         <React.Fragment>
             <section>
+            <h5 >Bienvenid@ </h5><br />
+            <p>Tenemos un <b>Planazo</b> para vos!! Sumate a nuestra gran comunidad colavorativa para descubrir juntos los mejores lugares de la Argentina. Es hora de viajar!!!</p>
                 <div className='layoutInicio'>
-
+                
                     <div className='buscadorContainer centered'>
                         <Buscador onSearch={handleSearch} />
                     </div>
+                    
                     <div className='apiContainer centered'>
                         <Apilugares searchTerm={searchTerm} />
                     </div>
