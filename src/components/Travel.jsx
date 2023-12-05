@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 
 
 export default function Travel() {
+  const apiKey = process.env.REACT_APP_API_PLACES_KEY;
 
   //recupero la info de resultadosLugaresContext
   const lugares = useContext(resultadosLugaresContext);
@@ -35,7 +36,7 @@ export default function Travel() {
 
     <div className="card h-100" style={{ maxWidth: "20rem" }}>
       <div>
-        <img className="card-img-top" src={lugares.image.secure_url} alt={lugares.name} style={imgStyle} />
+        <img className="card-img-top" src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${lugares.result.photos[0].photo_reference}&key=${apiKey}`} alt={lugares.result.name} style={imgStyle} />
         <div style={{ position: "absolute", top: "0px", right: "0px" }}>
           <div className="stage">
             <div
@@ -47,12 +48,14 @@ export default function Travel() {
         </div>
       </div>
       <div className="card-body mb-2">
-        <h5 className="card-title">{lugares.name}</h5>
-        <p className="card-text text-truncate">{lugares.description}</p>
-        <button onClick={handleModal} className="btn btn-primary">+ Info</button>
+        <h5 className="card-title">{lugares.result.name}</h5>
+        <p className="card-text text-truncate">{lugares.result.formatted_address}</p>
+        <button href={lugares.result.website} className="btn btn-primary">Website</button>
+        <button href={lugares.result.url} className="btn btn-primary">Mapa</button>
+        {/* <button onClick={handleModal} className="btn btn-primary">+ Info</button> */}
       </div>
 
-      <Modal show={show} onHide={handleModal}>
+      {/* <Modal show={show} onHide={handleModal}>
         <Modal.Header closeButton>
           <Modal.Title>{lugares.name}</Modal.Title>
         </Modal.Header>
@@ -67,7 +70,7 @@ export default function Travel() {
             Agregar a Favoritos
           </button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
 
     </div>
   )
