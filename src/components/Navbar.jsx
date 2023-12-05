@@ -54,6 +54,44 @@ export default function Navbar(props) {
 
         <div className="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
           <ul className="nav nav-underline navbar-nav">
+          {props.usuario ? (
+              <>
+                <li className="nav-item">
+                  <Link to="/" className="nav-link" id="navLink">Home</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/favoritos" className="nav-link" id="navLink">Favoritos</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/contacto" className="nav-link" id="navLink">Contacto</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/" onClick={confirmarCerrarSesion} className="btn" id="navBtnCerrarSesion">Cerrar Sesión</Link>
+                </li>
+              </>
+            ) : (
+              <>
+              <li className="nav-item">
+                  <Link to="/" className="nav-link" id="navLink">Home</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/contacto" className="nav-link" id="navLink">Contacto</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/login" className="btn" id="navBtnInicioSesion">Iniciar Sesión</Link>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+
+
+/* navbar anterior
             <li className="nav-item">
               <Link to="/" className="nav-link" id="navLink">Home</Link>
             </li>
@@ -69,20 +107,7 @@ export default function Navbar(props) {
                 ) : (
                 <Link to="/login" className="btn" id="navBtnInicioSesion">Iniciar Sesión</Link>
               )}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  );
-}
-
-
-
-
-
-
-
+                </li>*/
 
 /*
 // esta parte no sé por qué esta toda comentada, pero me tiraba conflicto asi que la dejo comentada señalando el codigo viejo y el que dice que viene de JorgeEiras
