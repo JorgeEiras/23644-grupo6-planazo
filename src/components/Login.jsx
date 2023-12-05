@@ -98,7 +98,7 @@ const Login = (props) => {
       
         <div className='layoutLogin'>
         
-          <Link to="/"><img className="plane" src="./favicon.svg" alt="Planazo" /></Link>
+          <Link to="/"><img className="plane" src="/imagenes/avion.png" alt="Planazo" /></Link>
 
             {isRegistrando ? (
               <div className="container-form">

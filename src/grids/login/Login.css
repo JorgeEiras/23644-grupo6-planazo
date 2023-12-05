@@ -8,6 +8,11 @@
   align-items: center;
 }
 
+.plane{
+  width: 100px;
+  margin-bottom: 2rem;
+}
+
 .container-form{
   width: 60%;
 }
