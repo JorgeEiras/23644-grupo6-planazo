@@ -15,6 +15,7 @@
 .layoutInicio {
   width: 100%;
   height: auto;
+  min-height: 80vh;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 180px 5fr;
