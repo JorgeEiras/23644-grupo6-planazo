@@ -23,9 +23,9 @@ export default function Travel() {
     setShowCorazonRojo(!showCorazonRojo);
     setFavoritePlace(lugares.name);
   }
-  console.log({ favoritePlace });
+  // console.log({ favoritePlace });
 
-  //controla el omodal
+  //controla el modal
   const [show, setShow] = useState(false);
   const handleModal = () => {
     setShow(!show);
@@ -49,7 +49,7 @@ export default function Travel() {
       <div className="card-body mb-2">
         <h5 className="card-title">{lugares.name}</h5>
         <p className="card-text text-truncate">{lugares.description}</p>
-        <button onClick={handleModal} className="btn btn-primary">+ Info</button>
+        <button onClick={handleModal} className="btn" id='navBtnInicioSesion'>+ Info</button>
       </div>
 
       <Modal show={show} onHide={handleModal}>
@@ -58,12 +58,13 @@ export default function Travel() {
         </Modal.Header>
         <Modal.Body>
           <img className="card-img-top" src={lugares.image.secure_url} alt={lugares.name} style={imgStyle} />
-          {lugares.description}</Modal.Body>
+          <p style={{marginTop:"1rem"}}>{lugares.description}</p>
+        </Modal.Body>
         <Modal.Footer>
-          <button className="btn btn-secondary" onClick={handleModal}>
+          <button className="btn" id='btnCerrarModal' onClick={handleModal}>
             Cerrar
           </button>
-          <button className="btn btn-primary" onClick={handleModal}>
+          <button className="btn" id='btnFavoritosModal' onClick={handleModal}>
             Agregar a Favoritos
           </button>
         </Modal.Footer>

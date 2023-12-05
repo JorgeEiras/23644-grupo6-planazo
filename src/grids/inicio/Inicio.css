@@ -1,3 +1,17 @@
+.banner {
+  background-color: #F18018;
+  color: white;
+  padding: 5%;
+  text-align:center;
+  margin: 3rem 2rem 0 2rem;
+}
+.banner h5 {
+  transition: .4s;
+}
+.banner h5:hover{
+  transform: scale(1.02);
+}
+
 .layoutInicio {
   width: 100%;
   height: auto;
@@ -84,7 +98,7 @@
 /* API */
   .apiContainer {
     grid-area: api;
-    margin:1rem;
+    margin:1rem 0 3.2rem 0;
   }
   .heart {
     width: 80px;
@@ -98,6 +112,28 @@
   .heart.is-active {
     transition-duration: 1s;
     background-position: -2800px 0;
+  }
+  #btnCerrarModal{
+    border-radius: 25px;
+    border: #55AECA;
+    background-color: #55AECA;
+    color: white;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    transition: .4s;
+  }
+  #btnFavoritosModal{
+    border-radius: 25px;
+    border: #F18018;
+    background-color: #F18018;
+    color: white;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    transition: .4s;
+  }
+  #btnCerrarModal:hover,
+  #btnFavoritosModal:hover {
+    transform: scale(1.02);
   }
 /* Termina css de la API */
 

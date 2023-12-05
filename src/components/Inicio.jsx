@@ -19,8 +19,11 @@ const Inicio = () => {
     return (
         <React.Fragment>
             <section>
-            <br />
-            <h6>Tenemos un <b>Planazo</b> para vos!! Sumate a nuestra gran comunidad colavorativa para descubrir juntos los mejores lugares de la Argentina. Es hora de viajar!!!</h6>
+                <div className="banner">
+                    <h5>Tenemos un <b>Planazo</b> para vos!!</h5>
+                    <h6>Sumate a nuestra gran comunidad colaborativa para descubrir juntos los mejores lugares de la Argentina. Es hora de viajar!!!</h6>
+                </div>
+                
                 <div className='layoutInicio'>
                 
                     <div className='buscadorContainer centered'>
