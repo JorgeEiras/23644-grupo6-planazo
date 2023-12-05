@@ -23,7 +23,7 @@ export default function Travel() {
     setShowCorazonRojo(!showCorazonRojo);
     setFavoritePlace(lugares.name);
   }
-  console.log({ favoritePlace });
+  // console.log({ favoritePlace });
 
   //controla el omodal
   const [show, setShow] = useState(false);

@@ -45,7 +45,6 @@
   transition: .4s;
 }
 
-
 .btnIniciarSesion:hover {
   transform: scale(1.02);
   border-color: #55AECA;
@@ -53,53 +52,13 @@
   color: white;
 } 
 
-
 .textoRegistrate{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  }
-
+}
 
 .btnRegistrate {
   font-weight: bold;
 }
-
-
-
-/* Estilos del footer */
-.lContent3 {
-  grid-area: content3;
-  background-color: #F18018;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-}
-
-.lContent3 a {
-  text-decoration: none;
-  color: white;
-  
-}
-
-.lContent3 img {
-  display: block;
-  margin: auto;
-}
-
-.plane {
-  width: 300px;
-  height: auto;
-  display:flex;
-  justify-content: center;
-}
-
-@media only screen and (max-width: 768px) {
-  .lContent3 a {
-    font-size: 0.6rem;
-  }
-}
-
-
-
-

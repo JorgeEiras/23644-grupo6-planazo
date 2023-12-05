@@ -1,3 +1,11 @@
+.banner {
+  background-color: #F18018;
+  color: white;
+  padding: 5%;
+  text-align:center;
+  margin: 2rem 3rem;
+}
+
 .layoutInicio {
   width: 100%;
   height: auto;
