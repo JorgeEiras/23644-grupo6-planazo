@@ -21,7 +21,7 @@ const Inicio = () => {
             <section>
                 <div className="banner">
                     <h5>Tenemos un <b>Planazo</b> para vos!!</h5>
-                    <h6>Sumate a nuestra gran comunidad colavobativa para descubrir juntos los mejores lugares de la Argentina. Es hora de viajar!!!</h6>
+                    <h6>Sumate a nuestra gran comunidad colaborativa para descubrir juntos los mejores lugares de la Argentina. Es hora de viajar!!!</h6>
                 </div>
                 
                 <div className='layoutInicio'>
