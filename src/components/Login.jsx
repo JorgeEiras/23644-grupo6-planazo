@@ -1,16 +1,16 @@
 import React from "react";
 import { app } from "../fb";
 
-// import Content2 from '../grids/login/Lcontent2'
-
 import '../grids/login/Login.css'
 
 import Swal from 'sweetalert2';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   
   const [isRegistrando, setIsRegistrando] = React.useState(false);
+  const navigate = useNavigate();
 
   const crearUsuario = (correo, password) => {
     app
@@ -25,6 +25,7 @@ const Login = (props) => {
         console.log("usuario creado:", usuarioFirebase);
         props.setUsuario(usuarioFirebase);
         mostrarAlerta("Registro exitoso", "success");
+        navigate("/");
       })
       .catch(error => {
         console.error("Error al registrar usuario:", error.message);
@@ -41,6 +42,7 @@ const Login = (props) => {
         console.log("sesión iniciada con:", usuarioFirebase.user);
         props.setUsuario(usuarioFirebase);
         mostrarAlerta("Bienvenido " + usuarioFirebase.user.displayName, "success");        
+        navigate("/");
       })
       .catch((error) => {
         console.error("Error al iniciar sesión:", error.message);
