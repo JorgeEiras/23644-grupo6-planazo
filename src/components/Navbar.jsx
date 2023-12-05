@@ -9,8 +9,8 @@ export default function Navbar(props) {
       title: '¿Estás seguro de cerrar sesión?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: "#55AECA",
+      cancelButtonColor: '#F18018',
       confirmButtonText: 'Sí, cerrar sesión',
       cancelButtonText: 'Cancelar',
     }).then((result) => {
@@ -30,6 +30,7 @@ export default function Navbar(props) {
         Swal.fire({
           title: 'Sesión cerrada correctamente',
           icon: 'success',
+          confirmButtonColor: "#55AECA",
         });
       })
       .catch((error) => {

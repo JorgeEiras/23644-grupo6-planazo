@@ -31,6 +31,7 @@ const FormContacto = () => {
       text: 'Gracias por contactarnos. Te responderemos pronto.',
       icon: 'success',
       confirmButtonText: 'Aceptar',
+      confirmButtonColor: "#55AECA",
     });
   };
 
