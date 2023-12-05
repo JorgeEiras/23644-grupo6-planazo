@@ -25,7 +25,6 @@ const Login = (props) => {
         console.log("usuario creado:", usuarioFirebase);
         props.setUsuario(usuarioFirebase);
         mostrarAlerta("Registro exitoso", "success");
-        navigate("/");
       })
       .catch(error => {
         console.error("Error al registrar usuario:", error.message);
