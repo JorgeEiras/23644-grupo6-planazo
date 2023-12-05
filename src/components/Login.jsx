@@ -97,43 +97,60 @@ const Login = (props) => {
         <div className='layoutLogin'>
         
           <Link to="/"><img className="plane" src="./favicon.svg" alt="Planazo" /></Link>
-          <div className="container-form">
-            
-              <h1 className="tituloLogin"> {isRegistrando ? "Regístrate" : "Inicia sesión"}</h1>
-              <h3 className="subTituloLogin">
-              {isRegistrando
-                    ? "Totalmente gratis!!"
-                    : "Con tu email y contraseña"}
-              </h3>
 
-              <form onSubmit={submitHandler} className="formInicioSesion" >
-                
-		            <label htmlFor="userName"></label>
-                <input type="text" className="form-control" id="userName" placeholder="Nombre de usuario" /><br />
-                
-                <label htmlFor="emailField"></label>
-                <input type="email" className="form-control" id="emailField" placeholder="Email" /><br />
-                            
-                <label htmlFor="passwordField"> </label>
-                <input type="password" className="form-control" id="passwordField" placeholder="Contraseña" /><br />
+            {isRegistrando ? (
+              <div className="container-form">
+                <h1 className="tituloLogin">Regístrate</h1>
+                <h3 className="subTituloLogin">Totalmente gratis!! </h3>
 
-                <button type="submit" className="btn btnIniciarSesion">
-                  {" "}
-                  {isRegistrando ? "Regístrate" : "Inicia sesión"}{" "}
-                </button>
+                <form onSubmit={submitHandler} className="formInicioSesion" >
+                  <label htmlFor="userName"></label>
+                  <input type="text" className="form-control" id="userName" placeholder="Nombre de usuario" /><br />
 
+                  <label htmlFor="emailField"></label>
+                  <input type="email" className="form-control" id="emailField" placeholder="Email" /><br />
+
+                  <label htmlFor="passwordField"> </label>
+                  <input type="password" className="form-control" id="passwordField" placeholder="Contraseña" /><br />
+
+                  <button type="submit" className="btn btnIniciarSesion">Crear mi cuenta</button>
               </form>
-              <p className="textoRegistrate">No tengo cuenta.
-                <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
-                  {isRegistrando
-                    ? "Iniciar sesión"
-                    :  "Registrarme"}
-                </button></p>
+              
+                <p className="textoRegistrate">Ya tengo una cuenta.
+                  <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
+                    {isRegistrando
+                      ? "Iniciar sesión"
+                      : "Registrarme"}
+                  </button></p>
+              </div>
+          ) : (
+              <div className="container-form">
+                <h1 className="tituloLogin">Inicia sesión</h1>
+                <h3 className="subTituloLogin">Con tu email y contraseña</h3>
+
+                <form onSubmit={submitHandler} className="formInicioSesion" >
+                  <label htmlFor="emailField"></label>
+                  <input type="email" className="form-control" id="emailField" placeholder="Email" /><br />
+                              
+                  <label htmlFor="passwordField"> </label>
+                  <input type="password" className="form-control" id="passwordField" placeholder="Contraseña" /><br />
+
+                  <button type="submit" className="btn btnIniciarSesion">Iniciar sesión</button>
+                </form>
+
+                <p className="textoRegistrate">No tengo cuenta.
+                  <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
+                    {isRegistrando
+                      ? "Iniciar sesión"
+                      :  "Registrarme"}
+                  </button></p>
+              </div>
+            )}
+
 
             
           </div>
 
-        </div>
       </section>
     </React.Fragment>
   )
