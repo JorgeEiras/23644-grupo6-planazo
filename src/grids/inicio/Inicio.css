@@ -113,6 +113,28 @@
     transition-duration: 1s;
     background-position: -2800px 0;
   }
+  #btnCerrarModal{
+    border-radius: 25px;
+    border: #55AECA;
+    background-color: #55AECA;
+    color: white;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    transition: .4s;
+  }
+  #btnFavoritosModal{
+    border-radius: 25px;
+    border: #F18018;
+    background-color: #F18018;
+    color: white;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    transition: .4s;
+  }
+  #btnCerrarModal:hover,
+  #btnFavoritosModal:hover {
+    transform: scale(1.02);
+  }
 /* Termina css de la API */
 
 
