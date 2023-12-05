@@ -97,8 +97,8 @@ const Login = (props) => {
         <div className='layoutLogin'>
         
           <Link to="/"><img className="plane" src="./favicon.svg" alt="Planazo" /></Link>
-          <div className='lContent2'>
-            <div>
+          <div className="container-form">
+            
               <h1 className="tituloLogin"> {isRegistrando ? "Regístrate" : "Inicia sesión"}</h1>
               <h3 className="subTituloLogin">
               {isRegistrando
@@ -106,16 +106,16 @@ const Login = (props) => {
                     : "Con tu email y contraseña"}
               </h3>
 
-              <form onSubmit={submitHandler} className="inicioSesion" >
+              <form onSubmit={submitHandler} className="formInicioSesion" >
                 
-		<label htmlFor="userName"></label>
-                <input type="text" id="userName" placeholder="Nombre de usuario" /><br />
+		            <label htmlFor="userName"></label>
+                <input type="text" className="form-control" id="userName" placeholder="Nombre de usuario" /><br />
                 
-		<label htmlFor="emailField"></label>
-		<input type="email" id="emailField" placeholder="Email" /><br />
-                
-		<label htmlFor="passwordField"> </label>
-                <input type="password" id="passwordField" placeholder="Contraseña" /><br />
+                <label htmlFor="emailField"></label>
+                <input type="email" className="form-control" id="emailField" placeholder="Email" /><br />
+                            
+                <label htmlFor="passwordField"> </label>
+                <input type="password" className="form-control" id="passwordField" placeholder="Contraseña" /><br />
 
                 <button type="submit" className="btn btnIniciarSesion">
                   {" "}
@@ -130,7 +130,7 @@ const Login = (props) => {
                     :  "Registrarme"}
                 </button></p>
 
-            </div>
+            
           </div>
 
         </div>
