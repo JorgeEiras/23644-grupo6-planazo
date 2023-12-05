@@ -1,12 +1,47 @@
 import React, { Link } from 'react-router-dom';
 import { app } from "../fb";
+import Swal from 'sweetalert2';
 
 export default function Navbar(props) {
-  const cerrarSesion = () => {
-    if (props.usuario) {
-      app.auth().signOut();
-    }
+
+  const confirmarCerrarSesion = () => {
+    Swal.fire({
+      title: '¿Estás seguro de cerrar sesión?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, cerrar sesión',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        cerrarSesion();
+      }
+    });
   };
+
+
+
+  const cerrarSesion = () => {
+    app.auth()
+      .signOut()
+      .then(() => {
+        props.setUsuario(null);
+        Swal.fire({
+          title: 'Sesión cerrada correctamente',
+          icon: 'success',
+        });
+      })
+      .catch((error) => {
+        console.error('Error al cerrar sesión:', error.message);
+        Swal.fire({
+          title: 'Error al cerrar sesión',
+          text: error.message,
+          icon: 'error',
+        });
+      });
+  };
+
 
   return (
     <nav className='navbar navbar-expand-lg'>
@@ -30,7 +65,7 @@ export default function Navbar(props) {
             </li>
             <li className="nav-item">
               {props.usuario ? (
-                <Link to="/" onClick={cerrarSesion} className="btn" id="navBtnCerrarSesion">Cerrar Sesión</Link>
+                <Link to="/" onClick={confirmarCerrarSesion} className="btn" id="navBtnCerrarSesion">Cerrar Sesión</Link>
                 ) : (
                 <Link to="/login" className="btn" id="navBtnInicioSesion">Iniciar Sesión</Link>
               )}
