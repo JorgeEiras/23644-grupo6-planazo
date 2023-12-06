@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Swal from 'sweetalert2';
 
 const FormContacto = () => {
 
@@ -20,7 +21,19 @@ const FormContacto = () => {
     e.preventDefault();
     console.log('Datos enviados:', formData);
     setFormData(initialFormData);
+    mostrarMensajeExito();
   }
+
+  //Pueden cambiar el text si quieren.
+  const mostrarMensajeExito = () => {
+    Swal.fire({
+      title: '¡Formulario enviado!',
+      text: 'Gracias por contactarnos. Te responderemos pronto.',
+      icon: 'success',
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: "#55AECA",
+    });
+  };
 
   return (
     <div className="contacto-container">

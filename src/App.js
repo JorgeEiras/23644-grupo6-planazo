@@ -28,7 +28,7 @@ function App() {
  
   return (
     <>
-      <Navbar usuario={usuario} />
+      <Navbar usuario={usuario} setUsuario={setUsuario}/>
 
       <div>
         <Routes>

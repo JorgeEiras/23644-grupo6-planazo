@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import FavoritosUno from '../grids/favoritos/FavoritosUno'
-import FavoritosDos from '../grids/favoritos/FavoritosDos'
 
 import '../grids/favoritos/Favoritos.css'
 
@@ -14,12 +13,9 @@ const Favoritos = () => {
 
                 <div className='layoutFavoritos'>
 
-                    <div className='favoritosUnoContainer m-5'>
+                    <div className='favoritosContainer'>
                         <FavoritosUno />
                     </div>
-                    {/*<div className='favoritosDosContainer centered'>
-                        <FavoritosDos />
-                    </div>*/}
 
                 </div>
             </section>

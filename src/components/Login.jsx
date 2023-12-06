@@ -1,16 +1,16 @@
 import React from "react";
 import { app } from "../fb";
 
-// import Content2 from '../grids/login/Lcontent2'
-
 import '../grids/login/Login.css'
 
 import Swal from 'sweetalert2';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   
   const [isRegistrando, setIsRegistrando] = React.useState(false);
+  const navigate = useNavigate();
 
   const crearUsuario = (correo, password) => {
     app
@@ -41,6 +41,7 @@ const Login = (props) => {
         console.log("sesión iniciada con:", usuarioFirebase.user);
         props.setUsuario(usuarioFirebase);
         mostrarAlerta("Bienvenido " + usuarioFirebase.user.displayName, "success");        
+        navigate("/");
       })
       .catch((error) => {
         console.error("Error al iniciar sesión:", error.message);
@@ -96,44 +97,61 @@ const Login = (props) => {
       
         <div className='layoutLogin'>
         
-          <Link to="/"><img className="plane" src="./favicon.svg" alt="Planazo" /></Link>
-          <div className='lContent2'>
-            <div>
-              <h1 className="tituloLogin"> {isRegistrando ? "Regístrate" : "Inicia sesión"}</h1>
-              <h3 className="subTituloLogin">
-              {isRegistrando
-                    ? "Totalmente gratis!!"
-                    : "Con tu email y contraseña"}
-              </h3>
+          <Link to="/"><img className="plane" src="/imagenes/avion.png" alt="Planazo" /></Link>
 
-              <form onSubmit={submitHandler} className="inicioSesion" >
-                
-		<label htmlFor="userName"></label>
-                <input type="text" id="userName" placeholder="Nombre de usuario" /><br />
-                
-		<label htmlFor="emailField"></label>
-		<input type="email" id="emailField" placeholder="Email" /><br />
-                
-		<label htmlFor="passwordField"> </label>
-                <input type="password" id="passwordField" placeholder="Contraseña" /><br />
+            {isRegistrando ? (
+              <div className="container-form">
+                <h1 className="tituloLogin">Regístrate</h1>
+                <h3 className="subTituloLogin">Totalmente gratis!! </h3>
 
-                <button type="submit" className="btn btnIniciarSesion">
-                  {" "}
-                  {isRegistrando ? "Regístrate" : "Inicia sesión"}{" "}
-                </button>
+                <form onSubmit={submitHandler} className="formInicioSesion" >
+                  <label htmlFor="userName"></label>
+                  <input type="text" className="form-control" id="userName" placeholder="Nombre de usuario" /><br />
 
+                  <label htmlFor="emailField"></label>
+                  <input type="email" className="form-control" id="emailField" placeholder="Email" /><br />
+
+                  <label htmlFor="passwordField"> </label>
+                  <input type="password" className="form-control" id="passwordField" placeholder="Contraseña" /><br />
+
+                  <button type="submit" className="btn btnIniciarSesion">Crear mi cuenta</button>
               </form>
-              <p className="textoRegistrate">No tengo cuenta.
-                <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
-                  {isRegistrando
-                    ? "Iniciar sesión"
-                    :  "Registrarme"}
-                </button></p>
+              
+                <p className="textoRegistrate">Ya tengo una cuenta.
+                  <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
+                    {isRegistrando
+                      ? "Iniciar sesión"
+                      : "Registrarme"}
+                  </button></p>
+              </div>
+          ) : (
+              <div className="container-form">
+                <h1 className="tituloLogin">Inicia sesión</h1>
+                <h3 className="subTituloLogin">Con tu email y contraseña</h3>
 
-            </div>
+                <form onSubmit={submitHandler} className="formInicioSesion" >
+                  <label htmlFor="emailField"></label>
+                  <input type="email" className="form-control" id="emailField" placeholder="Email" /><br />
+                              
+                  <label htmlFor="passwordField"> </label>
+                  <input type="password" className="form-control" id="passwordField" placeholder="Contraseña" /><br />
+
+                  <button type="submit" className="btn btnIniciarSesion">Iniciar sesión</button>
+                </form>
+
+                <p className="textoRegistrate">No tengo cuenta.
+                  <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
+                    {isRegistrando
+                      ? "Iniciar sesión"
+                      :  "Registrarme"}
+                  </button></p>
+              </div>
+            )}
+
+
+            
           </div>
 
-        </div>
       </section>
     </React.Fragment>
   )
