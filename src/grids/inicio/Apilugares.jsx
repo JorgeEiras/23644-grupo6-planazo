@@ -59,8 +59,8 @@ const Apilugares = ({ searchTerm }) => {
                 
                 {dataDetails.map((filteredTravel) => (
                   <resultadosLugaresContext.Provider value={filteredTravel}>
-                    <div className='col' key={filteredTravel.post_id}>
-                    <Travel/>
+                    <div className='col' key={filteredTravel.result.place_id}>
+                      <Travel/>
                     </div>
                   </resultadosLugaresContext.Provider>
                 ))}

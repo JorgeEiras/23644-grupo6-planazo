@@ -38,7 +38,25 @@ export default function Travel() {
 
     <div className="card h-100" style={{ maxWidth: "20rem" }}>
       <div>
-        <img className="card-img-top" src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${lugares.result.photos[0].photo_reference}&key=${apiKey}`} alt={lugares.result.name} style={imgStyle} />
+        <div id={`carousel${lugares.result.place_id}`} className="carousel slide">
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${lugares.result.photos[0].photo_reference}&key=${apiKey}`} className="d-block w-100 card-img-top" alt={lugares.result.name} style={imgStyle}/>
+            </div>
+            {lugares.result.photos.slice(1).map((photo) => (
+              <div className="carousel-item">
+                <img src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${photo.photo_reference}&key=${apiKey}`} className="d-block w-100 card-img-top" alt={lugares.result.name} style={imgStyle}/>
+              </div>
+            ))}
+          </div>
+          <button className="carousel-control-prev" type="button" data-bs-target={`#carousel${lugares.result.place_id}`} data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target={`#carousel${lugares.result.place_id}`} data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+        {/* <img className="card-img-top" src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${lugares.result.photos[0].photo_reference}&key=${apiKey}`} alt={lugares.result.name} style={imgStyle} /> */}
         <div style={{ position: "absolute", top: "0px", right: "0px" }}>
           <div className="stage">
             <div
