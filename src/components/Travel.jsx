@@ -50,9 +50,11 @@ export default function Travel() {
         </div>
       </div>
       <div className="card-body mb-2">
-        <h5 className="card-title">{lugares.name}</h5>
-        <p className="card-text text-truncate">{lugares.description}</p>
-        <button onClick={handleModal} className="btn" id='navBtnInicioSesion'>+ Info</button>
+        <h5 className="card-title">{lugares.result.name}</h5>
+        <p className="card-text text-truncate">{lugares.result.formatted_address}</p>
+        <a href={lugares.result.website} target="_blank" rel="noopener noreferrer" className="btn btn-primary me-1">Website</a>
+        <a href={lugares.result.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Mapa</a>
+        {/* <button onClick={handleModal} className="btn" id='navBtnInicioSesion'>+ Info</button> */}
       </div>
 
       {/* <Modal show={show} onHide={handleModal}>
