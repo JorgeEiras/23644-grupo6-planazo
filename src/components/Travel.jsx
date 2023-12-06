@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
-// import { resultadosLugaresContext } from '../grids/inicio/Apilugares';
-import { resultadosLugaresContext } from '../grids/inicio/Apiplaces';
+import { resultadosLugaresContext } from '../grids/inicio/Apilugares';
+
 import Modal from 'react-bootstrap/Modal';
 
 

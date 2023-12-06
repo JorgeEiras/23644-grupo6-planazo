@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Buscador from '../grids/inicio/Buscador'
-// import Apilugares from '../grids/inicio/Apilugares'
-import Apiplaces from '../grids/inicio/Apiplaces'
+import Apilugares from '../grids/inicio/Apilugares'
 import '../grids/inicio/Inicio.css'
 
 
@@ -29,8 +28,7 @@ const Inicio = () => {
                     </div>
                     
                     <div className='apiContainer centered'>
-                        {/* <Apilugares searchTerm={searchTerm} /> */}
-                        <Apiplaces searchTerm={searchTerm} />
+                        <Apilugares searchTerm={searchTerm} />
                     </div>
 
                 </div>
