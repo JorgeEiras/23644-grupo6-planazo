@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Buscador from '../grids/inicio/Buscador'
-import Apilugares from '../grids/inicio/Apilugares'
-import Apiplaces from '../grids/inicio/Apilugares'
+// import Apilugares from '../grids/inicio/Apilugares'
+import Apiplaces from '../grids/inicio/Apiplaces'
 import '../grids/inicio/Inicio.css'
 
 

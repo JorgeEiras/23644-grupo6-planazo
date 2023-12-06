@@ -49,9 +49,9 @@ const Apiplaces = ({ searchTerm }) => {
           {dataDetails.length > 0 ? (
               <div className='row row-cols-auto g-4 centered'>
                 
-                {dataDetails.map((filteredTravel, id) => (
+                {dataDetails.map((filteredTravel) => (
                   <resultadosLugaresContext.Provider value={filteredTravel}>
-                    <div className='col' key={id}>
+                    <div className='col' key={filteredTravel.post_id}>
                     <Travel/>
                     </div>
                   </resultadosLugaresContext.Provider>
