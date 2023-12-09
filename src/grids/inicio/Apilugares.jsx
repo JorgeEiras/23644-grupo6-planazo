@@ -9,6 +9,7 @@ export const resultadosLugaresContext = React.createContext();
 const Apilugares = ({ searchTerm }) => {
   const [search, setSearch] = useState("ciudades de argentina");
   const [dataDetails, setDataDetails] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   // Key de la API guardada en variable de entorno, usa archivo .env en raiz del proyecto
   const apiKey = process.env.REACT_APP_API_PLACES_KEY;
@@ -19,12 +20,11 @@ const Apilugares = ({ searchTerm }) => {
 
   async function getPlaces() {
     if (searchTerm) setSearch(searchTerm);
+    setLoading(true);
 
     // Busca lugares en la api y obtiene place_id
     const responsePlaces = await fetch(`https://corsproxy.io/?https://maps.googleapis.com/maps/api/place/textsearch/json?query=${search}&key=${apiKey}`);
     const dataPlaces = await responsePlaces.json();
-    console.log(dataPlaces);
-    console.log(dataPlaces.results);
 
     if (dataPlaces.results.length > 0) {
       // Con el place_id busca los detalles de cada lugar
@@ -33,6 +33,9 @@ const Apilugares = ({ searchTerm }) => {
         return await responseDetails.json();
       })));
     } else  if (search !== "ciudades de argentina") setDataDetails([]);
+    setLoading(false);
+    console.log(dataPlaces);
+    console.log(dataPlaces.results);
     console.log(dataDetails);
 }
 
@@ -49,10 +52,9 @@ const Apilugares = ({ searchTerm }) => {
 
   return (
     <section>
-      {/* {loading ? (
+      {loading ? (
         <p>Cargando...</p>
-      ) : ( */}
-      {
+      ) : (
         <div className='container-fluid'>
           {dataDetails.length > 0 ? (
               <div className='row row-cols-auto g-4 centered'>
@@ -70,8 +72,7 @@ const Apilugares = ({ searchTerm }) => {
             <p>No se encontraron resultados. Intentá con otro lugar!</p>
           )}
         </div>
-      }
-    
+      )}
     </section>
   )
 }
