@@ -28,7 +28,7 @@ export default function Travel() {
 
   const handleClick = () => {
     setShowCorazonRojo(!showCorazonRojo);
-    setFavoritePlace(lugares.name);
+    setFavoritePlace(lugares.result.name);
   }
   // console.log({ favoritePlace });
 
@@ -74,9 +74,9 @@ export default function Travel() {
       <div className="card-body mb-2">
         <h5 className="card-title">{lugares.result.name}</h5>
         <p className="card-text text-truncate">{lugares.result.formatted_address}</p>
-        <a href={lugares.result.website} target="_blank" rel="noopener noreferrer" className="btn btnCards">Website</a>
-        <a href={lugares.result.url} target="_blank" rel="noopener noreferrer" className="btn btnCards mx-2">Mapa</a>
-        <button onClick={handleModal} className="btn btnCards">Fotos</button>
+        <a href={lugares.result.website} target="_blank" rel="noopener noreferrer" className="btn" id='btnCards'>Website</a>
+        <a href={lugares.result.url} target="_blank" rel="noopener noreferrer" className="btn mx-2" id='btnCards'>Mapa</a>
+        <button onClick={handleModal} className="btn" id='btnCards'>Fotos</button>
         {/* <button onClick={handleModal} className="btn" id='navBtnInicioSesion'>Fotos</button> */}
       </div>
 
