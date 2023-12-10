@@ -16,10 +16,13 @@ const Apilugares = ({ searchTerm }) => {
 
   useEffect(()=>{
     getPlaces();
+  }, [search]);
+
+  useEffect(()=>{
+    if (searchTerm) setSearch(searchTerm);
   }, [searchTerm]);
 
   async function getPlaces() {
-    if (searchTerm) setSearch(searchTerm);
     setLoading(true);
 
     // Busca lugares en la api y obtiene place_id

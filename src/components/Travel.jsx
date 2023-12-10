@@ -16,7 +16,7 @@ export default function Travel() {
     objectFit: 'cover'
   }
   const imgModalStyle = {
-    height: '400px',
+    height: '350px',
     objectFit: 'cover'
   }
 
