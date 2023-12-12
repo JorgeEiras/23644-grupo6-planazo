@@ -49,7 +49,7 @@ export default function Travel() {
     setFavoritos(favoritosData);
     return favoritos;
   }
-  console.log(favoritos);
+  // console.log(favoritos);
 
 
 
@@ -79,8 +79,8 @@ export default function Travel() {
     }
   }
 
-  console.log(usuarioUID);
-  console.log(postID);
+  // console.log(usuarioUID);
+  // console.log(postID);
 
 
 
