@@ -19,25 +19,24 @@ const FavoritosUno = () => {
   //referencia a la db de firebase: tiene que ir a db y de ahi a la coleccion favoritos usando la funcionalidad collection de firebase
   const favoritosCollection = collection(db, "Favoritos");
 
-  //aca pide que sean del usuario activo
-  const q = query(favoritosCollection, where("usuario", "==", "sol2"));
 
   //hacer el asincronismo con esa coleccion con esa query. devuelve los post_id de los lugares favoriteados
-  const getFavoritos = async () => {
+  const getFavoritos = async (usuarioID) => {
+    const q = query(favoritosCollection, where("usuario", "==", usuarioID));  //aca pide que sean del usuario activo
+
     const data = await getDocs(q);
     setFavoritos(
-      data.docs.map((doc) => ({ ...doc.data().favoritos }))
+      data.docs.map((doc) => ({ ...doc.data().favoritos })) //aca trae el array favoritos del doc de corresponde a ese usuarioID
     );
   }
   console.log(favoritos);
-
 
 
   //useEffect
   useEffect(() => {
     setUsuarioUID(usuario.user.uid);
     console.log(usuarioUID);
-    getFavoritos();
+    getFavoritos(usuarioUID);
   }, [])
 
 
