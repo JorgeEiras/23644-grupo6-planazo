@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react'
 import { useFetch } from "./useFetch";
 import Travel from '../../components/Travel';

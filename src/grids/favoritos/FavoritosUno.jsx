@@ -4,40 +4,46 @@ import { collection, getDocs, deleteDoc, doc, query, where } from 'firebase/fire
 import { db } from '../../fb';
 import { async } from '@firebase/util';
 import Swal from 'sweetalert2';
+import { usuarioContext } from '../../App';
 
 
 
 const FavoritosUno = () => {
 
-  
-  //1. configurar los hooks
+  //recupero la info de usuarioContext
+  const usuario = useContext(usuarioContext);
+
   const [favoritos, setFavoritos] = useState([]);
+  const [usuarioUID, setUsuarioUID] = useState('');
 
-
-  //2. referencia a la db de firebase: tiene que ir a db y de ahi a la coleccion favoritos usando la funcionalidad collection de firebase
+  //referencia a la db de firebase: tiene que ir a db y de ahi a la coleccion favoritos usando la funcionalidad collection de firebase
   const favoritosCollection = collection(db, "Favoritos");
-  //2.5 aca pide que sean del usuario activo
+
+  //aca pide que sean del usuario activo
   const q = query(favoritosCollection, where("usuario", "==", "sol2"));
 
-  //3. hacer el asincronismo con esa coleccion con esa query
+  //hacer el asincronismo con esa coleccion con esa query. devuelve los post_id de los lugares favoriteados
   const getFavoritos = async () => {
     const data = await getDocs(q);
     setFavoritos(
-      data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      data.docs.map((doc) => ({ ...doc.data().favoritos }))
     );
   }
   console.log(favoritos);
 
 
-  
 
-
-  //4. useEffect
+  //useEffect
   useEffect(() => {
+    setUsuarioUID(usuario.user.uid);
+    console.log(usuarioUID);
     getFavoritos();
   }, [])
 
-  //falta que llame a la api y que traiga esos lugares
+
+
+
+
 
 
   return (
@@ -48,27 +54,44 @@ const FavoritosUno = () => {
       </div>
 
 
-
-      {/* ESTE ES UN EJEMPLO PARA YA TENER LOS ESTILOS. REEMPLAZARLO POR LO QUE CORRESPONDA MANTENIENDO LOS ESTILOS*/}
-      <div className="mostrarFavoritosContainer row row-cols-auto g-4 centered"> 
-                
-        <div className="favorito col">
-          <div className="card flex-row h-100" style={{ width: "20rem", alignItems:"center", justifyContent:"center"}}>
-            <img className="card-img-left example-card-img-responsive" src="/imagenes/avion.png" alt="favorito.name" style={{ maxHeight:"5rem", padding:"5%" }}/>
-            <div className="card-body">
-              <h4 className="card-title h5 h4-sm"> Valle de la Luna</h4>
-              <p className="card-text" style={{ fontSize: "small" }}>San Juan</p>
+      {favoritos.lenght > 0 ? (
+        <div className="mostrarFavoritosContainer row row-cols-auto g-4 centered">
+          {favoritos.map(() => (
+            <div className="favorito col">
+              <div className="card flex-row h-100" style={{ width: "20rem", alignItems: "center", justifyContent: "center" }}>
+                <img className="card-img-left example-card-img-responsive" src="/imagenes/avion.png" alt="favorito.name" style={{ maxHeight: "5rem", padding: "5%" }} />
+                <div className="card-body">
+                  <h4 className="card-title h5 h4-sm"> Valle de la Luna</h4>
+                  <p className="card-text" style={{ fontSize: "small" }}>San Juan</p>
+                </div>
+              </div>
             </div>
-          </div>
+
+          ))}
+
+
         </div>
-      </div>
-      {/* ACA TERMINA EL EJEMPLO*/}
-      
-      
+      ) : (
+        <p>Todavía no agregaste ningun lugar a tus favoritos :heartbroken:</p>
+      )}
+
+
     </div>
-      
-    
+
+
   )
 }
 
 export default FavoritosUno
+
+// {
+//   filteredResults.length > 0 ? (
+//     <div className='row row-cols-auto g-4 centered'>
+
+//       {filteredResults.map((filteredTravel) => (
+//         <div className='col' key={filteredTravel.post_id}>
+//         </div>
+//       ))}
+
+//     </div>
+//   ) 

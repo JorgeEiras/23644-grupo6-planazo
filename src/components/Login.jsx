@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { app } from "../fb";
 
 
@@ -13,7 +13,6 @@ const Login = (props) => {
   const navigate = useNavigate();
 
   const [isRegistrando, setIsRegistrando] = React.useState(false);
-  const [usuarioActivo, setUsuarioActivo] = useState(''); //var para obtener el usuarname actual
 
   const crearUsuario = (correo, password) => {
     app
@@ -41,11 +40,9 @@ const Login = (props) => {
       .auth()
       .signInWithEmailAndPassword(correo, password)
       .then((usuarioFirebase) => {
-        console.log("sesión iniciada con:", usuarioFirebase.user.displayName);
+        // console.log("sesión iniciada con:", usuarioFirebase.user.displayName);
         props.setUsuario(usuarioFirebase);
         mostrarAlerta("Bienvenido " + usuarioFirebase.user.displayName, "success");
-        setUsuarioActivo(usuarioFirebase.user.uid);
-        console.log("tu userID es:", usuarioFirebase.user.uid);
         navigate("/");
       })
       .catch((error) => {
