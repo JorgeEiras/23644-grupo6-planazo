@@ -1,6 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { resultadosLugaresContext } from '../grids/inicio/Apilugares';
 import Modal from 'react-bootstrap/Modal';
+import FavoritosUno from '../grids/favoritos/FavoritosUno';
+
+import { getAuth } from "firebase/auth"; //llamo para saber el currentUser
+
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../fb';
+import { async } from '@firebase/util';
+
+// import Swal from 'sweetalert2';
+
+// import { Link } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 
 export default function Travel() {
@@ -13,23 +25,39 @@ export default function Travel() {
     objectFit: 'cover'
   }
 
-
   //controla el corazon
   const [showCorazonRojo, setShowCorazonRojo] = useState(false); //variable para cambiar la clase del corazon
   const [favoritePlace, setFavoritePlace] = useState(''); // variable para obtener el nombre del lugar favorito
+  const [favoritePlaceID, setFavoritePlaceID] = useState(0); // variable para obtener el id del lugar favorito
+  const [usuarioActivo, setUsuarioActivo] = useState(''); //var para obtener el usuarname actual
 
 
-  const handleClick = () => {
+
+  //1. controla el corazon y setea las variables que vamos a guardar en la db
+  const handleClickCorazon = () => {
     setShowCorazonRojo(!showCorazonRojo);
     setFavoritePlace(lugares.name);
+    setFavoritePlaceID(lugares.post_id);
+    // buscarCurrentUser();
   }
-  // console.log({ favoritePlace });
+  console.log(favoritePlace);
+  console.log(favoritePlaceID);
+  // console.log(usuarioActivo);
+
+
+
+  //2. referenciar a la base
+  const favoritossCollection = collection(db, "Favoritos");
+
+
+
 
   //controla el modal
   const [show, setShow] = useState(false);
   const handleModal = () => {
     setShow(!show);
   }
+
 
   return (
 
@@ -40,7 +68,7 @@ export default function Travel() {
           <div className="stage">
             <div
               className={showCorazonRojo ? "heart is-active" : "heart"}
-              onClick={handleClick}
+              onClick={handleClickCorazon}
             >
             </div>
           </div>
@@ -58,7 +86,7 @@ export default function Travel() {
         </Modal.Header>
         <Modal.Body>
           <img className="card-img-top" src={lugares.image.secure_url} alt={lugares.name} style={imgStyle} />
-          <p style={{marginTop:"1rem"}}>{lugares.description}</p>
+          <p style={{ marginTop: "1rem" }}>{lugares.description}</p>
         </Modal.Body>
         <Modal.Footer>
           <button className="btn" id='btnCerrarModal' onClick={handleModal}>
@@ -69,6 +97,7 @@ export default function Travel() {
           </button>
         </Modal.Footer>
       </Modal>
+
 
     </div>
   )

@@ -1,8 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { collection, getDocs, deleteDoc, doc, query, where } from 'firebase/firestore';
+import { db } from '../../fb';
+import { async } from '@firebase/util';
+import Swal from 'sweetalert2';
+
+
 
 const FavoritosUno = () => {
 
+  
+  //1. configurar los hooks
+  const [favoritos, setFavoritos] = useState([]);
+
+
+  //2. referencia a la db de firebase: tiene que ir a db y de ahi a la coleccion favoritos usando la funcionalidad collection de firebase
+  const favoritosCollection = collection(db, "Favoritos");
+  //2.5 aca pide que sean del usuario activo
+  const q = query(favoritosCollection, where("usuario", "==", "sol2"));
+
+  //3. hacer el asincronismo con esa coleccion con esa query
+  const getFavoritos = async () => {
+    const data = await getDocs(q);
+    setFavoritos(
+      data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+    );
+  }
+  console.log(favoritos);
+
+
+  
+
+
+  //4. useEffect
+  useEffect(() => {
+    getFavoritos();
+  }, [])
+
+  //falta que llame a la api y que traiga esos lugares
 
 
   return (
@@ -26,36 +61,6 @@ const FavoritosUno = () => {
             </div>
           </div>
         </div>
-
-        <div className="favorito col">
-          <div className="card flex-row h-100" style={{ width: "20rem", alignItems: "center", justifyContent: "center" }}>
-            <img className="card-img-left example-card-img-responsive" src="/imagenes/avion.png" alt="favorito.name" style={{ maxHeight: "5rem", padding: "5%" }} />
-            <div className="card-body">
-              <h4 className="card-title h5 h4-sm">EJ1.Purmamarca</h4>
-              <p className="card-text" style={{ fontSize: "small" }}>Jujuy</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="favorito col">
-          <div className="card flex-row h-100" style={{ width: "20rem", alignItems: "center", justifyContent: "center" }}>
-            <img className="card-img-left example-card-img-responsive" src="/imagenes/avion.png" alt="favorito.name" style={{ maxHeight: "5rem", padding: "5%" }} />
-            <div className="card-body">
-              <h4 className="card-title h5 h4-sm">Villa Langostura</h4>
-              <p className="card-text" style={{ fontSize: "small" }}>Rio Negro</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="favorito col">
-          <div className="card flex-row h-100" style={{ width: "20rem", alignItems: "center", justifyContent: "center" }}>
-            <img className="card-img-left example-card-img-responsive" src="/imagenes/avion.png" alt="favorito.name" style={{ maxHeight: "5rem", padding: "5%" }} />
-            <div className="card-body">
-              <h4 className="card-title h5 h4-sm">favorito.name</h4>
-              <p className="card-text" style={{ fontSize: "small" }}>favorito.province</p>
-            </div>
-          </div>
-        </div>    
       </div>
       {/* ACA TERMINA EL EJEMPLO*/}
       
