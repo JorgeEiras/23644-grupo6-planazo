@@ -53,7 +53,3 @@ function App() {
 }
 
 export default App;
-
-// let alter = usuario ? <Favoritos /> : <Inicio />;
-// <Route path="/" element={alter}></Route>
-// en realidad esto no va porque la ruta inicio siempre va a inicio
