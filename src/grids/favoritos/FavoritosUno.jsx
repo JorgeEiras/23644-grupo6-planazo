@@ -30,7 +30,7 @@ const FavoritosUno = () => {
       data.docs.map((doc) => ({ ...doc.data().favoritos })) //aca trae el array favoritos del doc de corresponde a ese usuarioID
     );
   }
-  console.log(favoritos);
+  // console.log(favoritos);
 
 
   //busca en la api y filtra
@@ -40,7 +40,7 @@ const FavoritosUno = () => {
       const responseData = await response.json();
 
       setDataApi(responseData);
-      console.log(dataApi);
+      // console.log(dataApi);
 
       const favoritosIds = favoritos.flatMap(obj => Object.values(obj));
 
@@ -48,10 +48,10 @@ const FavoritosUno = () => {
         favoritosIds.includes(objeto.post_id)
       );
 
-      console.log(dataFiltrada);
+      // console.log(dataFiltrada);
 
       setDataFinal(dataFiltrada);
-      console.log(dataFinal);
+      // console.log(dataFinal);
 
     } catch (error) { 
       console.log("error al obtener datos", error)
@@ -62,10 +62,10 @@ const FavoritosUno = () => {
   //useEffect
   useEffect(() => {
     setUsuarioUID(usuario.user.uid);
-    console.log(usuarioUID);
+    // console.log(usuarioUID);
     getFavoritos(usuarioUID);
     getFavoritosDataFinal(favoritos); //aca llama a la api
-  }, [usuarioUID])
+  }, [usuarioUID]) //SI PONGO FAVORITOS EN LAS DEPENDENCIAS, SE ACTULIZA BIEN PERO SE RENDERIZA ETERNAMENTE X-X
 
 
  
@@ -92,8 +92,6 @@ const FavoritosUno = () => {
             </div>
 
           ))}
-
-
         </div>
       ) : (
         <p>Todavía no agregaste ningun lugar a tus favoritos :heartbroken:</p>

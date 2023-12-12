@@ -1,24 +1,29 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { resultadosLugaresContext } from '../grids/inicio/Apilugares';
+import { usuarioContext } from '../App';
 import Modal from 'react-bootstrap/Modal';
-import FavoritosUno from '../grids/favoritos/FavoritosUno';
 
-import { getAuth } from "firebase/auth"; //llamo para saber el currentUser
-
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, getDocs, updateDoc, doc, query, where } from 'firebase/firestore';
 import { db } from '../fb';
 import { async } from '@firebase/util';
+import { dbCollections } from '../../src/collection'; //la coleccion que vamos a usar
+
 
 // import Swal from 'sweetalert2';
 
 // import { Link } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Travel() {
 
   //recupero la info de resultadosLugaresContext
   const lugares = useContext(resultadosLugaresContext);
+
+  //recupero la info de usuarioContext
+  const usuario = useContext(usuarioContext);
+
+  const navigate = useNavigate();
 
   const imgStyle = {
     height: '200px',
@@ -27,27 +32,81 @@ export default function Travel() {
 
   //controla el corazon
   const [showCorazonRojo, setShowCorazonRojo] = useState(false); //variable para cambiar la clase del corazon
-  const [favoritePlace, setFavoritePlace] = useState(''); // variable para obtener el nombre del lugar favorito
-  const [favoritePlaceID, setFavoritePlaceID] = useState(0); // variable para obtener el id del lugar favorito
-  const [usuarioActivo, setUsuarioActivo] = useState(''); //var para obtener el usuarname actual
+  const [usuarioUID, setUsuarioUID] = useState('');
+  const [postID, setPostID] = useState(0);
+  const [favoritos, setFavoritos] = useState([]);
+
+  //referenciar a la base
+  const favoritosCollection = collection(db, "Favoritos");
 
 
+  //tiene favoritos ya guardados? consulta a la db
+  const getFavoritos = async (usuarioID) => {
+    const q = query(favoritosCollection, where("usuario", "==", usuarioID));  //aca pide que sean del usuario activo
 
-  //1. controla el corazon y setea las variables que vamos a guardar en la db
-  const handleClickCorazon = () => {
-    setShowCorazonRojo(!showCorazonRojo);
-    setFavoritePlace(lugares.name);
-    setFavoritePlaceID(lugares.post_id);
-    // buscarCurrentUser();
+    const data = await getDocs(q);
+    setFavoritos(
+      data.docs.map((doc) => ({ ...doc.data().favoritos })) //aca trae el array favoritos del doc de corresponde a ese usuarioID
+    );
   }
-  console.log(favoritePlace);
-  console.log(favoritePlaceID);
-  // console.log(usuarioActivo);
+  console.log(favoritos);
 
 
+  useEffect(() => {
+    if (usuario == null) {
+      console.log("no iniciaste sesion bolas"); 
 
-  //2. referenciar a la base
-  const favoritossCollection = collection(db, "Favoritos");
+    } else {
+
+      setUsuarioUID(usuario.user.uid);
+      getFavoritos(usuarioUID);
+      
+    }
+    
+  }, [usuario]);
+  
+
+  function toggleCorazon() { 
+    setShowCorazonRojo(!showCorazonRojo)
+  }
+
+  
+  const handleClickCorazon = () => {
+    if (usuario == null) {
+      console.log("no iniciaste sesion bolas"); //aca deberia ir un alerta
+      navigate("/login");
+    } else {
+      setShowCorazonRojo(!showCorazonRojo);
+      setPostID(lugares.post_id);
+
+      // getDocdelUsuario(usuarioUID);
+      // if (docUsuario.length == 0) {
+      //   console.log("no existe", docUsuario); //si no existe, lo tengo que crear
+      //   // crearDocUsuarioConFavorito(usuarioUID, postID);
+      // } else {
+      //   console.log("existe", docUsuario) //si existe, tengo que actualizar el array de favoritos
+      //   actualizarDocUsuarioConFavoritoNuevo(docUsuario, postID);
+      // }
+    }
+  }
+
+
+  console.log(usuarioUID);
+  console.log(postID);
+
+
+  // const crearDocUsuarioConFavorito = async (user, postID) => {
+  //   await addDoc(favoritosCollection, { usuario: user, favoritos: postID });  // aca pongo donde van a parar los datos
+  //   console.log("agregaste un lugar a la db");
+  // };
+
+  // const actualizarDocUsuarioConFavoritoNuevo = async (docUser, postID) => {
+  //   const favorito = doc(db, dbCollections.Favoritos, docUser);
+  //   const nuevoFavorito = docUser.favoritos.push(postID);
+  //   await updateDoc(favorito, nuevoFavorito);
+  //   console.log("actualizaste los favoritos")
+  // };
+
 
 
 
@@ -69,6 +128,7 @@ export default function Travel() {
             <div
               className={showCorazonRojo ? "heart is-active" : "heart"}
               onClick={handleClickCorazon}
+              id={ lugares.post_id }
             >
             </div>
           </div>
