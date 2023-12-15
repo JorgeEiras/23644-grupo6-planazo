@@ -3,7 +3,7 @@ import { resultadosLugaresContext } from '../grids/inicio/Apilugares';
 import { usuarioContext } from '../App';
 import Modal from 'react-bootstrap/Modal';
 
-import { collection, addDoc, getDocs, updateDoc, doc, query, where } from 'firebase/firestore';
+import { collection, addDoc, getDocs, updateDoc, doc, query, where, deleteDoc } from 'firebase/firestore';
 import { db } from '../fb';
 import { async } from '@firebase/util';
 
@@ -35,7 +35,7 @@ export default function Travel() {
   const [favoritosExistentes, setFavoritosExistentes] = useState([]);
   const [usuarioExiste, setUsuarioExiste] = useState("");
 
-
+  const [isFavorito, setIsFavorito] = useState(false);
 
   //primero consigue la data del usuario
   const fetchUserID = async () => {
@@ -79,11 +79,27 @@ export default function Travel() {
       await addDoc(favoritosCollection, { usuario: usuarioUID, favoritos: [postID] });
       console.log("se esta creando un doc");
       //si es exitoso, se pone rojo el corazon (falta el if)
-      setShowCorazonRojo(!showCorazonRojo);
+      setShowCorazonRojo(true);
     } catch (error) {
       console.log("hubo un error al crear el doc en la db");
     }
   }
+
+  const eliminarFavorito = async (postID) => {
+    try {
+      const q = query(favoritosCollection, where("usuario", "==", usuarioUID));
+      const data = await getDocs(q);
+      const docId = data.docs[0].id;
+      await deleteDoc(doc(favoritosCollection, docId));
+      console.log("se está eliminando el doc");
+      // Desmarcar el corazón
+      setShowCorazonRojo(false);
+    } catch (error) {
+      console.log("Hubo un error al eliminar el doc en la db", error);
+    }
+  }
+
+
 
   const handleClickCorazon = (postID) => {
     if (usuario == null) {
@@ -96,6 +112,7 @@ export default function Travel() {
         nuevoDoc(postID);
       } else {
         //si favExistentes no esta vacio, pushea el post_id
+        eliminarFavorito(postID);
       }
     }
   }
@@ -117,7 +134,7 @@ export default function Travel() {
         <div style={{ position: "absolute", top: "0px", right: "0px" }}>
           <div className="stage">
             <div
-              className={showCorazonRojo ? "heart is-active" : "heart"}
+             className={showCorazonRojo ? "heart is-active" : "heart"}
               onClick={() => { handleClickCorazon(lugares.post_id) }}
             >
             </div>
