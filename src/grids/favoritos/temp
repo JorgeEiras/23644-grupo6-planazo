@@ -1,210 +1,94 @@
-  const dataApi = 
-    [
-      {
-        "image": {
-          "public_id": "replit/vdoizaep5kgnlbl3ac8a",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699337136/replit/vdoizaep5kgnlbl3ac8a.jpg"
-        },
-        "_id": "6549d3af11b4d31bfe017532",
-        "name": "Cumbrecita",
-        "province": "Cordoba",
-        "description": "La Cumbrecita. Un pueblito alpino enclavado en las sierras.Salimos de Córdoba por RP 5, pasando por el Monumento a Myriam Stefford, Alta Gracia, Anisacate, La Bolsa y Villa Ciudad de América. Continuamos el recorrido cruzando los cuatro ríos afluentes del Lago Los Molinos y las localidades de Potrero de Garay y Los Reartes. Desde allí ascendemos por las Sierras Grandes, atravesando una pintoresca región de bosques de coníferas. Pasamos por Villa Berna y arribamos a La Cumbrecita, un pueblito de estilo alpino que tiene la singularidad de ser uno de los pocos pueblos peatonales del mundo. Visitamos el balneario La Olla, el tradicional hotel La Cumbrecita, la capilla ecuménica, etc. Luego conocemos Villa General Belgrano, con su particular fisonomía centroeuropea. Retomamos la RP 5 pasando por la Curva del Viento, disfrutando de una espectacular vista panorámica del Lago y Dique Los Molinos; y emprendemos el regreso a Córdoba.",
-        "post_id": 1,
-        "createdAt": "2023-11-07T06:05:36.603Z",
-        "updatedAt": "2023-11-07T06:05:36.603Z",
-        "__v": 0
-      },
-      {
-        "image": {
-          "public_id": "replit/jlbb8ne32pzfjwteotno",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699337265/replit/jlbb8ne32pzfjwteotno.jpg"
-        },
-        "_id": "6549d43111b4d31bfe017538",
-        "name": "Traslasierra",
-        "province": "Cordoba",
-        "description": "Salimos de Córdoba. Transitamos el Camino de las Altas Cumbres, disfrutando de sus vistas y visitando distintos puntos en el camino. Llegamos a Mina Clavero, conocemos el balneario de los Elefantes, el centro comercial, etc. En Villa Cura Brochero pasamos por la Iglesia donde predicaba el recordado Cura Gaucho. Continuamos por Nono, recorremos el Museo Polifacético Rocsen",
-        "post_id": 2,
-        "createdAt": "2023-11-07T06:07:46.278Z",
-        "updatedAt": "2023-11-07T06:07:46.278Z",
-        "__v": 0
-      },
-      {
-        "image": {
-          "public_id": "replit/dplx9hhbowawhwyznb1m",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699337346/replit/dplx9hhbowawhwyznb1m.jpg"
-        },
-        "_id": "6549d48211b4d31bfe01753e",
-        "name": "Cerro",
-        "province": "Mendoza",
-        "description": "Un territorio que sin la intervención del hombre sería un desierto, conozca sus avenidas, las ruinas de San Francisco, la plaza Independencia, área fundacional, parque Gral. San Martín y el Cerro de la Gloria, que forman parte del corazón urbano de la bella provincia de Mendoza.",
-        "post_id": 3,
-        "createdAt": "2023-11-07T06:09:07.679Z",
-        "updatedAt": "2023-11-07T06:09:07.679Z",
-        "__v": 0
-      },
-      {
-        "image": {
-          "public_id": "replit/jy2yv96gelauvfx2hkdd",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699337832/replit/jy2yv96gelauvfx2hkdd.jpg"
-        },
-        "_id": "6549d66811b4d31bfe017553",
-        "name": "Bodegas",
-        "province": "Mendoza",
-        "description": "Comenzarás el recorrido visitando una bodega de tipo industrial, su historia, sus procesos y diferentes productos.• Luego te dirigirás a una bodega familiar donde aprenderás, también sobre su historia y proceso, para poder notar las diferencias en las elaboraciones, pero notarás que ambas bodegas llegan al mismo resultado en sus sabores y calidad.• También visitarás una fábrica de aceite de oliva, otro de los productos reconocidos en Mendoza por su gran calidad. Podrás conocer su proceso y probar su calidad en una degustación.",
-        "post_id": 4,
-        "createdAt": "2023-11-07T06:17:13.505Z",
-        "updatedAt": "2023-11-07T06:17:13.505Z",
-        "__v": 0
-      },
-      {
-        "image": {
-          "public_id": "replit/pfg1zckwzpnnnqepvirg",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699337891/replit/pfg1zckwzpnnnqepvirg.jpg"
-        },
-        "_id": "6549d6a311b4d31bfe017556",
-        "name": "Ciudad",
-        "province": "Mendoza",
-        "description": "Área fundacional de la ciudad de Mendoza. Luego el famoso parque San Martín, el pulmón de la ciudad. Subiremos al Cerro de la Gloria, continuando el City Tour hasta el Challao, donde se encuentra el santuario de la Virgen de Lourdes.",
-        "post_id": 5,
-        "createdAt": "2023-11-07T06:18:12.242Z",
-        "updatedAt": "2023-11-07T06:18:12.242Z",
-        "__v": 0
-      },
-      {
-        "image": {
-          "public_id": "replit/tkqrn9eovjkfircx9uds",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699338112/replit/tkqrn9eovjkfircx9uds.jpg"
-        },
-        "_id": "6549d78011b4d31bfe01755c",
-        "name": "Purmamarca",
-        "province": "Saltas",
-        "description": "Desde la quebrada de Humahuaca, pasarás por pueblos tradicionales del norte hasta llegar a Purmamarca con su Cerro de los 7 colores y arribar a Abra del Potrerillo donde estás a los 4150 msnm y luego al desierto blando de las Salinas grandes.Descubre la experienciaTendrás tiempo para hacer espectaculares fotos y caminar por la gran planicie blanca.Harás paradas para sacar fotos del camino de ascenso de la Cuesta del Lipan (2300msnm en 50km).Al regresar a Purmamarca, tendrás tiempo almorzar (no incluido) y visitar el mercado artesanal.Aprovecha para caminar alrededor de los Colorados para tener una vista única de todo el pueblo y las montañas que lo rodean.Si eliges las opciones combinadas podrás conocer los innumerables paisajes del noroeste argentino.",
-        "post_id": 6,
-        "createdAt": "2023-11-07T06:21:53.163Z",
-        "updatedAt": "2023-11-07T06:21:53.163Z",
-        "__v": 0
-      },
-      {
-        "image": {
-          "public_id": "replit/oiumvkuoa6olr2l43qw3",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699338279/replit/oiumvkuoa6olr2l43qw3.jpg"
-        },
-        "_id": "6549d82711b4d31bfe017564",
-        "name": "El Cafayate",
-        "province": "Saltas",
-        "description": "Vive una experiencia única visitando pueblos históricos y probando sabores locales.Descubre la experienciaEl viaje comienza hacia el sur de la provincia, donde visitarás el valle de Lerma.Luego, entrarpás en la espectacular Quebrada de las Conchas, donde el viento y el agua erosionaron en curiosas formas las montañas (Anfiteatro, Garganta del diablo, Los Castillos, entre otros).Al arribar a Cafayate, visitarás a bodegas con degustaciones de los mejores vinos de la zona, entre ellos el Torrontes, cuya producción se da de excelente calidad debido a las particularidades del clima y suelo.Después del almuerzo, volverás a Salta por la Quebrada de las Conchas y el Valle de Lerma.Durante el recorrido se realizan paradas en distintos puntos para disfrutar la naturaleza, caminar por las montañas, hablar con los lugareños, probar nuevos sabores y aromas de la zona.",
-        "post_id": 7,
-        "createdAt": "2023-11-07T06:24:39.924Z",
-        "updatedAt": "2023-11-07T06:24:39.924Z",
-        "__v": 0
-      },
-      {
-        "image": {
-          "public_id": "replit/uvfikkmc4iubixq4usuw",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699338382/replit/uvfikkmc4iubixq4usuw.jpg"
-        },
-        "_id": "6549d88e11b4d31bfe017568",
-        "name": "Cachi del Valle",
-        "province": "Saltas",
-        "description": "Disfruta de la combinación de paisajes de los valles.Descubre la experienciaDisfruta del Valle de Lerma y la Quebrada de los Laureles donde podrás ver las yungas.En un camino zigzagueante, podrás conocer la Cuesta del Obispo, de donde es posible ver todo el Valle Encantado y pequeñas casas con maizales y árboles frutales.Finalmente visitarás el Parque Nacional Los Cardones y las mágicas calles del pueblo de Cachi.Podrás disfrutar de las vistas de la Cuesta. En Piedra del Molino alcanzarás el punto más alto de 3384 msnm.Conoce el nevado de Cachi (6340 msnm) y visitar su pueblo con su museo e iglesia.También se realizan paradas para disfrutar de la naturaleza. Si te animas, puede mojar tus pies o tomar agua de vertientes.Aprovecha el tiempo para conocer el pueblo y la gente local, degustar sus comidas y ver sus costumbres.Existen opciones que incluyen Salinas Grandes y Humahuaca. Elige la que prefieras!",
-        "post_id": 8,
-        "createdAt": "2023-11-07T06:26:23.063Z",
-        "updatedAt": "2023-11-07T06:26:23.063Z",
-        "__v": 0
-      },
-      {
-        "image": {
-          "public_id": "replit/kjoactqng7xmnvw5sxlu",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699338483/replit/kjoactqng7xmnvw5sxlu.jpg"
-        },
-        "_id": "6549d8f211b4d31bfe01756c",
-        "name": "Usuhaia",
-        "province": "Tierra del Fuego",
-        "description": "En este paseo vamos a recorrer la ruta nacional N 3 hacia el este y a medida que avanzamos iremos trepando la Cordillera de los Andes hasta alcanzar el Mirador del Paso Garibaldi desde el cual podremos ver el lago Escondido. Lugo visitaremos Estancia La Carmen, la cual nos permitirá llegar a la costa del Lago Fagnano y al volver a la ciudad almorzaremos en un centro invernal.Descubre la experienciaRuta 3Centro Invernal Las CotorrasMirador Paso GaribaldiLago EscondidoEstancia La CarmenLago Fagnano",
-        "post_id": 9,
-        "createdAt": "2023-11-07T06:28:03.655Z",
-        "updatedAt": "2023-11-07T06:28:03.655Z",
-        "__v": 0
-      },
-      {
-        "image": {
-          "public_id": "replit/lhccqmkzbwdhvswnqadr",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699338569/replit/lhccqmkzbwdhvswnqadr.jpg"
-        },
-        "_id": "6549d94811b4d31bfe017570",
-        "name": "Parque Nacional Tierra del Fuego",
-        "province": "Tierra del Fuego",
-        "description": "En tu visita al Parque Nacional, dirás que efectivamente estuviste en El Fin del Mundo, Principio de Todo.No te lo podés perder!Descubre la experiencia08:30 - Pick up time09:00 - Ingreso parque nacional14:00 - Retorno al Hotel",
-        "post_id": 10,
-        "createdAt": "2023-11-07T06:29:29.763Z",
-        "updatedAt": "2023-11-07T06:29:29.763Z",
-        "__v": 0
-      },
-      {
-        "image": {
-          "public_id": "replit/fdzeythydebeqxrgsain",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699338674/replit/fdzeythydebeqxrgsain.jpg"
-        },
-        "_id": "6549d9b211b4d31bfe017574",
-        "name": "Siete lagos Villa la Angostura",
-        "province": "Neuquen",
-        "description": "El recorrido por los hoteles comienza a las 9hs, luego tomamos la mítica Ruta 40 que une a las localidades de San Martín de los Andes y Villa La Angostura, 110 kilómetros para el asombro, donde la geografía y naturaleza patagónica nos dan lo mejor, convirtiéndose en el circuito turístico regional por excelencia.Saliendo desde San Martín de los Andes, por la Ruta de los Siete Lagos dentro del bosque andino patagónico recorremos este camino, mundialmente conocido por su paisaje encantador, ofrece paradas en los diferentes miradores donde se suscitan los majestuosos espejos de agua: Lago Lacar, Lago Machonico, Lago Falkner, Lago Villarino, Lago Espejo, Lago Correntoso y Lago Nahuel Huapi.Ya en Villa La Angostura conoceremos diferentes puntos de interés, como los puertos y bahías del Nahuel Huapi, el paraje Quintupuray, la residencia del gobernador, llamada El Messidor, el centro de la ciudad y los alrededores a través de distintos miradores, disponiendo de tiempo libre para recorrer los distintos atractivos de la ciudad.Regreso por la tarde a San Martín de los Andes aproximadamente 18.30hsObservación:Las salidas son exclusivamente en ESPAÑOL.Pick-up únicamente por hoteles céntricos.Deberá esperar a su guía en el lobby del hotel indicado.Se recomienda llevar abrigo.",
-        "post_id": 11,
-        "createdAt": "2023-11-07T06:31:14.998Z",
-        "updatedAt": "2023-11-07T06:31:14.998Z",
-        "__v": 0
-      },
-      {
-        "image": {
-          "public_id": "replit/ymgm0uyerxiebej7bw0k",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699339025/replit/ymgm0uyerxiebej7bw0k.jpg"
-        },
-        "_id": "6549db1011b4d31bfe017578",
-        "name": "Villa Quila Quina",
-        "province": "Neuquen",
-        "description": "Dentro del Parque Nacional Lanin, Quila Quina se ubica a tan solo 18 km de San Martín de los Andes, sobre la margen sur del lago Lácar, forma parte de los alrededores de la ciudadEl circuito comienza tomando la Ruta Nacional 40 para, luego de seis kilómetros disfrutando de las vistas del Lago Lácar, se toma un camino de montaña donde un bosque de robles domina la escena, con esplendidas vistasDescubre la experienciaVisitaremos la villa residencial, la playa con el típico muelle, hay un restaurant donde se puede tomar algo. La vista a la cordillera es magnífica, en cada mirador vale la pena tomar una fotografía.Observación: Las salidas son exclusivamente en ESPAÑOL. Pick-up únicamente por hoteles céntricos. Deberá esperar a su guía en el lobby del hotel indicado. Se recomienda llevar abrigo.*El precio de la excursión no incluye el regreso en Catamarán.Excursión de medio día, terrestre.",
-        "post_id": 12,
-        "createdAt": "2023-11-07T06:37:05.763Z",
-        "updatedAt": "2023-11-07T06:37:05.763Z",
-        "__v": 0
-      },
-      {
-        "image": {
-          "public_id": "replit/e4yvi7jg9mahoptnprbm",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699342423/replit/e4yvi7jg9mahoptnprbm.jpg"
-        },
-        "_id": "6549e85711b4d31bfe01757d",
-        "name": "Delta Tigre",
-        "province": "Buenos Aires",
-        "description": "Descubre el único delta en crecimiento del mundo, a solo 1 hora 30 de del Centro de Buenos Aires y en la embarcación más segura, confortable y serena.Recuerda que los traslados no están incluidos. En el Catamarán se puede circular con total libertad entre el salón vidriado y la cubierta superior, que a modo de un enorme balcón al Delta, brinda una vista inigualable. El salón dispone de todas las comodidades necesarias para disfrutar de variadas propuestas gastronómicas, sistema de audio, amplios pasillos y baños para ambos sexo.El Delta del Paraná es una región conformada por la acumulación de sedimentos procedentes de los ríos del norte de nuestro país, que desaguan en el Paraná y luego en el Río de la Plata. La zona que ustedes recorrerán en catamarán es la perteneciente a Tigre y lo que la hace tan particular es la conjunción de naturaleza e historia que se reúnen en ella. Aquí podrán disfrutar de paisajes de enorme belleza natural y muestras de la vida cotidiana de quienes habitan en sus islas. Además, por haber sido un enclave donde colonos de diferentes orígenes, artistas de renombre y familias de la aristocracia argentina dejaron su impronta, las muestras de sus obras lo sorprenderán. Paseos de 1 hora y 2 horas de navegación.",
-        "post_id": 13,
-        "createdAt": "2023-11-07T07:33:44.006Z",
-        "updatedAt": "2023-11-07T07:33:44.006Z",
-        "__v": 0
-      },
-      {
-        "image": {
-          "public_id": "replit/wjpcprclk6jhmhk9tbrh",
-          "secure_url": "https://res.cloudinary.com/deiooxuwx/image/upload/v1699342489/replit/wjpcprclk6jhmhk9tbrh.jpg"
-        },
-        "_id": "6549e89911b4d31bfe017581",
-        "name": "Rio de la Plata",
-        "province": "Buenos Aires",
-        "description": "Disfruta de la caida del sol y la fascinante navegación por el interior del Puerto de Buenos Aires con toda su actividad y la maravillosa vista de la City Porteña. Embarque: 17:30 pm. Zarpada: 18:30 pm Regreso a puerto: 19:30 pm. Incluye open bar de bebidas con alcohol (nacional) y sin alcohol.Descubre la experiencia17:30 - embarque18:30 - partida19:30 - regreso y fin actividad",
-        "post_id": 14,
-        "createdAt": "2023-11-07T07:34:50.180Z",
-        "updatedAt": "2023-11-07T07:34:50.180Z",
-        "__v": 0
-      }
-    ];
+//recupero la info de usuarioContext
+  const usuario = useContext(usuarioContext);
 
-  const favoritos = {
-    0: 1,
-    1: 3,
+  //recupero la info de resultadosLugaresContext
+  // const lugares = useContext(resultadosLugaresContext);
+
+  const [dataFavsDB, setDataFavsDB] = useState([]);
+  const [usuarioUID, setUsuarioUID] = useState('');
+  const [favoritosFinal, setFavoritosFinal] = useState([]);
+  const [dataApi, setDataApi] = useState([]);
+
+
+
+  //primero consigue la data del usuario
+  const fetchUserID = async () => {
+    try {
+      if (usuario) {
+        setUsuarioUID(usuario.user.uid);
+      }
+    } catch (error) {
+      console.error('Error al obtener el ID del usuario:', error);
+    }
   };
 
-  const resultado = dataApi.filter((objeto) =>
-    Object.values(favoritos).includes(objeto.post_id)
-  );
+  useEffect(() => {
+    fetchUserID();
+  }, [usuario]);
 
-  console.log(resultado);
+
+
+  //segundo, busca los favoritos en la db
+  //referencia a la db de firebase: tiene que ir a db y de ahi a la coleccion favoritos usando la funcionalidad collection de firebase
+  const favoritosCollection = collection(db, "Favoritos");
+
+  //hacer el asincronismo con la db
+  const getFavoritos = async (uid) => {
+    // console.log("esta buscando en la db");
+    try {
+      const q = query(favoritosCollection, where("usuario", "==", uid));  //aca pide que sean del usuario activo
+
+      const data = await getDocs(q);
+      setDataFavsDB(
+        data.docs.map((doc) => ({ ...doc.data().favoritos })) //aca trae el array favoritos del doc de corresponde a ese usuarioID
+      );
+    } catch (error) {
+      console.log("Error al conseguir los favoritos de la db", error);
+    }
+  }
+
+  //busca los lugares de la api
+  useEffect(() => {
+    async function getDataApi() {
+      try {
+        const response = await fetch(
+          "https://punctualturbodeletion--jeiras2020.repl.co/products/"
+        );
+        const responseData = await response.json();
+        setDataApi(responseData);
+      } catch (error) {
+        console.log("error al obtener datos de la api", error);
+      }
+    }
+  }, []);
+
+
+  //filtra los lugares que trae la api para que deje los que estan en la lista de favoritos
+  const lugaresFiltradosByPostID = (dataFavsDB) => {
+    const favoritosIDs = dataFavsDB.flatMap(obj => Object.values(obj));
+    console.log(favoritosIDs);
+    console.log(dataApi);
+    if (dataApi) {
+      console.log("esta filtrando los lugares");
+      const lugaresFiltrados = dataApi.filter((lugar) => lugar.post_id === favoritosIDs);
+      setFavoritosFinal(lugaresFiltrados);
+    } else {
+      console.log("hay un problema obteniendo los lugares del usecontext");
+    }
+  };
+
+  useEffect(() => {
+    if (usuarioUID != null) {
+      getFavoritos(usuarioUID);
+      if ((dataFavsDB.length > 0) && (dataApi.length > 0)) {
+        lugaresFiltradosByPostID(dataFavsDB);
+      }
+    }
+  }, [dataFavsDB]);
+
+
+  console.log(usuarioUID);
+  console.log(dataFavsDB);
+  console.log(favoritosFinal);
+  console.log(dataApi);
+

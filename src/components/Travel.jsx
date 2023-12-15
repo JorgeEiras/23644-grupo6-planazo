@@ -28,19 +28,33 @@ export default function Travel() {
     objectFit: 'cover'
   }
 
-  //controla el corazon
+  //variables
   const [showCorazonRojo, setShowCorazonRojo] = useState(false); //variable para cambiar la clase del corazon
-  const [yaEstaEnFavoritos, setYaEstaEnFavoritos] = useState(false);
   const [usuarioUID, setUsuarioUID] = useState('');
   const [postID, setPostID] = useState(0);
   const [favoritos, setFavoritos] = useState([]);
 
 
-  //referenciar a la base
+  //primero consigue la data del usuario
+  const fetchUserID = async () => {
+    try {
+      if (usuario) {
+        setUsuarioUID(usuario.user.uid);
+      }
+    } catch (error) {
+      console.error('Error al obtener el ID del usuario:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserID();
+  }, [usuario]);
+
+
+
+  //segundo busca la data en la db
   const favoritosCollection = collection(db, "Favoritos");
 
-
-  //tiene favoritos ya guardados? consulta a la db
   const getFavoritos = async (usuarioID) => {
     const q = query(favoritosCollection, where("usuario", "==", usuarioID)); 
 
@@ -53,18 +67,18 @@ export default function Travel() {
 
 
 
-  useEffect(() => {
-    if (usuario == null) {
-      console.log("no iniciaste sesion bolas"); 
-    } else {
-      setUsuarioUID(usuario.user.uid);
-      getFavoritos(usuarioUID);
-      if (lugares.post_id == favoritos) {
-        setYaEstaEnFavoritos(true)
-      };
+  // useEffect(() => {
+  //   if (usuario == null) {
+  //     console.log("no iniciaste sesion bolas"); 
+  //   } else {
+  //     setUsuarioUID(usuario.user.uid);
+  //     getFavoritos(usuarioUID);
+  //     if (lugares.post_id == favoritos) {
+  //       // setYaEstaEnFavoritos(true)
+  //     };
        
-    }
-  }, [usuario]); //SI PONGO FAVORITOS EN LAS DEPENDENCIAS, SE ACTULIZA BIEN PERO SE RENDERIZA ETERNAMENTE X-X
+  //   }
+  // }, [usuario]); //SI PONGO FAVORITOS EN LAS DEPENDENCIAS, SE ACTULIZA BIEN PERO SE RENDERIZA ETERNAMENTE X-X
 
 
   
@@ -99,7 +113,7 @@ export default function Travel() {
         <div style={{ position: "absolute", top: "0px", right: "0px" }}>
           <div className="stage">
             <div
-              className={showCorazonRojo || yaEstaEnFavoritos ? "heart is-active" : "heart"}
+              className={showCorazonRojo ? "heart is-active" : "heart"}
               onClick={handleClickCorazon}
               id={ lugares.post_id }
             >

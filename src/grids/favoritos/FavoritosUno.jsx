@@ -4,7 +4,12 @@ import { collection, getDocs, deleteDoc, doc, query, where } from 'firebase/fire
 import { db } from '../../fb';
 import { async } from '@firebase/util';
 import Swal from 'sweetalert2';
+import { useFetch } from "../inicio/useFetch";
+
+
 import { usuarioContext } from '../../App';
+// import { resultadosLugaresContext } from '../inicio/Apilugares';
+
 
 
 
@@ -13,62 +18,88 @@ const FavoritosUno = () => {
   //recupero la info de usuarioContext
   const usuario = useContext(usuarioContext);
 
-  const [favoritos, setFavoritos] = useState([]);
-  const [usuarioUID, setUsuarioUID] = useState('');
-  const [dataApi, setDataApi] = useState([]);
-  const [dataFinal, setDataFinal] = useState([]);
+  //recupero la info de resultadosLugaresContext
+  // const lugares = useContext(resultadosLugaresContext);
 
+  const [dataFavsDB, setDataFavsDB] = useState([]);
+  const [usuarioUID, setUsuarioUID] = useState('');
+  const [favoritosFinal, setFavoritosFinal] = useState([]);
+
+
+  //primero consigue la data del usuario
+  const fetchUserID = async () => {
+    try {
+      if (usuario) {
+        setUsuarioUID(usuario.user.uid);
+      }
+    } catch (error) {
+      console.error('Error al obtener el ID del usuario:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserID();
+  }, [usuario]);
+
+
+
+  //segundo, busca los favoritos en la db
   //referencia a la db de firebase: tiene que ir a db y de ahi a la coleccion favoritos usando la funcionalidad collection de firebase
   const favoritosCollection = collection(db, "Favoritos");
 
   //hacer el asincronismo con la db
-  const getFavoritos = async (usuarioID) => {
-    const q = query(favoritosCollection, where("usuario", "==", usuarioID));  //aca pide que sean del usuario activo
-
-    const data = await getDocs(q);
-    setFavoritos(
-      data.docs.map((doc) => ({ ...doc.data().favoritos })) //aca trae el array favoritos del doc de corresponde a ese usuarioID
-    );
-  }
-  // console.log(favoritos);
-
-
-  //busca en la api y filtra
-  async function getFavoritosDataFinal(favoritos) {
+  const getFavoritos = async (uid) => {
+    // console.log("esta buscando en la db");
     try {
-      const response = await fetch('https://punctualturbodeletion--jeiras2020.repl.co/products/');
-      const responseData = await response.json();
+      const q = query(favoritosCollection, where("usuario", "==", uid));  //aca pide que sean del usuario activo
 
-      setDataApi(responseData);
-      // console.log(dataApi);
+      const data = await getDocs(q);
+      const dataDocs = data.docs.map((doc) => ({ ...doc.data().favoritos })) //aca trae el array favoritos del doc de corresponde a ese usuarioID
+      const favoritosIDs = dataDocs.flatMap(obj => Object.values(obj));
+      setDataFavsDB(favoritosIDs);
+    } catch (error) {
+      console.log("Error al conseguir los favoritos de la db", error);
+    }
+  }
 
-      const favoritosIds = favoritos.flatMap(obj => Object.values(obj));
+  //busca los lugares de la api
+  const [url, setUrl] = useState("");
+  const { data, loading } = useFetch(url);
+  useEffect(() => {
+    setUrl(`https://punctualturbodeletion--jeiras2020.repl.co/products/`);
+  }, []);
 
-      const dataFiltrada = dataApi.filter((objeto) =>
-        favoritosIds.includes(objeto.post_id)
-      );
 
-      // console.log(dataFiltrada);
-
-      setDataFinal(dataFiltrada);
-      // console.log(dataFinal);
-
-    } catch (error) { 
-      console.log("error al obtener datos", error)
+  //filtra los lugares que trae la api para que deje los que estan en la lista de favoritos
+  const lugaresFiltradosByPostID = (dataFavsDB) => {
+    if (data && dataFavsDB) {
+      // console.log("esta filtrando los lugares");
+      try {
+        const lugaresFiltrados = data.filter((lugar) => dataFavsDB.includes(lugar.post_id));
+        setFavoritosFinal(lugaresFiltrados);
+      } catch (error) {
+        console.log("hay un error en el filtrado", error);
+      }
     }
   };
 
-
-  //useEffect
   useEffect(() => {
-    setUsuarioUID(usuario.user.uid);
-    // console.log(usuarioUID);
-    getFavoritos(usuarioUID);
-    getFavoritosDataFinal(favoritos); //aca llama a la api
-  }, [usuarioUID]) //SI PONGO FAVORITOS EN LAS DEPENDENCIAS, SE ACTULIZA BIEN PERO SE RENDERIZA ETERNAMENTE X-X
+    if (usuarioUID != null) {
+      getFavoritos(usuarioUID);
+      if ((dataFavsDB.length > 0) && (data)) {
+        lugaresFiltradosByPostID(dataFavsDB);
+      }
+    }
+  }, [usuarioUID, dataFavsDB, data]);
 
 
- 
+  console.log(usuarioUID);
+  console.log(dataFavsDB);
+  console.log(data);
+  console.log(favoritosFinal);
+  //no se por que los console.logs salen eternamente pero funciona y es lo ue importa
+  
+
 
   return (
     <div className='container-fluid'>
@@ -78,15 +109,15 @@ const FavoritosUno = () => {
       </div>
 
 
-      {dataFinal.length > 0 ? (
+      {favoritosFinal.length > 0 ? (
         <div className="mostrarFavoritosContainer row row-cols-auto g-4 centered">
-          {dataFinal.map((lugar) => (
+          {favoritosFinal.map((lugar) => (
             <div key={lugar.post_id} className="favorito col">
               <div className="card flex-row h-100" style={{ width: "20rem", alignItems: "center", justifyContent: "center" }}>
                 <img className="card-img-left example-card-img-responsive" src="/imagenes/avion.png" alt="favorito.name" style={{ maxHeight: "5rem", padding: "5%" }} />
                 <div className="card-body">
-                  <h4 className="card-title h5 h4-sm"> { lugar.name }</h4>
-                  <p className="card-text" style={{ fontSize: "small" }}> { lugar.province } </p>
+                  <h4 className="card-title h5 h4-sm"> {lugar.name}</h4>
+                  <p className="card-text" style={{ fontSize: "small" }}> {lugar.province} </p>
                 </div>
               </div>
             </div>

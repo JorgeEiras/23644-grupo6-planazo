@@ -21,10 +21,19 @@ function App() {
   const [usuario, setUsuario] = React.useState(null);
 
   useEffect(() => {
-    app.auth().onAuthStateChanged((usuarioFirebase) => {
-      console.log("ya tienes sesión iniciada con:", usuarioFirebase);
-      console.log(usuario);
-    });
+    try {
+      app.auth().onAuthStateChanged((usuarioFirebase) => {
+        console.log("ya tienes sesión iniciada con:", usuarioFirebase);
+        // if (usuario != null) {
+        //   console.log(usuario.user);
+        // } else {
+        //   console.log(usuario);
+        // }
+      });
+    } catch (error) {
+      console.log("Error al obtener info de usuario", error);
+    }
+    
   }, [usuario]);
 
   return (
