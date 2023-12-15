@@ -31,8 +31,10 @@ export default function Travel() {
   //variables
   const [showCorazonRojo, setShowCorazonRojo] = useState(false); //variable para cambiar la clase del corazon
   const [usuarioUID, setUsuarioUID] = useState('');
-  const [postID, setPostID] = useState(0);
-  const [favoritos, setFavoritos] = useState([]);
+  // const [postID, setPostID] = useState(0);
+  const [favoritosExistentes, setFavoritosExistentes] = useState([]);
+  const [usuarioExiste, setUsuarioExiste] = useState("");
+
 
 
   //primero consigue la data del usuario
@@ -52,50 +54,52 @@ export default function Travel() {
 
 
 
-  //segundo busca la data en la db
+  //segundo busca la data en la db si ya existe un doc para ese usuario
   const favoritosCollection = collection(db, "Favoritos");
 
-  const getFavoritos = async (usuarioID) => {
-    const q = query(favoritosCollection, where("usuario", "==", usuarioID)); 
+  const getFavoritos = async (uid) => {
+    // console.log("esta buscando en la db");
+    try {
+      const q = query(favoritosCollection, where("usuario", "==", uid));  //aca pide que sean del usuario activo
 
-    const data = await getDocs(q);
-    const favoritosData = data.docs.map((doc) => ({ ...doc.data().favoritos }));
-    setFavoritos(favoritosData);
-    return favoritos;
-  }
-  // console.log(favoritos);
-
-
-
-  // useEffect(() => {
-  //   if (usuario == null) {
-  //     console.log("no iniciaste sesion bolas"); 
-  //   } else {
-  //     setUsuarioUID(usuario.user.uid);
-  //     getFavoritos(usuarioUID);
-  //     if (lugares.post_id == favoritos) {
-  //       // setYaEstaEnFavoritos(true)
-  //     };
-       
-  //   }
-  // }, [usuario]); //SI PONGO FAVORITOS EN LAS DEPENDENCIAS, SE ACTULIZA BIEN PERO SE RENDERIZA ETERNAMENTE X-X
-
-
-  
-  const handleClickCorazon = () => {
-    if (usuario == null) {
-      console.log("no iniciaste sesion bolas"); //aca deberia ir un alerta
-      navigate("/login");
-    } else {
-      setShowCorazonRojo(!showCorazonRojo);
-      setPostID(lugares.post_id);
-      //aca tndria que agregar elfavorito a la db
+      const data = await getDocs(q);
+      const dataDocsFav = data.docs.map((doc) => ({ ...doc.data().favoritos })) //aca trae el array favoritos del doc de corresponde a ese usuarioID
+      const favoritosIDs = dataDocsFav.flatMap(obj => Object.values(obj));
+      const dataDocsUser = data.docs.map((doc) => ({ ...doc.data().usuario })) //aca trae el string con el UID del usuario
+      setFavoritosExistentes(favoritosIDs);
+      setUsuarioExiste(dataDocsUser);
+    } catch (error) {
+      console.log("Error al conseguir los favoritos de la db", error);
     }
   }
 
-  // console.log(usuarioUID);
-  // console.log(postID);
+  //asincronismo para crear un doc en la base
+  const nuevoDoc = async (postID) => {
+    try {
+      await addDoc(favoritosCollection, { usuario: usuarioUID, favoritos: [postID] });
+      console.log("se esta creando un doc");
+      //si es exitoso, se pone rojo el corazon (falta el if)
+      setShowCorazonRojo(!showCorazonRojo);
+    } catch (error) {
+      console.log("hubo un error al crear el doc en la db");
+    }
+  }
 
+  const handleClickCorazon = (postID) => {
+    if (usuario == null) {
+      console.log("no iniciaste sesion bolas"); //aca deberia ir un alerta que redirija al inicio de sesion
+      navigate("/login");
+    } else {
+      getFavoritos(usuarioUID);
+      if ((usuarioExiste == "") && (postID > 0)) {
+        //si no existe un doc con ese usuario hay que crear el doc
+        nuevoDoc(postID);
+      } else {
+        //si favExistentes no esta vacio, pushea el post_id
+      }
+    }
+  }
+  
 
 
   //controla el modal
@@ -114,8 +118,7 @@ export default function Travel() {
           <div className="stage">
             <div
               className={showCorazonRojo ? "heart is-active" : "heart"}
-              onClick={handleClickCorazon}
-              id={ lugares.post_id }
+              onClick={() => { handleClickCorazon(lugares.post_id) }}
             >
             </div>
           </div>

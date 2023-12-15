@@ -8,7 +8,6 @@ import { useFetch } from "../inicio/useFetch";
 
 
 import { usuarioContext } from '../../App';
-// import { resultadosLugaresContext } from '../inicio/Apilugares';
 
 
 
@@ -18,8 +17,6 @@ const FavoritosUno = () => {
   //recupero la info de usuarioContext
   const usuario = useContext(usuarioContext);
 
-  //recupero la info de resultadosLugaresContext
-  // const lugares = useContext(resultadosLugaresContext);
 
   const [dataFavsDB, setDataFavsDB] = useState([]);
   const [usuarioUID, setUsuarioUID] = useState('');
@@ -93,10 +90,10 @@ const FavoritosUno = () => {
   }, [usuarioUID, dataFavsDB, data]);
 
 
-  console.log(usuarioUID);
-  console.log(dataFavsDB);
-  console.log(data);
-  console.log(favoritosFinal);
+  // console.log(usuarioUID);
+  // console.log(dataFavsDB);
+  // console.log(data);
+  // console.log(favoritosFinal);
   //no se por que los console.logs salen eternamente pero funciona y es lo ue importa
   
 
