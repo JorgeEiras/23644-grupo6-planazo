@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { app } from "../fb";
+
 
 import '../grids/login/Login.css'
 
@@ -8,9 +9,10 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-  
-  const [isRegistrando, setIsRegistrando] = React.useState(false);
+
   const navigate = useNavigate();
+
+  const [isRegistrando, setIsRegistrando] = React.useState(false);
 
   const crearUsuario = (correo, password) => {
     app
@@ -37,10 +39,10 @@ const Login = (props) => {
     app
       .auth()
       .signInWithEmailAndPassword(correo, password)
-      .then((usuarioFirebase) => {        
-        console.log("sesión iniciada con:", usuarioFirebase.user);
+      .then((usuarioFirebase) => {
+        // console.log("sesión iniciada con:", usuarioFirebase.user.displayName);
         props.setUsuario(usuarioFirebase);
-        mostrarAlerta("Bienvenido " + usuarioFirebase.user.displayName, "success");        
+        mostrarAlerta("Bienvenido " + usuarioFirebase.user.displayName, "success");
         navigate("/");
       })
       .catch((error) => {
@@ -48,6 +50,7 @@ const Login = (props) => {
         mostrarAlerta("Credenciales incorrectas. Verifica los datos ingresados", "error");
       });
   };
+
 
 
   const mostrarMensajeError = (mensaje) => {
@@ -59,7 +62,7 @@ const Login = (props) => {
       mensajePersonalizado = "La dirección de correo electrónico ya está en uso.";
     } else if (mensaje.includes("auth/invalid-email")) {
       mensajePersonalizado = "La dirección de correo electrónico no es válida.";
-    }  
+    }
 
     // Se pueden agregar más casos según sea necesario para otros posibles errores de Firebase
 
@@ -90,67 +93,71 @@ const Login = (props) => {
     }
   };
 
+
+
+
+
   return (
-    
+
     <React.Fragment>
       <section>
-      
+
         <div className='layoutLogin'>
-        
+
           <Link to="/"><img className="plane" src="/imagenes/avion.png" alt="Planazo" /></Link>
 
-            {isRegistrando ? (
-              <div className="container-form">
-                <h1 className="tituloLogin">Regístrate</h1>
-                <h3 className="subTituloLogin">Totalmente gratis!! </h3>
+          {isRegistrando ? (
+            <div className="container-form">
+              <h1 className="tituloLogin">Regístrate</h1>
+              <h3 className="subTituloLogin">Totalmente gratis!! </h3>
 
-                <form onSubmit={submitHandler} className="formInicioSesion" >
-                  <label htmlFor="userName"></label>
-                  <input type="text" className="form-control" id="userName" placeholder="Nombre de usuario" /><br />
+              <form onSubmit={submitHandler} className="formInicioSesion" >
+                <label htmlFor="userName"></label>
+                <input type="text" className="form-control" id="userName" placeholder="Nombre de usuario" /><br />
 
-                  <label htmlFor="emailField"></label>
-                  <input type="email" className="form-control" id="emailField" placeholder="Email" /><br />
+                <label htmlFor="emailField"></label>
+                <input type="email" className="form-control" id="emailField" placeholder="Email" /><br />
 
-                  <label htmlFor="passwordField"> </label>
-                  <input type="password" className="form-control" id="passwordField" placeholder="Contraseña" /><br />
+                <label htmlFor="passwordField"> </label>
+                <input type="password" className="form-control" id="passwordField" placeholder="Contraseña" /><br />
 
-                  <button type="submit" className="btn btnIniciarSesion">Crear mi cuenta</button>
+                <button type="submit" className="btn btnIniciarSesion">Crear mi cuenta</button>
               </form>
-              
-                <p className="textoRegistrate">Ya tengo una cuenta.
-                  <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
-                    {isRegistrando
-                      ? "Iniciar sesión"
-                      : "Registrarme"}
-                  </button></p>
-              </div>
+
+              <p className="textoRegistrate">Ya tengo una cuenta.
+                <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
+                  {isRegistrando
+                    ? "Iniciar sesión"
+                    : "Registrarme"}
+                </button></p>
+            </div>
           ) : (
-              <div className="container-form">
-                <h1 className="tituloLogin">Inicia sesión</h1>
-                <h3 className="subTituloLogin">Con tu email y contraseña</h3>
+            <div className="container-form">
+              <h1 className="tituloLogin">Inicia sesión</h1>
+              <h3 className="subTituloLogin">Con tu email y contraseña</h3>
 
-                <form onSubmit={submitHandler} className="formInicioSesion" >
-                  <label htmlFor="emailField"></label>
-                  <input type="email" className="form-control" id="emailField" placeholder="Email" /><br />
-                              
-                  <label htmlFor="passwordField"> </label>
-                  <input type="password" className="form-control" id="passwordField" placeholder="Contraseña" /><br />
+              <form onSubmit={submitHandler} className="formInicioSesion" >
+                <label htmlFor="emailField"></label>
+                <input type="email" className="form-control" id="emailField" placeholder="Email" /><br />
 
-                  <button type="submit" className="btn btnIniciarSesion">Iniciar sesión</button>
-                </form>
+                <label htmlFor="passwordField"> </label>
+                <input type="password" className="form-control" id="passwordField" placeholder="Contraseña" /><br />
 
-                <p className="textoRegistrate">No tengo cuenta.
-                  <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
-                    {isRegistrando
-                      ? "Iniciar sesión"
-                      :  "Registrarme"}
-                  </button></p>
-              </div>
-            )}
+                <button type="submit" className="btn btnIniciarSesion">Iniciar sesión</button>
+              </form>
+
+              <p className="textoRegistrate">No tengo cuenta.
+                <button onClick={() => setIsRegistrando(!isRegistrando)} className="btn btnRegistrate">
+                  {isRegistrando
+                    ? "Iniciar sesión"
+                    : "Registrarme"}
+                </button></p>
+            </div>
+          )}
 
 
-            
-          </div>
+
+        </div>
 
       </section>
     </React.Fragment>
