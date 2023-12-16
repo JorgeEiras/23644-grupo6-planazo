@@ -8,7 +8,7 @@ import { useFetch } from "../inicio/useFetch";
 
 
 import { usuarioContext } from '../../App';
-
+import { favoritosContext } from '../../App';
 
 
 
@@ -16,9 +16,11 @@ const FavoritosUno = () => {
 
   //recupero la info de usuarioContext
   const usuario = useContext(usuarioContext);
+  //recupero la info de favoritosContext
+  const favoritosEnFirebase = useContext(favoritosContext);
+  
 
-
-  const [dataFavsDB, setDataFavsDB] = useState([]);
+  // const [dataFavsDB, setDataFavsDB] = useState([]);
   const [usuarioUID, setUsuarioUID] = useState('');
   const [favoritosFinal, setFavoritosFinal] = useState([]);
 
@@ -42,22 +44,22 @@ const FavoritosUno = () => {
 
   //segundo, busca los favoritos en la db
   //referencia a la db de firebase: tiene que ir a db y de ahi a la coleccion favoritos usando la funcionalidad collection de firebase
-  const favoritosCollection = collection(db, "Favoritos");
+  // const favoritosCollection = collection(db, "Favoritos");
 
-  //hacer el asincronismo con la db
-  const getFavoritos = async (uid) => {
-    // console.log("esta buscando en la db");
-    try {
-      const q = query(favoritosCollection, where("usuario", "==", uid));  //aca pide que sean del usuario activo
+  // //hacer el asincronismo con la db
+  // const getFavoritos = async (uid) => {
+  //   // console.log("esta buscando en la db");
+  //   try {
+  //     const q = query(favoritosCollection, where("usuario", "==", uid));  //aca pide que sean del usuario activo
 
-      const data = await getDocs(q);
-      const dataDocs = data.docs.map((doc) => ({ ...doc.data().favoritos })) //aca trae el array favoritos del doc de corresponde a ese usuarioID
-      const favoritosIDs = dataDocs.flatMap(obj => Object.values(obj));
-      setDataFavsDB(favoritosIDs);
-    } catch (error) {
-      console.log("Error al conseguir los favoritos de la db", error);
-    }
-  }
+  //     const data = await getDocs(q);
+  //     const dataDocs = data.docs.map((doc) => ({ ...doc.data().favoritos })) //aca trae el array favoritos del doc de corresponde a ese usuarioID
+  //     const favoritosIDs = dataDocs.flatMap(obj => Object.values(obj));
+  //     setDataFavsDB(favoritosIDs);
+  //   } catch (error) {
+  //     console.log("Error al conseguir los favoritos de la db", error);
+  //   }
+  // }
 
   //busca los lugares de la api
   const [url, setUrl] = useState("");
@@ -68,11 +70,11 @@ const FavoritosUno = () => {
 
 
   //filtra los lugares que trae la api para que deje los que estan en la lista de favoritos
-  const lugaresFiltradosByPostID = (dataFavsDB) => {
-    if (data && dataFavsDB) {
+  const lugaresFiltradosByPostID = (favFB) => {
+    if (usuarioUID != null && data && favFB) {
       // console.log("esta filtrando los lugares");
       try {
-        const lugaresFiltrados = data.filter((lugar) => dataFavsDB.includes(lugar.post_id));
+        const lugaresFiltrados = data.filter((lugar) => favFB.includes(lugar.post_id));
         setFavoritosFinal(lugaresFiltrados);
       } catch (error) {
         console.log("hay un error en el filtrado", error);
@@ -81,20 +83,9 @@ const FavoritosUno = () => {
   };
 
   useEffect(() => {
-    if (usuarioUID != null) {
-      getFavoritos(usuarioUID);
-      if ((dataFavsDB.length > 0) && (data)) {
-        lugaresFiltradosByPostID(dataFavsDB);
-      }
-    }
-  }, [usuarioUID, dataFavsDB, data]);
+    lugaresFiltradosByPostID(favoritosEnFirebase);
+  }, [favoritosEnFirebase]);
 
-
-  // console.log(usuarioUID);
-  // console.log(dataFavsDB);
-  // console.log(data);
-  // console.log(favoritosFinal);
-  //no se por que los console.logs salen eternamente pero funciona y es lo ue importa
   
 
 
