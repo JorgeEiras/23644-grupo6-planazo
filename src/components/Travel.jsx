@@ -164,9 +164,9 @@ export default function Travel() {
           <button className="btn" id='btnCerrarModal' onClick={handleModal}>
             Cerrar
           </button>
-          <button className="btn" id='btnFavoritosModal' onClick={handleModal}>
+          {/* <button className="btn" id='btnFavoritosModal' onClick={handleModal}>
             Agregar a Favoritos
-          </button>
+          </button> */}
         </Modal.Footer>
       </Modal>
 
