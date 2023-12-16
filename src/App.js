@@ -12,16 +12,16 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import "./grids/Footer/Footer.css";
 
-import { collection, getDocs, deleteDoc, doc, query, where } from 'firebase/firestore';
+import {
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "./fb";
-
-
 
 export const usuarioContext = React.createContext();
 export const favoritosContext = React.createContext();
-
-
-
 
 function App() {
   const [usuario, setUsuario] = React.useState(null);
@@ -47,7 +47,6 @@ function App() {
 
   //hacer el asincronismo con la db
   const getFavoritos = async (uid) => {
-    // console.log("esta buscando en la db");
     try {
       const q = query(favoritosCollection, where("usuario", "==", uid)); //aca pide que sean del usuario activo
 
@@ -63,7 +62,6 @@ function App() {
   useEffect(() => {
     if (usuario != null) {
       getFavoritos(usuario.user.uid);
-      console.log(favoritosEnFirebase);
     }
   }, [usuario]);
 

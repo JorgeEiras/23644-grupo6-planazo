@@ -2,9 +2,9 @@ import React, { useContext, useState, useEffect } from 'react';
 import { resultadosLugaresContext } from '../grids/inicio/Apilugares';
 import Modal from 'react-bootstrap/Modal';
 
-import { collection, addDoc, getDocs, updateDoc, doc, query, where, deleteDoc } from 'firebase/firestore';
+import { collection, addDoc, getDocs, doc, query, where, deleteDoc } from 'firebase/firestore';
 import { db } from '../fb';
-import { async } from '@firebase/util';
+// import { async } from '@firebase/util';
 
 // import Swal from 'sweetalert2';
 
@@ -12,17 +12,17 @@ import { async } from '@firebase/util';
 import { useNavigate } from 'react-router-dom';
 
 import { usuarioContext } from '../App';
-// import { favoritosContext } from '../App';
+import { favoritosContext } from '../App';
 
 
 export default function Travel() {
 
   //recupero la info de resultadosLugaresContext
   const lugares = useContext(resultadosLugaresContext);
-  
+
   //recupero la info de favoritosContext
-  // const favoritosEnFirebase = useContext(favoritosContext);
-  const favoritosEnFirebase = [1,2];
+  const favoritosEnFirebase = useContext(favoritosContext);
+  // const favoritosEnFirebase = [1,2];
 
   //recupero la info de usuarioContext
   const usuario = useContext(usuarioContext);
@@ -37,16 +37,15 @@ export default function Travel() {
   //variables
   const [showCorazonRojo, setShowCorazonRojo] = useState(false); //variable para cambiar la clase del corazon
   const [usuarioUID, setUsuarioUID] = useState('');
-  // const [postID, setPostID] = useState(0);
-  // const [favoritosExistentes, setFavoritosExistentes] = useState([]);
-  // const [usuarioExiste, setUsuarioExiste] = useState("");
+  const [favoritosActualizados, setFavoritosActualizados] = useState([]);
 
-  // const [isFavorito, setIsFavorito] = useState(false);
 
   //ya existe en favoritos?
   const chequeaFavoritos = () => {
-    if (favoritosEnFirebase.includes(lugares.post_id)) {
-      setShowCorazonRojo(true);
+    if (usuarioUID != null) {
+      if (favoritosEnFirebase.includes(lugares.post_id)) {
+        setShowCorazonRojo(true);
+      }
     }
   };
 
@@ -72,24 +71,7 @@ export default function Travel() {
 
 
 
-  //segundo busca la data en la db si ya existe un doc para ese usuario
   const favoritosCollection = collection(db, "Favoritos");
-
-  // const getFavoritos = async (uid) => {
-  //   // console.log("esta buscando en la db");
-  //   try {
-  //     const q = query(favoritosCollection, where("usuario", "==", uid));  //aca pide que sean del usuario activo
-
-  //     const data = await getDocs(q);
-  //     const dataDocsFav = data.docs.map((doc) => ({ ...doc.data().favoritos })) //aca trae el array favoritos del doc de corresponde a ese usuarioID
-  //     const favoritosIDs = dataDocsFav.flatMap(obj => Object.values(obj));
-  //     const dataDocsUser = data.docs.map((doc) => ({ ...doc.data().usuario })) //aca trae el string con el UID del usuario
-  //     setFavoritosExistentes(favoritosIDs);
-  //     setUsuarioExiste(dataDocsUser);
-  //   } catch (error) {
-  //     console.log("Error al conseguir los favoritos de la db", error);
-  //   }
-  // }
 
   //asincronismo para crear un doc en la base
   const nuevoDoc = async (postID) => {
@@ -98,6 +80,7 @@ export default function Travel() {
       console.log("se esta creando un doc");
       //si es exitoso, se pone rojo el corazon 
       setShowCorazonRojo(true);
+      favoritosEnFirebase.push(postID);
     } catch (error) {
       console.log("hubo un error al crear el doc en la db");
     }
@@ -112,6 +95,11 @@ export default function Travel() {
       console.log("se está eliminando el doc");
       // Desmarcar el corazón
       setShowCorazonRojo(false);
+      const index = favoritosEnFirebase.indexOf(postID);
+      if (index !== -1) {
+        // Utilizar splice para eliminar el elemento en la posición index
+        favoritosEnFirebase.splice(index, 1);
+      };
     } catch (error) {
       console.log("Hubo un error al eliminar el doc en la db", error);
     }
@@ -124,17 +112,16 @@ export default function Travel() {
       console.log("no iniciaste sesion bolas"); //aca deberia ir un alerta que redirija al inicio de sesion
       navigate("/login");
     } else {
-      // getFavoritos(usuarioUID);
-      if ((usuarioUID == "") && (postID > 0)) {
-        //si no existe un doc con ese usuario hay que crear el doc
+      if ((postID > 0) && (showCorazonRojo === false)) {
+        //si el heart esta gris, crea el doc 
         nuevoDoc(postID);
-      } else {
-        //si favExistentes no esta vacio, pushea el post_id
+      } else if ((postID > 0) && (showCorazonRojo === true)) {
+        //si el heart esta rojo, elimina el doc 
         eliminarFavorito(postID);
       }
     }
   }
-  
+
 
 
   //controla el modal
@@ -152,7 +139,7 @@ export default function Travel() {
         <div style={{ position: "absolute", top: "0px", right: "0px" }}>
           <div className="stage">
             <div
-             className={showCorazonRojo ? "heart is-active" : "heart"}
+              className={showCorazonRojo ? "heart is-active" : "heart"}
               onClick={() => { handleClickCorazon(lugares.post_id) }}
             >
             </div>
