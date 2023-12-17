@@ -1,0 +1,22 @@
+// getDocdelUsuario(usuarioUID);
+  // if (docUsuario.length == 0) {
+  //   console.log("no existe", docUsuario); //si no existe, lo tengo que crear
+  //   // crearDocUsuarioConFavorito(usuarioUID, postID);
+  // } else {
+  //   console.log("existe", docUsuario) //si existe, tengo que actualizar el array de favoritos
+  //   actualizarDocUsuarioConFavoritoNuevo(docUsuario, postID);
+  // }
+
+
+
+  // const crearDocUsuarioConFavorito = async (user, postID) => {
+  //   await addDoc(favoritosCollection, { usuario: user, favoritos: postID });  // aca pongo donde van a parar los datos
+  //   console.log("agregaste un lugar a la db");
+  // };
+
+  // const actualizarDocUsuarioConFavoritoNuevo = async (docUser, postID) => {
+  //   const favorito = doc(db, dbCollections.Favoritos, docUser);
+  //   const nuevoFavorito = docUser.favoritos.push(postID);
+  //   await updateDoc(favorito, nuevoFavorito);
+  //   console.log("actualizaste los favoritos")
+  // };
